@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Badge from '$components/ui/badge.svelte';
-	import { stringToDate } from '$helpers/date';
 	import { joinList } from '$helpers/text';
 	import {
 		faApple,
@@ -10,6 +9,7 @@
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
 	import Fa from 'svelte-fa';
+	import PlaylistPlus from 'svelte-material-icons/PlaylistPlus.svelte';
 
 	const spotifyPlaylist =
 		'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
@@ -75,7 +75,7 @@
 		{/each}
 	</div>
 	<a class="playlist-banner" href={spotifyPlaylist} target="_blank">
-		<span class="material-symbols-outlined text-[#1DB954]"> playlist_add </span>
+		<PlaylistPlus size="24px" color="#1DB954" />
 		<p>subscribe to my <a href={spotifyPlaylist}>spotify playlist</a> to stay updated.</p>
 	</a>
 	<div class="song-item-list">
@@ -86,7 +86,7 @@
 					<h5>{song.title}</h5>
 					<p>
 						{joinList(song.artists)}
-						<Badge variant="surfaceVariant">{stringToDate(song.release_date).getFullYear()}</Badge>
+						<Badge variant="surfaceVariant">{song.genre}</Badge>
 					</p>
 				</div>
 			</a>

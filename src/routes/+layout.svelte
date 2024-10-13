@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import BackButton from '$components/back-button.svelte';
 	import Lenis from 'lenis';
 	import { onMount } from 'svelte';
 	import '../app.css';
@@ -31,6 +33,9 @@
 	});
 </script>
 
+{#if $page.url.pathname !== '/'}
+	<BackButton />
+{/if}
 <div id="pageWrapper">
 	<slot></slot>
 </div>
