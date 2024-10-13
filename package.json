@@ -9,7 +9,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "supabase:update": "bunx supabase gen types --lang=typescript --project-id \"vqshuekoluutdogfxqnv\" --schema public > src/lib/types/supabase.ts"
   },
   "devDependencies": {
     "@melt-ui/pp": "^0.3.2",
@@ -34,5 +35,15 @@
     "typescript-eslint": "^8.0.0",
     "vite": "^5.0.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@supabase/supabase-js": "^2.45.4",
+    "lenis": "^1.1.14",
+    "supabase": "^1.204.3",
+    "svelte-fa": "^4.0.3",
+    "svelte-loading-spinners": "^0.3.6",
+    "svelte-material-icons": "^3.0.5"
+  }
 }
