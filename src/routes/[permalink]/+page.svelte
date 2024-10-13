@@ -20,8 +20,8 @@
 </script>
 
 {#if song}
-	<!-- Head -->
-	<div class="flex h-screen flex-col items-center py-4">
+	<div class="flex flex-col items-center py-4 pb-[104px]">
+		<!-- Head -->
 		<a
 			href="/"
 			class="h-min w-full pb-4 pr-4 text-sm font-medium text-secondary underline-offset-2 hover:underline"

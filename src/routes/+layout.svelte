@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
-	import { navigating } from '$app/stores';
 	import Lenis from 'lenis';
 	import { onMount } from 'svelte';
-	import { BarLoader } from 'svelte-loading-spinners';
 	import '../app.css';
 
 	onNavigate((navigation) => {
@@ -34,18 +32,12 @@
 </script>
 
 <div id="pageWrapper">
-	{#if $navigating}
-		<div class="flex h-screen w-full items-center justify-center">
-			<BarLoader size="60" color="currentColor" unit="px" duration="1s" />
-		</div>
-	{:else}
-		<slot></slot>
-	{/if}
+	<slot></slot>
 </div>
 
 <style lang="postcss">
 	#pageWrapper {
-		@apply min-h-screen w-full px-4;
+		@apply min-h-dvh w-full px-4;
 	}
 
 	@media (min-width: 600px) {
