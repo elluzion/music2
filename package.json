@@ -39,6 +39,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@macfja/svelte-persistent-store": "^2.4.1",
     "@supabase/supabase-js": "^2.45.4",
     "lenis": "^1.1.14",
     "supabase": "^1.204.3",

@@ -1,0 +1,69 @@
+<script lang="ts">
+	import { faChevronDown, type IconDefinition } from '@fortawesome/free-solid-svg-icons';
+	import { createSelect, melt } from '@melt-ui/svelte';
+	import { createEventDispatcher } from 'svelte';
+	import Fa from 'svelte-fa';
+
+	const dispatch = createEventDispatcher();
+
+	export let items: { label: string; value: any; icon?: IconDefinition }[];
+	export let value: any;
+
+	let menuContainer: HTMLUListElement;
+
+	const {
+		elements: { trigger, menu, label, option },
+		states: { open, selected, selectedLabel },
+		helpers: { isSelected }
+	} = createSelect();
+
+	$selected = items.find((item) => item.value === value) || items[0];
+
+	selected.subscribe((newValue) => {
+		value = newValue?.value || undefined;
+		dispatch('change', value);
+	});
+
+	open.subscribe((value) => {
+		if (value && menuContainer) {
+			setTimeout(() => {
+				menuContainer.style.opacity = '100%';
+				menuContainer.style.transform = 'translateY(0px)';
+			});
+		}
+	});
+</script>
+
+<div use:melt={$trigger} class="flex cursor-pointer items-center gap-4 py-2 text-secondary">
+	<Fa icon={faChevronDown} class={$open ? 'rotate-180' : ''} />
+	<span class="user-select-none font-medium">{$selectedLabel || 'Nothing selected'}</span>
+</div>
+
+<ul
+	bind:this={menuContainer}
+	use:melt={$menu}
+	class={`flex -translate-y-4 flex-col gap-1 rounded-2xl bg-surface p-2 opacity-0 shadow-xl shadow-secondary/15 transition-all ease-out`}
+>
+	{#if $open}
+		{#each items as item (item.value)}
+			<li
+				class="flex items-center gap-4 rounded-md px-4 py-2 transition-colors duration-200 hover:cursor-pointer hover:bg-secondary/10"
+				use:melt={$option(item)}
+			>
+				{#if item.icon}
+					<Fa icon={item.icon} />
+				{/if}
+				<span>{item.label}</span>
+			</li>
+		{/each}
+	{/if}
+</ul>
+
+<style lang="postcss">
+	li[aria-selected='true'] {
+		@apply bg-secondary/10;
+	}
+	li[aria-selected='true']:hover {
+		@apply bg-secondary/15;
+	}
+</style>

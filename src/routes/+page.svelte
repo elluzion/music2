@@ -1,6 +1,8 @@
 <script lang="ts">
+	import ChevronSelect from '$components/chevron-select.svelte';
 	import Badge from '$components/ui/badge.svelte';
 	import { joinList } from '$helpers/text';
+	import { improveSoundcloudArtwork } from '$lib/helpers/misc';
 	import {
 		faApple,
 		faSoundcloud,
@@ -8,8 +10,13 @@
 		faYoutube,
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
+	import { faList, faSquare } from '@fortawesome/free-solid-svg-icons';
+	import { createLocalStorage, persist, writable } from '@macfja/svelte-persistent-store';
 	import Fa from 'svelte-fa';
 	import PlaylistPlus from 'svelte-material-icons/PlaylistPlus.svelte';
+	import { blur } from 'svelte/transition';
+
+	export let data;
 
 	const spotifyPlaylist =
 		'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
@@ -55,8 +62,29 @@
 		}
 	];
 
-	export let data;
+	let trackListType = persist(
+		writable('trackListType', 'list'),
+		createLocalStorage(),
+		'trackListType'
+	);
+
+	const trackListTypes: { label: string; value: string; icon: IconDefinition }[] = [
+		{
+			label: 'List',
+			value: 'list',
+			icon: faList
+		},
+		{
+			label: 'Grid',
+			value: 'grid',
+			icon: faSquare
+		}
+	];
+
 	let songs = data.songs || [];
+
+	const inOptions = { duration: 200, delay: 200, amount: 5 };
+	const outOptions = { duration: 200, amount: 5 };
 </script>
 
 <div class="flex flex-col gap-4 py-5">
@@ -78,20 +106,39 @@
 		<PlaylistPlus size="24px" color="#1DB954" />
 		<p>subscribe to my <a href={spotifyPlaylist}>spotify playlist</a> to stay updated.</p>
 	</a>
-	<div class="song-item-list">
-		{#each songs as song}
-			<a class="song-item" href="/{song.permalink}">
-				<img src={song.art_url} alt={song.title} />
-				<div class="song-item-text">
-					<h5>{song.title}</h5>
-					<p>
-						{joinList(song.artists)}
-						<Badge variant="surfaceVariant">{song.genre}</Badge>
-					</p>
-				</div>
-			</a>
-		{/each}
+	<div class="song-list-type-selector">
+		<ChevronSelect bind:value={$trackListType} items={trackListTypes} />
 	</div>
+	{#if $trackListType === 'list'}
+		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
+			{#each songs as song}
+				<a class="song-item" href="/{song.permalink}">
+					<img src={improveSoundcloudArtwork(song.art_url)} alt={song.title} />
+					<div class="song-item-text">
+						<h5>{song.title}</h5>
+						<p>
+							{joinList(song.artists)}
+							<Badge variant="surfaceVariant">{song.genre}</Badge>
+						</p>
+					</div>
+				</a>
+			{/each}
+		</div>
+	{:else}
+		<div class="song-item-grid" in:blur={inOptions} out:blur={outOptions}>
+			{#each songs as song}
+				<a class="song-item" href="/{song.permalink}">
+					<img src={improveSoundcloudArtwork(song.art_url)} alt={song.title} />
+					<div class="song-item-text">
+						<h5>{song.title}</h5>
+						<p>
+							{joinList(song.artists)}
+						</p>
+					</div>
+				</a>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style lang="postcss">
@@ -133,19 +180,38 @@
 		@apply flex flex-col gap-4;
 	}
 
-	.song-item {
+	.song-item-list .song-item {
 		@apply flex h-20 gap-4 transition-transform;
 		@apply cursor-pointer;
 		@apply duration-300 ease-out hover:scale-[98%];
 	}
 
-	.song-item img {
-		@apply h-full;
+	.song-item-list .song-item img {
+		@apply aspect-square h-full;
 		@apply rounded-lg;
 	}
 
-	.song-item-text {
+	.song-item-list .song-item-text {
 		@apply flex flex-col justify-center gap-0.5;
+	}
+
+	.song-item-grid {
+		@apply grid grid-cols-2 gap-x-6 gap-y-9 md:grid-cols-3;
+	}
+
+	.song-item-grid .song-item {
+		@apply flex flex-col items-center gap-4 transition-transform;
+		@apply cursor-pointer;
+		@apply duration-300 ease-out hover:scale-[98%];
+	}
+
+	.song-item-grid .song-item img {
+		@apply aspect-square w-full;
+		@apply rounded-2xl;
+	}
+
+	.song-item-grid .song-item-text {
+		@apply flex flex-col items-center gap-0.5 px-1 text-center;
 	}
 
 	.song-item-text p {
