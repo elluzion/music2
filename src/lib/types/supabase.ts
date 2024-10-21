@@ -81,6 +81,7 @@ export type Database = {
           tempo: number | null
           title: string
           type: string
+          file_url: string | null
         }
         Insert: {
           art_url?: string
@@ -95,6 +96,7 @@ export type Database = {
           tempo?: number | null
           title: string
           type: string
+          file_url?: string | null
         }
         Update: {
           art_url?: string
@@ -109,6 +111,7 @@ export type Database = {
           tempo?: number | null
           title?: string
           type?: string
+          file_url?: string | null
         }
         Relationships: []
       }
