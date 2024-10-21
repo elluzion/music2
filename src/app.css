@@ -47,7 +47,7 @@ h2 {
 }
 
 h5 {
-	@apply text-lg font-bold tracking-tight;
+	@apply font-sans2 text-lg font-semibold;
 }
 
 p {
