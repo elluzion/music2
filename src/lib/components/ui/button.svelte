@@ -34,7 +34,7 @@
 	}
 
 	button.size-icon {
-		@apply h-10 w-10 rounded-full px-2;
+		@apply flex h-10 w-10 items-center justify-center rounded-full px-2 text-center;
 	}
 
 	button:hover {

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PlayerWidget from '$components/player-widget.svelte';
 	import Button from '$components/ui/button.svelte';
 	import { resolvePlatform } from '$lib/helpers/platforms';
 	import { joinList } from '$lib/helpers/text';
@@ -9,6 +10,9 @@
 
 	export let data: PageServerData;
 
+	let metadata: MediaMetadata | undefined = undefined;
+	let player: PlayerWidget | undefined = undefined;
+
 	$: song = data.song!;
 	$: streamLinks = song.streamLinks.map((x) => resolvePlatform(x));
 
@@ -16,13 +20,27 @@
 		if (!data.song) {
 			return (window.location.href = '/');
 		}
+
+		if ('mediaSession' in navigator && player) {
+			metadata = new MediaMetadata({
+				title: song.title,
+				artist: joinList(song.artists),
+				artwork: [
+					{
+						src: song.artUrl,
+						type: 'image/png'
+					}
+				]
+			});
+
+			player.setMetadata(metadata);
+		}
 	});
 </script>
 
 {#if song}
 	<!-- Head -->
-
-	<div class="flex flex-col items-center py-4 pb-[104px]">
+	<div class="flex flex-col items-center gap-4 py-4 pb-[104px]">
 		<div
 			class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8"
 		>
@@ -32,6 +50,10 @@
 				<p class="font-medium">{joinList(song.artists)}</p>
 			</div>
 		</div>
+		<!-- Player -->
+		{#if song.fileUrl}
+			<PlayerWidget bind:this={player} fileUrl={song.fileUrl} />
+		{/if}
 		<!-- Links -->
 		<div class="flex w-full flex-col gap-2">
 			{#each streamLinks as link, i}

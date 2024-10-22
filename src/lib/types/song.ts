@@ -13,6 +13,7 @@ export type Song = {
   type: string;
   key?: string;
   artists: string[];
+  fileUrl?: string;
   streamLinks: string[];
   downloadLinks: {
     url: string;

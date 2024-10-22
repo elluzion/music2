@@ -40,6 +40,7 @@ export default class DatabaseHelper {
         artists: track.artists,
         streamLinks: track.stream_links.map((link) => link.url) || [],
         downloadLinks: track.download_links || [],
+        fileUrl: track.file_url || undefined,
       };
       return song;
     }
@@ -60,7 +61,8 @@ const songQuery = `
   tempo,
   art_url,
   type,
-  key
+  key,
+  file_url
 `;
 
 const supabase = createClient<DbType>(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
