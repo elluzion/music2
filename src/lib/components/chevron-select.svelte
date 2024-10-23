@@ -1,32 +1,34 @@
 <script lang="ts">
 	import { faChevronDown, type IconDefinition } from '@fortawesome/free-solid-svg-icons';
 	import { createSelect, melt } from '@melt-ui/svelte';
-	import { createEventDispatcher } from 'svelte';
 	import Fa from 'svelte-fa';
 
-	const dispatch = createEventDispatcher();
+	interface Props {
+		items: { label: string; value: any; icon?: IconDefinition }[];
+		value: any;
+		onchange?: (value: any) => void;
+	}
 
-	export let items: { label: string; value: any; icon?: IconDefinition }[];
-	export let value: any;
+	let { items, value = $bindable(), onchange }: Props = $props();
 
-	let menuContainer: HTMLUListElement;
+	let menuContainer = $state<HTMLUListElement>();
 
 	const {
 		elements: { trigger, menu, label, option },
-		states: { open, selected, selectedLabel },
-		helpers: { isSelected }
+		states: { open, selected, selectedLabel }
 	} = createSelect();
 
 	$selected = items.find((item) => item.value === value) || items[0];
 
 	selected.subscribe((newValue) => {
 		value = newValue?.value || undefined;
-		dispatch('change', value);
+		if (onchange) onchange(value);
 	});
 
 	open.subscribe((value) => {
 		if (value && menuContainer) {
 			setTimeout(() => {
+				if (!menuContainer) return;
 				menuContainer.style.opacity = '100%';
 				menuContainer.style.transform = 'translateY(0px)';
 			});

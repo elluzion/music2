@@ -2,6 +2,8 @@
 	import ChevronSelect from '$components/chevron-select.svelte';
 	import Badge from '$components/ui/badge.svelte';
 	import { joinList } from '$helpers/text';
+	import { storedState } from '$lib/helpers/localstore.svelte.js';
+
 	import { improveSoundcloudArtwork } from '$lib/helpers/misc';
 	import {
 		faApple,
@@ -11,12 +13,11 @@
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faList, faSquare } from '@fortawesome/free-solid-svg-icons';
-	import { createLocalStorage, persist, writable } from '@macfja/svelte-persistent-store';
 	import Fa from 'svelte-fa';
 	import PlaylistPlus from 'svelte-material-icons/PlaylistPlus.svelte';
 	import { blur } from 'svelte/transition';
 
-	export let data;
+	let { data } = $props();
 
 	const spotifyPlaylist =
 		'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
@@ -62,11 +63,13 @@
 		}
 	];
 
-	let trackListType = persist(
-		writable('trackListType', 'list'),
-		createLocalStorage(),
-		'trackListType'
-	);
+	// let trackListType = persist(
+	// 	writable('trackListType', 'list'),
+	// 	createLocalStorage(),
+	// 	'trackListType'
+	// );
+
+	let trackListType = storedState<string>('trackListType', 'list');
 
 	const trackListTypes: { label: string; value: string; icon: IconDefinition }[] = [
 		{
@@ -104,12 +107,16 @@
 	</div>
 	<a class="playlist-banner" href={spotifyPlaylist} target="_blank">
 		<PlaylistPlus size="24px" color="#1DB954" />
-		<p>subscribe to my <a href={spotifyPlaylist}>spotify playlist</a> to stay updated.</p>
+		<p>
+			subscribe to my
+			<span class="text-[#1DB954] underline underline-offset-4">spotify playlist</span>
+			to stay updated.
+		</p>
 	</a>
 	<div class="song-list-type-selector">
-		<ChevronSelect bind:value={$trackListType} items={trackListTypes} />
+		<ChevronSelect bind:value={trackListType.value} items={trackListTypes} />
 	</div>
-	{#if $trackListType === 'list'}
+	{#if trackListType.value === 'list'}
 		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
 			{#each songs as song}
 				<a class="song-item" href="/{song.permalink}">
@@ -170,10 +177,6 @@
 
 	.playlist-banner p {
 		@apply text-sm font-semibold text-background ease-out;
-	}
-
-	.playlist-banner p a {
-		@apply text-[#1DB954] underline underline-offset-2;
 	}
 
 	.song-item-list {

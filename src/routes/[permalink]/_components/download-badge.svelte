@@ -2,7 +2,11 @@
 	import Badge from '$components/ui/badge.svelte';
 	import type { DownloadLink } from '$lib/types/song';
 
-	export let downloadLink: DownloadLink;
+	interface Props {
+		downloadLink: DownloadLink;
+	}
+
+	let { downloadLink }: Props = $props();
 </script>
 
 <Badge

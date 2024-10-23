@@ -1,30 +1,38 @@
 <script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	export let rounded: boolean = false;
-	export let variant: buttonVariants = 'primary';
-	export let size: 'icon' | 'default' = 'default';
-	export let hoverAnim: boolean = false;
-
-	type $$Props = HTMLButtonAttributes & {
+	interface Props extends HTMLButtonAttributes {
 		rounded?: boolean;
 		variant?: buttonVariants;
 		size?: 'icon' | 'default';
 		hoverAnim?: boolean;
-	};
+		children?: import('svelte').Snippet;
+		onclick?: (e: Event) => void;
+		[key: string]: any;
+	}
+
+	let {
+		rounded = false,
+		variant = 'primary',
+		size = 'default',
+		hoverAnim = false,
+		onclick = undefined,
+		children = undefined,
+		...rest
+	}: Props = $props();
 
 	type buttonVariants = 'primary' | 'secondary' | 'surface';
 </script>
 
 <button
-	on:click
-	{...$$restProps}
-	class={`${variant} ${$$restProps.class || ''}`}
+	{onclick}
+	{...rest}
+	class={`${variant} ${rest.class || ''}`}
 	class:!rounded-full={rounded}
 	class:hoverAnim
 	class:size-icon={size === 'icon'}
 >
-	<slot></slot>
+	{@render children?.()}
 </button>
 
 <style lang="postcss">

@@ -1,19 +1,35 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	export let variant: buttonVariants = 'primary';
-	export let clickable = false;
-	export let href: string | undefined = undefined;
-	export let target = '_blank';
+	let {
+		variant = 'primary',
+		clickable = $bindable(false),
+		href = undefined,
+		target = '_blank',
+		onclick = undefined,
+		children = undefined,
+		...rest
+	}: Props = $props();
+
+	interface Props extends HTMLButtonAttributes {
+		variant?: buttonVariants;
+		clickable?: boolean;
+		href?: string;
+		target?: string;
+		onclick?: (e: Event) => void;
+		children?: import('svelte').Snippet;
+		[key: string]: any;
+	}
 
 	type buttonVariants = 'primary' | 'secondary' | 'surface' | 'surfaceVariant';
 
-	let button: HTMLButtonElement;
+	let button = $state<HTMLButtonElement>();
 
 	onMount(() => {
 		if (href) {
 			clickable = true;
-			button.addEventListener('click', (e) => {
+			button?.addEventListener('click', (e) => {
 				e.preventDefault();
 				window.open(href, target);
 			});
@@ -23,11 +39,11 @@
 
 <button
 	bind:this={button}
-	on:click
-	{...$$restProps}
-	class={`${variant} ${clickable ? 'cursor-pointer' : 'pointer-events-none select-none'} ${$$restProps.class || ''}`}
+	{onclick}
+	{...rest}
+	class={`${variant} ${clickable ? 'cursor-pointer' : 'pointer-events-none select-none'} ${rest.class || ''}`}
 >
-	<slot></slot>
+	{@render children?.()}
 </button>
 
 <style lang="postcss">

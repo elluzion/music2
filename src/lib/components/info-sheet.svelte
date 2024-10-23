@@ -4,17 +4,23 @@
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import Overlay from './overlay.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+		preview?: import('svelte').Snippet;
+	}
+
+	let { children, preview }: Props = $props();
 	// import MaterialSymbol from './material-symbol.svelte';
 
-	let isMounted = false;
-	let isExpanded = false;
-	let previewContent: HTMLDivElement;
-	let content: HTMLDivElement;
+	let isMounted = $state(false);
+	let isExpanded = $state(false);
+	let previewContent = $state<HTMLDivElement>();
+	let content = $state<HTMLDivElement>();
 
-	let previewWidth = 0;
-	let expandedHeight = 0;
+	let previewWidth = $state(0);
+	let expandedHeight = $state(0);
 
-	$: expandedClass = isExpanded ? 'expanded' : '';
+	let expandedClass = $derived(isExpanded ? 'expanded' : '');
 
 	//#region Public functions
 	export function toggleShow() {
@@ -25,19 +31,11 @@
 
 	//#region Private functions
 	const previewContentWidth = () => {
-		try {
-			return previewContent.offsetWidth;
-		} catch (e) {
-			return 0;
-		}
+		return previewContent?.offsetWidth || 0;
 	};
 
 	const expandedContentHeight = () => {
-		try {
-			return content.offsetHeight;
-		} catch (e) {
-			return 0;
-		}
+		return content?.offsetHeight || 0;
 	};
 
 	function updatePreviewWidth() {
@@ -87,24 +85,24 @@
 				style="opacity: {isExpanded ? 1 : 0}; transition-delay: {!isExpanded ? 0 : 150}ms;"
 				class={expandedClass}
 			>
-				<slot />
+				{@render children?.()}
 			</div>
 			<!-- Preview -->
 			<div id="preview" class={expandedClass}>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
 					id="previewContent"
 					style="transition-delay: {isExpanded ? 0 : 150}ms;"
 					class={expandedClass}
 					bind:this={previewContent}
-					on:click={() => {
+					onclick={() => {
 						if (!isExpanded) toggleShow();
 					}}
 				>
-					<slot name="preview" />
+					{@render preview?.()}
 				</div>
-				<Button size="icon" class="z-10 flex items-center justify-center" on:click={toggleShow}>
+				<Button size="icon" class="z-10 flex items-center justify-center" onclick={toggleShow}>
 					<Fa
 						icon={faChevronUp}
 						class="transition-transform {isExpanded && 'rotate-180'} duration-300"
@@ -119,7 +117,7 @@
 	/* Info Sheet */
 
 	#infoSheetContainer {
-		@apply xs:p-6 pointer-events-none fixed inset-0 z-40 flex h-dvh w-full items-end justify-center overflow-hidden p-4 transition-opacity delay-200;
+		@apply pointer-events-none fixed inset-0 z-40 flex h-dvh w-full items-end justify-center overflow-hidden p-4 transition-opacity delay-200 xs:p-6;
 	}
 	#infoSheet {
 		@apply pointer-events-auto flex h-14 items-end overflow-hidden rounded-[28px] bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-300;
@@ -147,7 +145,7 @@
 
 	#content {
 		@apply pointer-events-none absolute flex h-min select-none flex-col gap-2 p-4 transition-opacity duration-300;
-		@apply xs:w-[calc(100%-48px-16px)] w-[calc(100%-32px-16px)] md:w-[calc(500px-16px)];
+		@apply w-[calc(100%-32px-16px)] xs:w-[calc(100%-48px-16px)] md:w-[calc(500px-16px)];
 
 		&.expanded {
 			@apply pointer-events-auto select-auto;

@@ -64,7 +64,7 @@
 <div class="flex h-14 w-full items-center rounded-full bg-surface p-2 pr-6">
 	{#if duration > 0}
 		<div in:fade={{ duration: 50 }} class="flex h-14 w-full items-center gap-6">
-			<Button variant="primary" size="icon" class="shrink-0" on:click={togglePlay}>
+			<Button variant="primary" size="icon" class="shrink-0" onclick={togglePlay}>
 				<Fa icon={playIcon} />
 			</Button>
 			<span class="w-8 text-center text-sm font-bold text-secondary">
@@ -76,7 +76,7 @@
 				max={duration}
 				step={1}
 				defaultValue={[0]}
-				on:change={(e) => (audioItem.currentTime = e.detail)}
+				onchange={(e) => (audioItem.currentTime = e)}
 				bind:value={currentTime}
 			/>
 			<span class="w-8 text-center text-sm font-bold text-secondary"

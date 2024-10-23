@@ -5,16 +5,15 @@
 	import { joinList } from '$lib/helpers/text';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
-	import type { PageServerData } from './$types';
 	import SongInfoSheet from './_components/song-info-sheet.svelte';
 
-	export let data: PageServerData;
+	let { data } = $props();
 
 	let metadata: MediaMetadata | undefined = undefined;
-	let player: PlayerWidget | undefined = undefined;
+	let player: PlayerWidget | undefined = $state(undefined);
 
-	$: song = data.song!;
-	$: streamLinks = song.streamLinks.map((x) => resolvePlatform(x));
+	let song = $derived(data.song!);
+	let streamLinks = $derived(song.streamLinks.map((x) => resolvePlatform(x)));
 
 	onMount(() => {
 		if (!data.song) {
@@ -62,7 +61,7 @@
 					style="color: {link.color}"
 					class="flex !h-14 w-full items-center justify-center gap-2 font-medium"
 					hoverAnim
-					on:click={() => (window.location.href = song.streamLinks[i])}
+					onclick={() => window.open(song.streamLinks[i], '_blank')}
 				>
 					<Fa icon={link.icon} size="1.2x" color={link.color} />
 					{link.name}

@@ -5,43 +5,49 @@
 	import type { Song } from '$lib/types/song.js';
 	import DownloadBadge from './download-badge.svelte';
 
-	export let song: Song;
+	interface Props {
+		song: Song;
+	}
+
+	let { song }: Props = $props();
 
 	let downloadCount = song.downloadLinks.length;
 
-	$: downloadFormats = () => {
+	let downloadFormats = $derived(() => {
 		const formats = song.downloadLinks.map((link) => link.format);
 		const uniqueFormats = new Set(formats);
 		return Array.from(uniqueFormats);
-	};
+	});
 </script>
 
 <InfoSheet>
-	<div slot="preview" class="flex items-center justify-center gap-3" role="button">
-		{#if song.releaseDate}
-			<span>📅</span>
-		{/if}
-		{#if song.tempo}
-			<span>🐢</span>
-		{/if}
-		{#if song.key}
-			<span>🎹</span>
-		{/if}
-		{#if song.genre}
-			<span>✨</span>
-		{/if}
-		{#if song.label}
-			<span>💿</span>
-		{/if}
-		{#if downloadCount > 0}
-			<Badge variant="secondary" class="pointer-events-none flex gap-2 truncate">
-				<span>📂</span>
-				<span class="text-muted-text text-sm">
-					{downloadFormats().join('/')}
-				</span>
-			</Badge>
-		{/if}
-	</div>
+	{#snippet preview()}
+		<div class="flex items-center justify-center gap-3" role="button">
+			{#if song.releaseDate}
+				<span>📅</span>
+			{/if}
+			{#if song.tempo}
+				<span>🐢</span>
+			{/if}
+			{#if song.key}
+				<span>🎹</span>
+			{/if}
+			{#if song.genre}
+				<span>✨</span>
+			{/if}
+			{#if song.label}
+				<span>💿</span>
+			{/if}
+			{#if downloadCount > 0}
+				<Badge variant="secondary" class="pointer-events-none flex gap-2 truncate">
+					<span>📂</span>
+					<span class="text-muted-text text-sm">
+						{downloadFormats().join('/')}
+					</span>
+				</Badge>
+			{/if}
+		</div>
+	{/snippet}
 	<div class="flex flex-col gap-3 *:font-medium *:text-secondary">
 		{#if song.releaseDate}
 			<span>📅 {formatDate(song.releaseDate)}</span>
