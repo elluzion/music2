@@ -10,10 +10,17 @@
 		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
+			document
+				.startViewTransition(async () => {
+					const isBackNav = navigation.delta && navigation.delta < 0;
+					document.querySelector('html')?.classList.add(isBackNav ? 'back' : 'forward');
+
+					resolve();
+					await navigation.complete;
+				})
+				.finished.then(() => {
+					document.querySelector('html')?.classList.remove('forward', 'back');
+				});
 		});
 	});
 
@@ -78,15 +85,39 @@
 		}
 	}
 
-	:root::view-transition-old(root) {
+	@keyframes slide-from-left {
+		from {
+			transform: translateX(-30px);
+		}
+	}
+
+	@keyframes slide-to-right {
+		to {
+			transform: translateX(30px);
+		}
+	}
+
+	:root.forward::view-transition-old(root) {
 		animation:
 			90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
 			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 	}
 
-	:root::view-transition-new(root) {
+	:root.forward::view-transition-new(root) {
 		animation:
 			210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
 			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+	}
+
+	:root.back::view-transition-old(root) {
+		animation:
+			90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
+	}
+
+	:root.back::view-transition-new(root) {
+		animation:
+			210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 	}
 </style>
