@@ -4,7 +4,6 @@
 	import { joinList } from '$helpers/text';
 	import { storedState } from '$lib/helpers/localstore.svelte.js';
 
-	import { improveSoundcloudArtwork } from '$lib/helpers/misc';
 	import {
 		faApple,
 		faSoundcloud,
@@ -120,7 +119,7 @@
 		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
 			{#each songs as song}
 				<a class="song-item" href="/{song.permalink}">
-					<img src={improveSoundcloudArtwork(song.art_url)} alt={song.title} />
+					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
 						<h5>{song.title}</h5>
 						<p>
@@ -135,7 +134,7 @@
 		<div class="song-item-grid" in:blur={inOptions} out:blur={outOptions}>
 			{#each songs as song}
 				<a class="song-item" href="/{song.permalink}">
-					<img src={improveSoundcloudArtwork(song.art_url)} alt={song.title} />
+					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
 						<h5>{song.title}</h5>
 						<p>

@@ -2,6 +2,7 @@ import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from "$env/static/publi
 import type { Song } from "$types/song";
 import type { Database as DbType } from "$types/supabase";
 import { createClient } from "@supabase/supabase-js";
+import { improveSoundcloudArtwork } from "./misc";
 
 export default class DatabaseHelper {
   /**
@@ -34,7 +35,7 @@ export default class DatabaseHelper {
         releaseDate: new Date(track.release_date),
         label: track.label || undefined,
         tempo: track.tempo || undefined,
-        artUrl: track.art_url,
+        artUrl: improveSoundcloudArtwork(track.art_url),
         type: track.type,
         key: track.key || undefined,
         artists: track.artists,
