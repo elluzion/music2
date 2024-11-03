@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import PlayerWidget from '$components/player-widget.svelte';
 	import Button from '$components/ui/button.svelte';
 	import { resolvePlatform } from '$lib/helpers/platforms';
@@ -9,10 +10,11 @@
 
 	let { data } = $props();
 
-	let metadata: MediaMetadata | undefined = undefined;
+	let mediaMetadata: MediaMetadata | undefined = undefined;
 	let player: PlayerWidget | undefined = $state(undefined);
 
 	let song = $derived(data.song!);
+	let metadata = $derived(data.metadata!);
 	let streamLinks = $derived(song.streamLinks.map((x) => resolvePlatform(x)));
 
 	onMount(() => {
@@ -21,7 +23,7 @@
 		}
 
 		if ('mediaSession' in navigator && player) {
-			metadata = new MediaMetadata({
+			mediaMetadata = new MediaMetadata({
 				title: song.title,
 				artist: joinList(song.artists),
 				artwork: [
@@ -32,10 +34,19 @@
 				]
 			});
 
-			player.setMetadata(metadata);
+			player.setMetadata(mediaMetadata);
 		}
 	});
 </script>
+
+<svelte:head>
+	<title>{metadata.title} | Elluzion</title>
+	<meta name="description" content={metadata.description} />
+	<meta property="og:title" content={metadata.title} />
+	<meta property="og:type" content="music:song" />
+	<meta property="og:url" content={$page.url.pathname} />
+	<meta property="og:image" content={metadata.image} />
+</svelte:head>
 
 {#if song}
 	<!-- Head -->

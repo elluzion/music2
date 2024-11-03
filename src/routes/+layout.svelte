@@ -40,6 +40,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Elluzion</title>
+</svelte:head>
+
 {#if $page.url.pathname !== '/'}
 	<BackButton />
 {/if}
