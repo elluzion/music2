@@ -3,7 +3,6 @@
 	import Badge from '$components/ui/badge.svelte';
 	import { joinList } from '$helpers/text';
 	import { storedState } from '$lib/helpers/localstore.svelte.js';
-
 	import {
 		faApple,
 		faSoundcloud,
@@ -11,9 +10,8 @@
 		faYoutube,
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
-	import { Grid, List } from 'lucide-svelte';
+	import { Grid, List, ListPlus } from 'lucide-svelte';
 	import Fa from 'svelte-fa';
-	import PlaylistPlus from 'svelte-material-icons/PlaylistPlus.svelte';
 	import { blur } from 'svelte/transition';
 
 	let { data } = $props();
@@ -105,7 +103,7 @@
 		{/each}
 	</div>
 	<a class="playlist-banner" href={spotifyPlaylist} target="_blank">
-		<PlaylistPlus size="24px" color="#1DB954" />
+		<ListPlus color="#1DB954" />
 		<p>
 			subscribe to my
 			<span class="text-[#1DB954] underline underline-offset-4">spotify playlist</span>
