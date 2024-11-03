@@ -7,15 +7,17 @@
 	import Fa from 'svelte-fa';
 	import { fade } from 'svelte/transition';
 
-	let audioItem: HTMLAudioElement;
+	interface Props {
+		fileUrl: string;
+	}
 
-	let isPlaying = false;
-	let currentTime = 0;
-	let duration = 0;
+	let { fileUrl }: Props = $props();
 
-	$: playIcon = isPlaying ? faPause : faPlay;
+	let audioItem = $state<HTMLAudioElement>();
 
-	export let fileUrl: string;
+	let isPlaying = $state(false);
+	let currentTime = $state(0);
+	let duration = $state(0);
 
 	function togglePlay() {
 		if (audioItem) {
@@ -43,18 +45,14 @@
 	onMount(() => {
 		if (audioItem) {
 			audioItem.addEventListener('timeupdate', updateTimings);
-
+			audioItem.addEventListener('loadedmetadata', updateTimings);
+			audioItem.addEventListener('play', () => (isPlaying = true));
+			audioItem.addEventListener('pause', () => (isPlaying = false));
 			audioItem.addEventListener('ended', () => {
 				if (!isPlaying) return;
 				isPlaying = false;
 				currentTime = 0;
 			});
-
-			audioItem.addEventListener('pause', () => (isPlaying = false));
-
-			audioItem.addEventListener('play', () => (isPlaying = true));
-
-			audioItem.addEventListener('loadedmetadata', updateTimings);
 
 			updateTimings();
 		}
@@ -65,7 +63,7 @@
 	{#if duration > 0}
 		<div in:fade={{ duration: 50 }} class="flex h-14 w-full items-center gap-6">
 			<Button variant="primary" size="icon" class="shrink-0" onclick={togglePlay}>
-				<Fa icon={playIcon} />
+				<Fa icon={isPlaying ? faPause : faPlay} />
 			</Button>
 			<span class="w-8 text-center text-sm font-bold text-secondary">
 				{secondsToString(currentTime)}
@@ -76,7 +74,7 @@
 				max={duration}
 				step={1}
 				defaultValue={[0]}
-				onchange={(e) => (audioItem.currentTime = e)}
+				onchange={(e) => (audioItem!!.currentTime = e)}
 				bind:value={currentTime}
 			/>
 			<span class="w-8 text-center text-sm font-bold text-secondary"

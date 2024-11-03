@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { faChevronDown, type IconDefinition } from '@fortawesome/free-solid-svg-icons';
 	import { createSelect, melt } from '@melt-ui/svelte';
-	import Fa from 'svelte-fa';
+	import { ChevronDown } from 'lucide-svelte';
+	import type { Component } from 'svelte';
 
 	interface Props {
-		items: { label: string; value: any; icon?: IconDefinition }[];
+		items: { label: string; value: any; icon?: Component }[];
 		value: any;
 		onchange?: (value: any) => void;
 	}
@@ -37,8 +37,10 @@
 </script>
 
 <div use:melt={$trigger} class="flex cursor-pointer items-center gap-4 py-2 text-secondary">
-	<Fa icon={faChevronDown} class={$open ? 'rotate-180' : ''} />
-	<span class="user-select-none font-medium">{$selectedLabel || 'Nothing selected'}</span>
+	<ChevronDown class="{$open ? 'rotate-180' : ''} transition-transform" />
+	<span use:melt={$label} class="user-select-none font-medium">
+		{$selectedLabel || 'Nothing selected'}
+	</span>
 </div>
 
 <ul
@@ -53,7 +55,7 @@
 				use:melt={$option(item)}
 			>
 				{#if item.icon}
-					<Fa icon={item.icon} />
+					<svelte:component this={item.icon} />
 				{/if}
 				<span>{item.label}</span>
 			</li>

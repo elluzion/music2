@@ -3,7 +3,7 @@
 
 	interface Props extends HTMLButtonAttributes {
 		rounded?: boolean;
-		variant?: buttonVariants;
+		variant?: 'primary' | 'secondary' | 'surface';
 		size?: 'icon' | 'default';
 		hoverAnim?: boolean;
 		children?: import('svelte').Snippet;
@@ -20,8 +20,6 @@
 		children = undefined,
 		...rest
 	}: Props = $props();
-
-	type buttonVariants = 'primary' | 'secondary' | 'surface';
 </script>
 
 <button

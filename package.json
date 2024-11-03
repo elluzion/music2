@@ -42,6 +42,7 @@
 		"@macfja/svelte-persistent-store": "^2.4.1",
 		"@supabase/supabase-js": "^2.45.4",
 		"lenis": "^1.1.14",
+		"lucide-svelte": "^0.454.0",
 		"supabase": "^1.204.3",
 		"svelte-fa": "^4.0.3",
 		"svelte-loading-spinners": "^0.3.6",

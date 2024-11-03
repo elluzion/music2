@@ -11,7 +11,7 @@
 		faYoutube,
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
-	import { faList, faSquare } from '@fortawesome/free-solid-svg-icons';
+	import { Grid, List } from 'lucide-svelte';
 	import Fa from 'svelte-fa';
 	import PlaylistPlus from 'svelte-material-icons/PlaylistPlus.svelte';
 	import { blur } from 'svelte/transition';
@@ -70,16 +70,16 @@
 
 	let trackListType = storedState<string>('trackListType', 'list');
 
-	const trackListTypes: { label: string; value: string; icon: IconDefinition }[] = [
+	const trackListTypes: { label: string; value: string; icon: any }[] = [
 		{
 			label: 'List',
 			value: 'list',
-			icon: faList
+			icon: List
 		},
 		{
 			label: 'Grid',
 			value: 'grid',
-			icon: faSquare
+			icon: Grid
 		}
 	];
 

@@ -10,7 +10,6 @@
 	}
 
 	let { children, preview }: Props = $props();
-	// import MaterialSymbol from './material-symbol.svelte';
 
 	let isMounted = $state(false);
 	let isExpanded = $state(false);

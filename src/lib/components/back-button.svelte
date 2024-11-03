@@ -5,9 +5,7 @@
 	let isScrolled = $state(false);
 
 	onMount(() => {
-		window.addEventListener('scroll', () => {
-			isScrolled = window.scrollY > 16;
-		});
+		window.addEventListener('scroll', () => (isScrolled = window.scrollY > 16));
 	});
 </script>
 
