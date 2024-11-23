@@ -1,8 +1,9 @@
-import { handleErrorWithSentry, replayIntegration } from "@sentry/sveltekit";
-import * as Sentry from '@sentry/sveltekit';
+import * as Sentry from "@sentry/sveltekit";
+import { handleErrorWithSentry } from "@sentry/sveltekit";
 
 Sentry.init({
-  dsn: 'https://165d60f3ee035dbe16ffdf37741700a7@o4508319797673984.ingest.de.sentry.io/4508319800229968',
+  dsn:
+    "https://165d60f3ee035dbe16ffdf37741700a7@o4508319797673984.ingest.de.sentry.io/4508319800229968",
 
   tracesSampleRate: 1.0,
 
@@ -13,9 +14,8 @@ Sentry.init({
   // If the entire session is not sampled, use the below sample rate to sample
   // sessions when an error occurs.
   replaysOnErrorSampleRate: 1.0,
-
   // If you don't want to use Session Replay, just remove the line below:
-  integrations: [replayIntegration()],
+  // integrations: [replayIntegration()],
 });
 
 // If you have a custom error handler, pass it to `handleErrorWithSentry`

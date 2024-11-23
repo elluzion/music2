@@ -88,6 +88,7 @@
 </script>
 
 <div class="flex flex-col gap-4 py-5">
+	<!-- Header -->
 	<div class="flex h-24 flex-col justify-end">
 		<img src="/elluzion-textlogo.svg" class="mb-2" alt="elluzion logo" width="130" />
 	</div>
@@ -110,6 +111,8 @@
 			to stay updated.
 		</p>
 	</a>
+
+	<!-- Song List -->
 	<div class="song-list-type-selector">
 		<ChevronSelect bind:value={trackListType.value} items={trackListTypes} />
 	</div>
@@ -143,6 +146,14 @@
 			{/each}
 		</div>
 	{/if}
+
+	<!-- Footer -->
+	<div class="flex w-full items-center justify-center py-2">
+		<p class="font-mono font-bold">
+			© {new Date().getFullYear()} &lt;elluzion /&gt;;
+			<a class="underline-offset-2 hover:underline" href="/tools">tools &gt;&gt;</a>
+		</p>
+	</div>
 </div>
 
 <style lang="postcss">
