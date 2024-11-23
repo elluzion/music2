@@ -57,7 +57,7 @@
 				{#if item.icon}
 					<svelte:component this={item.icon} />
 				{/if}
-				<span>{item.label}</span>
+				<span class="font-medium">{item.label}</span>
 			</li>
 		{/each}
 	{/if}

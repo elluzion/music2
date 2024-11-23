@@ -87,9 +87,9 @@
 	const outOptions = { duration: 200, amount: 5 };
 </script>
 
-<div class="flex flex-col gap-4 py-5">
+<div class="page-wrapper">
 	<!-- Header -->
-	<div class="flex h-24 flex-col justify-end">
+	<div class="flex flex-col justify-end">
 		<img src="/elluzion-textlogo.svg" class="mb-2" alt="elluzion logo" width="130" />
 	</div>
 	<div class="about-card">
@@ -180,7 +180,7 @@
 
 	.playlist-banner {
 		@apply flex items-center gap-5 rounded-2xl bg-[#03150A];
-		@apply px-6 py-4 transition-transform duration-300 ease-out hover:scale-[98%];
+		@apply hover-scale px-6 py-4;
 	}
 
 	.playlist-banner p {
@@ -192,9 +192,9 @@
 	}
 
 	.song-item-list .song-item {
-		@apply flex h-20 gap-4 transition-transform;
+		@apply flex h-20 gap-4;
 		@apply cursor-pointer;
-		@apply duration-300 ease-out hover:scale-[98%];
+		@apply hover-scale;
 	}
 
 	.song-item-list .song-item img {
@@ -211,9 +211,9 @@
 	}
 
 	.song-item-grid .song-item {
-		@apply flex flex-col items-center gap-4 transition-transform;
+		@apply flex flex-col items-center gap-4;
 		@apply cursor-pointer;
-		@apply duration-300 ease-out hover:scale-[98%];
+		@apply hover-scale;
 	}
 
 	.song-item-grid .song-item img {
@@ -227,5 +227,9 @@
 
 	.song-item-text p {
 		@apply flex items-center font-medium;
+	}
+
+	.hover-scale {
+		@apply transition-transform duration-300 ease-out hover:scale-[98%];
 	}
 </style>

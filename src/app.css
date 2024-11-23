@@ -43,17 +43,33 @@ html.lenis body {
 }
 
 h1 {
-	@apply font-sans2 text-5xl font-bold;
+	@apply py-4 font-sans2 text-5xl font-bold;
 }
 
 h2 {
-	@apply font-sans2 text-3xl font-bold;
+	@apply py-3 font-sans2 text-3xl font-bold;
+}
+
+h3 {
+	@apply py-2 font-sans2 text-2xl font-bold;
+}
+
+h4 {
+	@apply py-2 font-sans2 text-xl font-semibold;
 }
 
 h5 {
-	@apply font-sans2 text-lg font-semibold;
+	@apply py-1 font-sans2 text-lg font-medium;
 }
 
 p {
 	@apply gap-2 text-sm text-secondary;
+}
+
+.page-wrapper {
+	@apply flex flex-col gap-4 pb-5 pt-16;
+}
+
+.hover-scale {
+	@apply transition-transform duration-300 ease-out hover:scale-[98%];
 }
