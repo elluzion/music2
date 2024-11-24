@@ -9,7 +9,7 @@ export const load: PageServerLoad = (async ({ params: { permalink } }) => {
   const song = await DatabaseHelper.getSong(permalink);
 
   if (!song) {
-    return goto("/");
+    return redirect(303, "/");
   }
 
   const metadata = genMetadata(song);
