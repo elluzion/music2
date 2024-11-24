@@ -9,33 +9,33 @@ export const stringToDate = (date: string) => new Date(date);
  * @returns A string representing the formatted date.
  */
 export function formatDate(date: Date, shorten: boolean = false): string {
-  const day = date.getDate();
-  const ordinalSuffix: string = getOrdinalSuffix(day);
-  const monthNames: string[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  let monthName = monthNames[date.getMonth()];
-  let year = date.getFullYear().toString();
+	const day = date.getDate();
+	const ordinalSuffix: string = getOrdinalSuffix(day);
+	const monthNames: string[] = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
+	let monthName = monthNames[date.getMonth()];
+	let year = date.getFullYear().toString();
 
-  if (shorten) {
-    if (monthName.length > 5) {
-      monthName = monthName.slice(0, 3) + '.';
-    }
-    year = year.slice(2);
-  }
+	if (shorten) {
+		if (monthName.length > 5) {
+			monthName = monthName.slice(0, 3) + '.';
+		}
+		year = year.slice(2);
+	}
 
-  return `${day}${ordinalSuffix} ${monthName} ${year}`;
+	return `${day}${ordinalSuffix} ${monthName} ${year}`;
 }
 
 /**
@@ -46,13 +46,13 @@ export function formatDate(date: Date, shorten: boolean = false): string {
  * @returns The number of days between the two dates.
  */
 export function getDaysBetweenDates(date1: Date, date2: Date): number {
-  // Convert both dates to milliseconds
-  const date1Ms = date1.getTime();
-  const date2Ms = date2.getTime();
+	// Convert both dates to milliseconds
+	const date1Ms = date1.getTime();
+	const date2Ms = date2.getTime();
 
-  const differenceMs = Math.abs(date2Ms - date1Ms);
-  const days = Math.floor(differenceMs / 86400000);
-  return days;
+	const differenceMs = Math.abs(date2Ms - date1Ms);
+	const days = Math.floor(differenceMs / 86400000);
+	return days;
 }
 
 /**
@@ -62,23 +62,23 @@ export function getDaysBetweenDates(date1: Date, date2: Date): number {
  * @returns The number of days between now and the given date.
  */
 export function getDaysFromNow(date: Date): number {
-  const now = new Date();
-  return getDaysBetweenDates(now, date);
+	const now = new Date();
+	return getDaysBetweenDates(now, date);
 }
 
 function getOrdinalSuffix(day: number): string {
-  if (day >= 11 && day <= 13) {
-    return 'th';
-  } else {
-    switch (day % 10) {
-      case 1:
-        return 'st';
-      case 2:
-        return 'nd';
-      case 3:
-        return 'rd';
-      default:
-        return 'th';
-    }
-  }
+	if (day >= 11 && day <= 13) {
+		return 'th';
+	} else {
+		switch (day % 10) {
+			case 1:
+				return 'st';
+			case 2:
+				return 'nd';
+			case 3:
+				return 'rd';
+			default:
+				return 'th';
+		}
+	}
 }
