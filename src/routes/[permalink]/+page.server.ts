@@ -6,6 +6,12 @@ import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params: { permalink } }) => {
+  // Redirect if url refers to a file
+  // This prevents requests to files like favicon.ico from being treated as songs
+  if (permalink.includes(".")) {
+    return redirect(303, "/");
+  }
+
   const song = await DatabaseHelper.getSong(permalink);
 
   if (!song) {
