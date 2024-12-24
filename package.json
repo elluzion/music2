@@ -49,6 +49,7 @@
 		"svelte-loading-spinners": "^0.3.6"
 	},
 	"resolutions": {
-		"string-width": "4.2.3"
+		"string-width": "4.2.3",
+		"wrap-ansi": "9.0.0"
 	}
 }
