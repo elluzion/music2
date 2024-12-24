@@ -47,5 +47,8 @@
 		"supabase": "^1.204.3",
 		"svelte-fa": "^4.0.3",
 		"svelte-loading-spinners": "^0.3.6"
+	},
+	"resolutions": {
+		"string-width": "4.2.3"
 	}
 }
