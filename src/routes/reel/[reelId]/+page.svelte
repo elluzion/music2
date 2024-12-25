@@ -22,7 +22,7 @@
 	<meta name="twitter:player:stream" content={data?.VideoURL} />
 	<meta name="twitter:player:stream:content_type" content="video/mp4" />
 
-	<meta property="og:site_name" content="Elluzion EmbedFix" />
+	<meta property="og:site_name" content="Instagram" />
 	<meta property="og:url" content={data?.URL} />
 	<meta property="og:title" content={data?.Caption} />
 	<meta property="og:description" content={data?.Caption} />
