@@ -1,4 +1,4 @@
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad } from "../[reelId]/$types";
 import type { InstagramData } from "./types";
 
 // Required headers example
@@ -45,5 +45,5 @@ async function getInstagramGraphqlData(
 }
 
 export const load = (async ({ params: { reelId } }) => {
-  return await getInstagramGraphqlData(reelId);
+  return await getInstagramGraphqlData(reelId.split("/")[0]);
 }) satisfies PageServerLoad;
