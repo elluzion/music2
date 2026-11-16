@@ -40,7 +40,6 @@
 		"@fortawesome/free-brands-svg-icons": "^6.7.2",
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
 		"@macfja/svelte-persistent-store": "^2.4.2",
-		"@sentry/sveltekit": "^8.55.0",
 		"@supabase/supabase-js": "^2.49.1",
 		"lenis": "^1.2.3",
 		"lucide-svelte": "^0.454.0",
