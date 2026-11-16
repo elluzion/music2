@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Badge from '$components/ui/badge.svelte';
-	import type { DownloadLink } from '$lib/types/song';
+	import Badge from '#components/ui/badge.svelte';
+	import type { DownloadLink } from '#lib/types/song.js';
 
 	interface Props {
 		downloadLink: DownloadLink;

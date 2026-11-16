@@ -1,4 +1,4 @@
-import type { Platform } from "$types/platform";
+import type { Platform } from '#types/platform.js';
 import {
 	faAmazon,
 	faApple,
@@ -7,86 +7,86 @@ import {
 	faInstagram,
 	faSoundcloud,
 	faSpotify,
-	faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { extractDomain } from "./text";
+	faYoutube
+} from '@fortawesome/free-brands-svg-icons';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
+import { extractDomain } from './text';
 
 export const MusicPlatforms: Platform[] = [
 	{
-		id: "amazon-music",
-		name: "Amazon Music",
-		color: "#FF9900",
+		id: 'amazon-music',
+		name: 'Amazon Music',
+		color: '#FF9900',
 		icon: faAmazon,
-		linkIncludes: "amazon",
+		linkIncludes: 'amazon'
 	},
 	{
-		id: "apple-music",
-		name: "Apple Music",
-		color: "#000000",
+		id: 'apple-music',
+		name: 'Apple Music',
+		color: '#000000',
 		icon: faApple,
-		linkIncludes: "apple",
+		linkIncludes: 'apple'
 	},
 	{
-		id: "deezer",
-		name: "Deezer",
-		color: "#A238FF",
+		id: 'deezer',
+		name: 'Deezer',
+		color: '#A238FF',
 		icon: faDeezer,
-		linkIncludes: "deezer",
+		linkIncludes: 'deezer'
 	},
 	{
-		id: "pandora",
-		name: "Pandora",
-		color: "#fb4dc1",
+		id: 'pandora',
+		name: 'Pandora',
+		color: '#fb4dc1',
 		icon: faMusic,
-		linkIncludes: "pandora",
+		linkIncludes: 'pandora'
 	},
 	{
-		id: "soundcloud",
-		name: "SoundCloud",
-		color: "#ff5500",
+		id: 'soundcloud',
+		name: 'SoundCloud',
+		color: '#ff5500',
 		icon: faSoundcloud,
-		linkIncludes: "soundcloud",
+		linkIncludes: 'soundcloud'
 	},
 	{
-		id: "spotify",
-		name: "Spotify",
-		color: "#1DB954",
+		id: 'spotify',
+		name: 'Spotify',
+		color: '#1DB954',
 		icon: faSpotify,
-		linkIncludes: "spotify",
+		linkIncludes: 'spotify'
 	},
 	{
-		id: "tidal",
-		name: "Tidal",
-		color: "#000000",
+		id: 'tidal',
+		name: 'Tidal',
+		color: '#000000',
 		icon: faMusic,
-		linkIncludes: "tidal",
+		linkIncludes: 'tidal'
 	},
 	{
-		id: "youtube",
-		name: "YouTube",
-		color: "#FF0000",
+		id: 'youtube',
+		name: 'YouTube',
+		color: '#FF0000',
 		icon: faYoutube,
-		linkIncludes: "youtu",
-	},
+		linkIncludes: 'youtu'
+	}
 ] as const;
 
 export const Platforms: Platform[] = [
 	{
-		id: "discord",
-		name: "Discord",
-		color: "#5865F2",
+		id: 'discord',
+		name: 'Discord',
+		color: '#5865F2',
 		icon: faDiscord,
-		linkIncludes: "discord",
+		linkIncludes: 'discord'
 	},
 	{
-		id: "instagram",
-		name: "Instagram",
-		color: "#E1306C",
+		id: 'instagram',
+		name: 'Instagram',
+		color: '#E1306C',
 		icon: faInstagram,
-		linkIncludes: "instagram",
+		linkIncludes: 'instagram'
 	},
-	...MusicPlatforms,
+	...MusicPlatforms
 ] as const;
 
 /**
@@ -98,14 +98,14 @@ export const Platforms: Platform[] = [
  */
 export function resolvePlatform(query: string): Platform {
 	const fallback: Platform = {
-		id: "default",
-		name: "Default",
-		color: "#ffffff",
+		id: 'default',
+		name: 'Default',
+		color: '#ffffff',
 		icon: faMusic,
-		linkIncludes: "",
+		linkIncludes: ''
 	};
 
-	if (query.startsWith("http://") || query.startsWith("https://")) {
+	if (query.startsWith('http://') || query.startsWith('https://')) {
 		// If the query is a URL, search for a platform that includes the URL in its linkIncludes property
 		const platform = Platforms.find((x) => query.includes(x.linkIncludes));
 

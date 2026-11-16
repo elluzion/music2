@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
-	import { page } from '$app/stores';
-	import BackButton from '$components/back-button.svelte';
+	import { page } from '$app/state';
+	import BackButton from '#components/back-button.svelte';
 	import Lenis from 'lenis';
 	import { onMount } from 'svelte';
 	import '../app.css';
@@ -12,7 +12,10 @@
 		return new Promise((resolve) => {
 			document
 				.startViewTransition(async () => {
-					const isBackNav = navigation.delta && navigation.delta < 0;
+					const isBackNav =
+						navigation.type === 'popstate' &&
+						navigation.delta !== undefined &&
+						navigation.delta < 0;
 					document.querySelector('html')?.classList.add(isBackNav ? 'back' : 'forward');
 
 					resolve();
@@ -31,7 +34,7 @@
 			easing: (x) => 1 - Math.pow(1 - x, 5)
 		});
 
-		function raf(time: DOMHighResTimeStamp) {
+		function raf(time: number) {
 			lenis.raf(time);
 			requestAnimationFrame(raf);
 		}
@@ -40,7 +43,7 @@
 	});
 </script>
 
-{#if $page.url.pathname !== '/'}
+{#if page.url.pathname !== '/'}
 	<BackButton />
 {/if}
 <div id="pageWrapper">
@@ -48,6 +51,8 @@
 </div>
 
 <style lang="postcss">
+	@reference '../app.css';
+
 	#pageWrapper {
 		@apply min-h-dvh w-full px-4;
 	}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createSelect, melt } from '@melt-ui/svelte';
-	import { ChevronDown } from 'lucide-svelte';
+	import { ChevronDown } from '@lucide/svelte';
 	import type { Component } from 'svelte';
 
 	interface Props {
@@ -37,7 +37,7 @@
 </script>
 
 <div use:melt={$trigger} class="flex cursor-pointer items-center gap-4 py-2 text-secondary">
-	<ChevronDown class="{$open ? 'rotate-180' : ''} transition-transform" />
+	<ChevronDown class={$open ? 'rotate-180 transition-transform' : 'transition-transform'} />
 	<span use:melt={$label} class="user-select-none font-medium">
 		{$selectedLabel || 'Nothing selected'}
 	</span>
@@ -46,7 +46,7 @@
 <ul
 	bind:this={menuContainer}
 	use:melt={$menu}
-	class={`flex -translate-y-4 flex-col gap-1 rounded-2xl bg-surface p-2 opacity-0 shadow-xl shadow-secondary/15 transition-all ease-out`}
+	class="flex -translate-y-4 flex-col gap-1 rounded-2xl bg-surface p-2 opacity-0 shadow-xl shadow-secondary/15 transition-all ease-out"
 >
 	{#if $open}
 		{#each items as item (item.value)}
@@ -55,7 +55,7 @@
 				use:melt={$option(item)}
 			>
 				{#if item.icon}
-					<svelte:component this={item.icon} />
+					<item.icon />
 				{/if}
 				<span class="font-medium">{item.label}</span>
 			</li>
@@ -64,6 +64,8 @@
 </ul>
 
 <style lang="postcss">
+	@reference '../../app.css';
+
 	li[aria-selected='true'] {
 		@apply bg-secondary/10;
 	}

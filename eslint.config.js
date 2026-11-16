@@ -19,11 +19,17 @@ export default tseslint.config(
 		}
 	},
 	{
-		files: ['**/*.svelte'],
+		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
 		languageOptions: {
 			parserOptions: {
 				parser: tseslint.parser
 			}
+		}
+	},
+	{
+		rules: {
+			'@typescript-eslint/no-explicit-any': 'off',
+			'svelte/no-navigation-without-resolve': 'off'
 		}
 	},
 	{

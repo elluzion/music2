@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import PlayerWidget from '$components/player-widget.svelte';
-	import Button from '$components/ui/button.svelte';
-	import { resolvePlatform } from '$lib/helpers/platforms';
-	import { joinList } from '$lib/helpers/text';
+	import { page } from '$app/state';
+	import PlayerWidget from '#components/player-widget.svelte';
+	import Button from '#components/ui/button.svelte';
+	import { resolvePlatform } from '#lib/helpers/platforms.js';
+	import { joinList } from '#lib/helpers/text.js';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import SongInfoSheet from './_components/song-info-sheet.svelte';
@@ -44,7 +44,7 @@
 	<meta name="description" content={metadata.description} />
 	<meta property="og:title" content={metadata.title} />
 	<meta property="og:type" content="music:song" />
-	<meta property="og:url" content={$page.url.pathname} />
+	<meta property="og:url" content={page.url.pathname} />
 	<meta property="og:image" content={metadata.image} />
 </svelte:head>
 
@@ -66,7 +66,7 @@
 		{/if}
 		<!-- Links -->
 		<div class="flex w-full flex-col gap-2">
-			{#each streamLinks as link, i}
+			{#each streamLinks as link, i (link.id)}
 				<Button
 					variant="surface"
 					style="color: {link.color}"

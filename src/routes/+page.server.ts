@@ -1,5 +1,5 @@
-import DatabaseHelper from '$lib/helpers/database';
-import { improveSoundcloudArtwork } from '$lib/helpers/misc';
+import DatabaseHelper from '#lib/helpers/database.js';
+import { improveSoundcloudArtwork } from '#lib/helpers/misc.js';
 import type { PageServerLoad } from './$types';
 
 export const load = (async () => {

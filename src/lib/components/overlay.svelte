@@ -20,6 +20,7 @@
 	});
 
 	onDestroy(() => {
+		// eslint-disable-next-line svelte/no-dom-manipulating
 		overlay?.remove();
 	});
 </script>

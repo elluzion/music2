@@ -1,8 +1,8 @@
 <script lang="ts">
-	import InfoSheet from '$components/info-sheet.svelte';
-	import Badge from '$components/ui/badge.svelte';
-	import { formatDate } from '$lib/helpers/date';
-	import type { Song } from '$lib/types/song.js';
+	import InfoSheet from '#components/info-sheet.svelte';
+	import Badge from '#components/ui/badge.svelte';
+	import { formatDate } from '#lib/helpers/date.js';
+	import type { Song } from '#lib/types/song.js';
 	import DownloadBadge from './download-badge.svelte';
 
 	interface Props {
@@ -66,9 +66,9 @@
 		{/if}
 		{#if downloadCount > 0}
 			<span class="my-1 h-[8px] w-full bg-[url('/zigzag.svg')] bg-contain bg-repeat-x"></span>
-			<div class="flex flex-wrap gap-1.5 pr-6 pt-1">
+			<div class="flex flex-wrap gap-1.5 pt-1 pr-6">
 				<span>📂 </span>
-				{#each song.downloadLinks as downloadLink}
+				{#each song.downloadLinks as downloadLink (downloadLink.url)}
 					<DownloadBadge {downloadLink} />
 				{/each}
 			</div>

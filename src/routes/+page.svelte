@@ -1,8 +1,8 @@
 <script lang="ts">
-	import ChevronSelect from '$components/chevron-select.svelte';
-	import Badge from '$components/ui/badge.svelte';
-	import { joinList } from '$helpers/text';
-	import { storedState } from '$lib/helpers/localstore.svelte.js';
+	import ChevronSelect from '#components/chevron-select.svelte';
+	import Badge from '#components/ui/badge.svelte';
+	import { joinList } from '#helpers/text.js';
+	import { storedState } from '#lib/helpers/localstore.svelte.js';
 	import {
 		faApple,
 		faSoundcloud,
@@ -10,7 +10,7 @@
 		faYoutube,
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
-	import { Grid, List, ListPlus } from 'lucide-svelte';
+	import { Grid, List, ListPlus } from '@lucide/svelte';
 	import Fa from 'svelte-fa';
 	import { blur } from 'svelte/transition';
 
@@ -97,7 +97,7 @@
 		<p>✨ 1 mil + streams</p>
 	</div>
 	<div class="socials-list">
-		{#each socialPlatforms as platform}
+		{#each socialPlatforms as platform (platform.id)}
 			<a href={platform.link} target="_blank" style="background-color: {platform.color};">
 				<Fa icon={platform.icon} size="1.2x" color={platform.invertIcon ? '#FFFFFF' : '#000000'} />
 			</a>
@@ -118,7 +118,7 @@
 	</div>
 	{#if trackListType.value === 'list'}
 		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
-			{#each songs as song}
+			{#each songs as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
 					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
@@ -133,7 +133,7 @@
 		</div>
 	{:else}
 		<div class="song-item-grid" in:blur={inOptions} out:blur={outOptions}>
-			{#each songs as song}
+			{#each songs as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
 					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
@@ -157,6 +157,8 @@
 </div>
 
 <style lang="postcss">
+	@reference '../app.css';
+
 	.about-card {
 		@apply flex flex-col gap-1 rounded-2xl p-5;
 
@@ -227,9 +229,5 @@
 
 	.song-item-text p {
 		@apply flex items-center font-medium;
-	}
-
-	.hover-scale {
-		@apply transition-transform duration-300 ease-out hover:scale-[98%];
 	}
 </style>

@@ -1,8 +1,8 @@
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
-import type { Song } from '$types/song';
-import type { Database as DbType } from '$types/supabase';
+import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$app/env/public';
+import type { Song } from '#types/song.js';
+import type { Database as DbType } from '#types/supabase.js';
 import { createClient } from '@supabase/supabase-js';
-import { improveSoundcloudArtwork } from './misc';
+import { improveSoundcloudArtwork } from './misc.js';
 
 export default class DatabaseHelper {
 	/**

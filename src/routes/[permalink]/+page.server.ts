@@ -1,26 +1,26 @@
-import DatabaseHelper from "$lib/helpers/database";
-import { formatDate } from "$lib/helpers/date";
-import { improveSoundcloudArtwork } from "$lib/helpers/misc";
-import type { Song } from "$lib/types/song";
-import { redirect } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import DatabaseHelper from '#lib/helpers/database.js';
+import { formatDate } from '#lib/helpers/date.js';
+import { improveSoundcloudArtwork } from '#lib/helpers/misc.js';
+import type { Song } from '#lib/types/song.js';
+import { redirect } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params: { permalink } }) => {
-  // Redirect if url refers to a file
-  // This prevents requests to files like favicon.ico from being treated as songs
-  if (permalink.includes(".")) {
-    return redirect(303, "/");
-  }
+	// Redirect if url refers to a file
+	// This prevents requests to files like favicon.ico from being treated as songs
+	if (permalink.includes('.')) {
+		return redirect(303, '/');
+	}
 
-  const song = await DatabaseHelper.getSong(permalink);
+	const song = await DatabaseHelper.getSong(permalink);
 
-  if (!song) {
-    return redirect(303, "/");
-  }
+	if (!song) {
+		return redirect(303, '/');
+	}
 
-  const metadata = genMetadata(song);
+	const metadata = genMetadata(song);
 
-  return { song, metadata };
+	return { song, metadata };
 };
 
 /**
@@ -31,23 +31,22 @@ export const load: PageServerLoad = async ({ params: { permalink } }) => {
  *          The description is formed as "Released on <date> (via <label>)". The image URL is adjusted to a larger size if it is from SoundCloud.
  */
 function genMetadata(song: Song) {
-  const fallbackImageUrl =
-    "https://i1.sndcdn.com/avatars-Sen1bkxTWtJUDjut-zCRlvQ-t500x500.jpg";
+	const fallbackImageUrl = 'https://i1.sndcdn.com/avatars-Sen1bkxTWtJUDjut-zCRlvQ-t500x500.jpg';
 
-  // generate description
-  const description = `Released on ${formatDate(song.releaseDate)}${
-    song.label ? " via " + song.label : ""
-  }.`;
-  /**
-   * Note: this is a hacky way of getting a larger image,
-   * since Souncloud could potentially change their API and break it
-   */
-  let image = song.artUrl || fallbackImageUrl;
-  image = improveSoundcloudArtwork(image, "t500x500");
+	// generate description
+	const description = `Released on ${formatDate(song.releaseDate)}${
+		song.label ? ' via ' + song.label : ''
+	}.`;
+	/**
+	 * Note: this is a hacky way of getting a larger image,
+	 * since Souncloud could potentially change their API and break it
+	 */
+	let image = song.artUrl || fallbackImageUrl;
+	image = improveSoundcloudArtwork(image, 't500x500');
 
-  return {
-    title: song.title,
-    description,
-    image: image,
-  };
+	return {
+		title: song.title,
+		description,
+		image: image
+	};
 }
