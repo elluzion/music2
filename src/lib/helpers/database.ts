@@ -20,11 +20,7 @@ export default class DatabaseHelper {
 	 * does not exist.
 	 */
 	static async getSong(permalink: string) {
-		const { data: track } = await supabase
-			.from('releases')
-			.select(songQuery)
-			.eq('permalink', permalink)
-			.single();
+		const { data: track } = await supabase.from('releases').select(songQuery).eq('permalink', permalink).single();
 
 		if (track) {
 			const song: Song = {

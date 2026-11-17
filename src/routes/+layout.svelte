@@ -12,10 +12,7 @@
 		return new Promise((resolve) => {
 			document
 				.startViewTransition(async () => {
-					const isBackNav =
-						navigation.type === 'popstate' &&
-						navigation.delta !== undefined &&
-						navigation.delta < 0;
+					const isBackNav = navigation.type === 'popstate' && navigation.delta !== undefined && navigation.delta < 0;
 					document.querySelector('html')?.classList.add(isBackNav ? 'back' : 'forward');
 
 					resolve();

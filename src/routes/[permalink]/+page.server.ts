@@ -34,9 +34,7 @@ function genMetadata(song: Song) {
 	const fallbackImageUrl = 'https://i1.sndcdn.com/avatars-Sen1bkxTWtJUDjut-zCRlvQ-t500x500.jpg';
 
 	// generate description
-	const description = `Released on ${formatDate(song.releaseDate)}${
-		song.label ? ' via ' + song.label : ''
-	}.`;
+	const description = `Released on ${formatDate(song.releaseDate)}${song.label ? ' via ' + song.label : ''}.`;
 	/**
 	 * Note: this is a hacky way of getting a larger image,
 	 * since Souncloud could potentially change their API and break it

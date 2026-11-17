@@ -77,9 +77,7 @@
 				onchange={(e) => (audioItem!.currentTime = e)}
 				bind:value={currentTime}
 			/>
-			<span class="w-8 text-center text-sm font-bold text-secondary"
-				>{secondsToString(duration)}</span
-			>
+			<span class="w-8 text-center text-sm font-bold text-secondary">{secondsToString(duration)}</span>
 		</div>
 	{/if}
 </div>

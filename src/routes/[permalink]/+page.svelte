@@ -51,9 +51,7 @@
 {#if song}
 	<!-- Head -->
 	<div class="flex flex-col items-center gap-4 py-4 pb-[104px]">
-		<div
-			class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8"
-		>
+		<div class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8">
 			<img src={song.artUrl} alt={song.title} class="w-1/2 rounded-3xl" />
 			<div class="flex flex-col items-center gap-1 *:text-center">
 				<h2>{song.title}</h2>

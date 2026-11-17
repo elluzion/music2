@@ -47,8 +47,7 @@
 	}
 
 	function updateContentHeight() {
-		expandedHeight =
-			expandedContentHeight() /* Expanded Content */ + 8 /* PaddingBottom */ + 8; /* PaddingTop */
+		expandedHeight = expandedContentHeight() /* Expanded Content */ + 8 /* PaddingBottom */ + 8; /* PaddingTop */
 	}
 	//#endregion
 
@@ -102,10 +101,7 @@
 					{@render preview?.()}
 				</div>
 				<Button size="icon" class="z-10 flex items-center justify-center" onclick={toggleShow}>
-					<Fa
-						icon={faChevronUp}
-						class="transition-transform {isExpanded && 'rotate-180'} duration-300"
-					/>
+					<Fa icon={faChevronUp} class="transition-transform {isExpanded && 'rotate-180'} duration-300" />
 				</Button>
 			</div>
 		</div>

@@ -3,21 +3,14 @@
 	import Badge from '#components/ui/badge.svelte';
 	import { joinList } from '#helpers/text.js';
 	import { storedState } from '#lib/helpers/localstore.svelte.js';
-	import {
-		faApple,
-		faSoundcloud,
-		faSpotify,
-		faYoutube,
-		type IconDefinition
-	} from '@fortawesome/free-brands-svg-icons';
+	import { faApple, faSoundcloud, faSpotify, faYoutube, type IconDefinition } from '@fortawesome/free-brands-svg-icons';
 	import { Grid, List, ListPlus } from '@lucide/svelte';
 	import Fa from 'svelte-fa';
 	import { blur } from 'svelte/transition';
 
 	let { data } = $props();
 
-	const spotifyPlaylist =
-		'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
+	const spotifyPlaylist = 'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
 	const socialPlatforms: {
 		id: string;
 		name: string;
@@ -150,7 +143,7 @@
 	<!-- Footer -->
 	<div class="flex w-full items-center justify-center py-2">
 		<p class="font-mono font-bold">
-			© {new Date().getFullYear()} &lt;elluzion /&gt;;
+			© {new Date().getFullYear()} &lt;elluzion/&gt;;
 			<a class="underline-offset-2 hover:underline" href="/tools">tools &gt;&gt;</a>
 		</p>
 	</div>
