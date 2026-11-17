@@ -1,23 +1,16 @@
 <script lang="ts">
-	import ChevronSelect from '$components/chevron-select.svelte';
-	import Badge from '$components/ui/badge.svelte';
-	import { joinList } from '$helpers/text';
-	import { storedState } from '$lib/helpers/localstore.svelte.js';
-	import {
-		faApple,
-		faSoundcloud,
-		faSpotify,
-		faYoutube,
-		type IconDefinition
-	} from '@fortawesome/free-brands-svg-icons';
-	import { Grid, List, ListPlus } from 'lucide-svelte';
+	import ChevronSelect from '#components/chevron-select.svelte';
+	import Badge from '#components/ui/badge.svelte';
+	import { joinList } from '#helpers/text.js';
+	import { storedState } from '#lib/helpers/localstore.svelte.js';
+	import { faApple, faSoundcloud, faSpotify, faYoutube, type IconDefinition } from '@fortawesome/free-brands-svg-icons';
+	import { Grid, List, ListPlus } from '@lucide/svelte';
 	import Fa from 'svelte-fa';
 	import { blur } from 'svelte/transition';
 
 	let { data } = $props();
 
-	const spotifyPlaylist =
-		'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
+	const spotifyPlaylist = 'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
 	const socialPlatforms: {
 		id: string;
 		name: string;
@@ -60,14 +53,6 @@
 		}
 	];
 
-	// let trackListType = persist(
-	// 	writable('trackListType', 'list'),
-	// 	createLocalStorage(),
-	// 	'trackListType'
-	// );
-
-	let trackListType = storedState<string>('trackListType', 'list');
-
 	const trackListTypes: { label: string; value: string; icon: any }[] = [
 		{
 			label: 'List',
@@ -81,7 +66,9 @@
 		}
 	];
 
-	let songs = data.songs || [];
+	let trackListType = storedState<string>('trackListType', 'list');
+
+	let songs = $derived(() => data.songs || []);
 
 	const inOptions = { duration: 200, delay: 200, amount: 5 };
 	const outOptions = { duration: 200, amount: 5 };
@@ -97,7 +84,7 @@
 		<p>✨ 1 mil + streams</p>
 	</div>
 	<div class="socials-list">
-		{#each socialPlatforms as platform}
+		{#each socialPlatforms as platform (platform.id)}
 			<a href={platform.link} target="_blank" style="background-color: {platform.color};">
 				<Fa icon={platform.icon} size="1.2x" color={platform.invertIcon ? '#FFFFFF' : '#000000'} />
 			</a>
@@ -118,7 +105,7 @@
 	</div>
 	{#if trackListType.value === 'list'}
 		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
-			{#each songs as song}
+			{#each songs() as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
 					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
@@ -133,7 +120,7 @@
 		</div>
 	{:else}
 		<div class="song-item-grid" in:blur={inOptions} out:blur={outOptions}>
-			{#each songs as song}
+			{#each songs() as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
 					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
@@ -150,13 +137,15 @@
 	<!-- Footer -->
 	<div class="flex w-full items-center justify-center py-2">
 		<p class="font-mono font-bold">
-			© {new Date().getFullYear()} &lt;elluzion /&gt;;
+			© {new Date().getFullYear()} &lt;elluzion/&gt;;
 			<a class="underline-offset-2 hover:underline" href="/tools">tools &gt;&gt;</a>
 		</p>
 	</div>
 </div>
 
 <style lang="postcss">
+	@reference '../app.css';
+
 	.about-card {
 		@apply flex flex-col gap-1 rounded-2xl p-5;
 
@@ -227,9 +216,5 @@
 
 	.song-item-text p {
 		@apply flex items-center font-medium;
-	}
-
-	.hover-scale {
-		@apply transition-transform duration-300 ease-out hover:scale-[98%];
 	}
 </style>

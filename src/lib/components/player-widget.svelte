@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$components/ui/button.svelte';
-	import Slider from '$components/ui/slider.svelte';
-	import { secondsToString } from '$lib/helpers/misc';
+	import Button from '#components/ui/button.svelte';
+	import Slider from '#components/ui/slider.svelte';
+	import { secondsToString } from '#lib/helpers/misc.js';
 	import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
@@ -74,12 +74,10 @@
 				max={duration}
 				step={1}
 				defaultValue={[0]}
-				onchange={(e) => (audioItem!!.currentTime = e)}
+				onchange={(e) => (audioItem!.currentTime = e)}
 				bind:value={currentTime}
 			/>
-			<span class="w-8 text-center text-sm font-bold text-secondary"
-				>{secondsToString(duration)}</span
-			>
+			<span class="w-8 text-center text-sm font-bold text-secondary">{secondsToString(duration)}</span>
 		</div>
 	{/if}
 </div>

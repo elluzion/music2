@@ -45,10 +45,7 @@
 
 <span use:melt={$root} {...rest} class="relative flex h-[20px] w-[200px] items-center {rest.class}">
 	<span class="h-1 w-full bg-onPrimary">
-		<span
-			use:melt={$range}
-			style="width: {(100 * value) / max}%;"
-			class="block h-1 w-full rounded-full bg-primary"
+		<span use:melt={$range} style="width: {(100 * value) / max}%;" class="block h-1 w-full rounded-full bg-primary"
 		></span>
 	</span>
 

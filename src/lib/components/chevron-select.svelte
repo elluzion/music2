@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { ChevronDown } from '@lucide/svelte';
 	import { createSelect, melt } from '@melt-ui/svelte';
-	import { ChevronDown } from 'lucide-svelte';
-	import type { Component } from 'svelte';
+	import { type Component } from 'svelte';
 
 	interface Props {
 		items: { label: string; value: any; icon?: Component }[];
@@ -13,16 +13,28 @@
 
 	let menuContainer = $state<HTMLUListElement>();
 
+	const getSelectedItem = () => items.find((item) => item.value === value) ?? items[0];
+
 	const {
 		elements: { trigger, menu, label, option },
 		states: { open, selected, selectedLabel }
-	} = createSelect();
+	} = createSelect({ defaultSelected: getSelectedItem() });
 
-	$selected = items.find((item) => item.value === value) || items[0];
+	$effect(() => {
+		const match = getSelectedItem();
+		if ($selected !== match) {
+			$selected = match;
+		}
+	});
 
-	selected.subscribe((newValue) => {
-		value = newValue?.value || undefined;
-		if (onchange) onchange(value);
+	$effect(() => {
+		return selected.subscribe((newValue) => {
+			// Ignore the empty value melt can emit before a selection exists, otherwise
+			// it would overwrite the persisted value with `undefined` on load.
+			if (!newValue) return;
+			value = newValue.value;
+			if (onchange) onchange(value);
+		});
 	});
 
 	open.subscribe((value) => {
@@ -37,7 +49,7 @@
 </script>
 
 <div use:melt={$trigger} class="flex cursor-pointer items-center gap-4 py-2 text-secondary">
-	<ChevronDown class="{$open ? 'rotate-180' : ''} transition-transform" />
+	<ChevronDown class={$open ? 'rotate-180 transition-transform' : 'transition-transform'} />
 	<span use:melt={$label} class="user-select-none font-medium">
 		{$selectedLabel || 'Nothing selected'}
 	</span>
@@ -46,7 +58,7 @@
 <ul
 	bind:this={menuContainer}
 	use:melt={$menu}
-	class={`flex -translate-y-4 flex-col gap-1 rounded-2xl bg-surface p-2 opacity-0 shadow-xl shadow-secondary/15 transition-all ease-out`}
+	class="flex -translate-y-4 flex-col gap-1 rounded-2xl bg-surface p-2 opacity-0 shadow-xl shadow-secondary/15 transition-all ease-out"
 >
 	{#if $open}
 		{#each items as item (item.value)}
@@ -55,7 +67,7 @@
 				use:melt={$option(item)}
 			>
 				{#if item.icon}
-					<svelte:component this={item.icon} />
+					<item.icon />
 				{/if}
 				<span class="font-medium">{item.label}</span>
 			</li>
@@ -64,6 +76,8 @@
 </ul>
 
 <style lang="postcss">
+	@reference '../../app.css';
+
 	li[aria-selected='true'] {
 		@apply bg-secondary/10;
 	}

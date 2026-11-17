@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$components/ui/button.svelte';
+	import Button from '#components/ui/button.svelte';
 	import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
@@ -43,12 +43,11 @@
 			40 /* Expand Button width */ +
 			24 /* PaddingLeft */ +
 			8 /* PaddingRight */ +
-			16 /* Gap */;
+			16; /* Gap */
 	}
 
 	function updateContentHeight() {
-		expandedHeight =
-			expandedContentHeight() /* Expanded Content */ + 8 /* PaddingBottom */ + 8; /* PaddingTop */
+		expandedHeight = expandedContentHeight() /* Expanded Content */ + 8 /* PaddingBottom */ + 8; /* PaddingTop */
 	}
 	//#endregion
 
@@ -102,10 +101,7 @@
 					{@render preview?.()}
 				</div>
 				<Button size="icon" class="z-10 flex items-center justify-center" onclick={toggleShow}>
-					<Fa
-						icon={faChevronUp}
-						class="transition-transform {isExpanded && 'rotate-180'} duration-300"
-					/>
+					<Fa icon={faChevronUp} class="transition-transform {isExpanded && 'rotate-180'} duration-300" />
 				</Button>
 			</div>
 		</div>
@@ -113,6 +109,8 @@
 </Overlay>
 
 <style lang="postcss">
+	@reference '../../app.css';
+
 	/* Info Sheet */
 
 	#infoSheetContainer {
@@ -135,7 +133,7 @@
 	}
 
 	#previewContent {
-		@apply grow select-none blur-0 transition-all duration-200;
+		@apply grow blur-none transition-all duration-200 select-none;
 
 		&.expanded {
 			@apply translate-y-5 opacity-0 blur-md;
@@ -143,7 +141,7 @@
 	}
 
 	#content {
-		@apply pointer-events-none absolute flex h-min select-none flex-col gap-2 p-4 transition-opacity duration-300;
+		@apply pointer-events-none absolute flex h-min flex-col gap-2 p-4 transition-opacity duration-300 select-none;
 		@apply w-[calc(100%-32px-16px)] xs:w-[calc(100%-48px-16px)] md:w-[calc(500px-16px)];
 
 		&.expanded {

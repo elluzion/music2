@@ -47,6 +47,8 @@
 </button>
 
 <style lang="postcss">
+	@reference '../../../app.css';
+
 	button {
 		@apply flex w-max items-center justify-center rounded-full;
 		@apply bg-primary px-2.5 py-1 text-xs font-medium text-onPrimary;

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import PlayerWidget from '$components/player-widget.svelte';
-	import Button from '$components/ui/button.svelte';
-	import { resolvePlatform } from '$lib/helpers/platforms';
-	import { joinList } from '$lib/helpers/text';
+	import { page } from '$app/state';
+	import PlayerWidget from '#components/player-widget.svelte';
+	import Button from '#components/ui/button.svelte';
+	import { resolvePlatform } from '#lib/helpers/platforms.js';
+	import { joinList } from '#lib/helpers/text.js';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import SongInfoSheet from './_components/song-info-sheet.svelte';
@@ -44,16 +44,14 @@
 	<meta name="description" content={metadata.description} />
 	<meta property="og:title" content={metadata.title} />
 	<meta property="og:type" content="music:song" />
-	<meta property="og:url" content={$page.url.pathname} />
+	<meta property="og:url" content={page.url.pathname} />
 	<meta property="og:image" content={metadata.image} />
 </svelte:head>
 
 {#if song}
 	<!-- Head -->
 	<div class="flex flex-col items-center gap-4 py-4 pb-[104px]">
-		<div
-			class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8"
-		>
+		<div class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8">
 			<img src={song.artUrl} alt={song.title} class="w-1/2 rounded-3xl" />
 			<div class="flex flex-col items-center gap-1 *:text-center">
 				<h2>{song.title}</h2>
@@ -66,7 +64,7 @@
 		{/if}
 		<!-- Links -->
 		<div class="flex w-full flex-col gap-2">
-			{#each streamLinks as link, i}
+			{#each streamLinks as link, i (link.id)}
 				<Button
 					variant="surface"
 					style="color: {link.color}"

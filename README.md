@@ -14,6 +14,17 @@ bun run dev --host
 bun run dev --open
 ```
 
+## Environment
+
+Create a `.env` file with the Supabase credentials:
+
+```bash
+PUBLIC_SUPABASE_URL=
+PUBLIC_SUPABASE_ANON_KEY=
+```
+
+Both are required for the build to succeed.
+
 ## Building
 
 To create a production version of your app:

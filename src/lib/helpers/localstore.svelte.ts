@@ -1,4 +1,4 @@
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 
 class StoredState<T> {
 	value = $state<T>() as T;
@@ -10,10 +10,18 @@ class StoredState<T> {
 
 		if (browser) {
 			const item = localStorage.getItem(key);
-			if (item) this.value = this.deserialize(item);
+			if (item) {
+				try {
+					this.value = this.deserialize(item);
+				} catch {
+					// Corrupt or legacy value (e.g. "undefined"), fall back to the default
+					localStorage.removeItem(key);
+				}
+			}
 		}
 
 		$effect(() => {
+			if (this.value === undefined) return;
 			localStorage.setItem(this.key, this.serialize(this.value));
 		});
 	}
