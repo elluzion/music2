@@ -53,14 +53,6 @@
 		}
 	];
 
-	// let trackListType = persist(
-	// 	writable('trackListType', 'list'),
-	// 	createLocalStorage(),
-	// 	'trackListType'
-	// );
-
-	let trackListType = storedState<string>('trackListType', 'list');
-
 	const trackListTypes: { label: string; value: string; icon: any }[] = [
 		{
 			label: 'List',
@@ -74,7 +66,9 @@
 		}
 	];
 
-	let songs = data.songs || [];
+	let trackListType = storedState<string>('trackListType', 'list');
+
+	let songs = $derived(() => data.songs || []);
 
 	const inOptions = { duration: 200, delay: 200, amount: 5 };
 	const outOptions = { duration: 200, amount: 5 };
@@ -111,7 +105,7 @@
 	</div>
 	{#if trackListType.value === 'list'}
 		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
-			{#each songs as song (song.id)}
+			{#each songs() as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
 					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">
@@ -126,7 +120,7 @@
 		</div>
 	{:else}
 		<div class="song-item-grid" in:blur={inOptions} out:blur={outOptions}>
-			{#each songs as song (song.id)}
+			{#each songs() as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
 					<img src={song.art_url} alt={song.title} />
 					<div class="song-item-text">

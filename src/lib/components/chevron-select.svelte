@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createSelect, melt } from '@melt-ui/svelte';
 	import { ChevronDown } from '@lucide/svelte';
-	import type { Component } from 'svelte';
+	import { createSelect, melt } from '@melt-ui/svelte';
+	import { type Component } from 'svelte';
 
 	interface Props {
 		items: { label: string; value: any; icon?: Component }[];
@@ -13,16 +13,28 @@
 
 	let menuContainer = $state<HTMLUListElement>();
 
+	const getSelectedItem = () => items.find((item) => item.value === value) ?? items[0];
+
 	const {
 		elements: { trigger, menu, label, option },
 		states: { open, selected, selectedLabel }
-	} = createSelect();
+	} = createSelect({ defaultSelected: getSelectedItem() });
 
-	$selected = items.find((item) => item.value === value) || items[0];
+	$effect(() => {
+		const match = getSelectedItem();
+		if ($selected !== match) {
+			$selected = match;
+		}
+	});
 
-	selected.subscribe((newValue) => {
-		value = newValue?.value || undefined;
-		if (onchange) onchange(value);
+	$effect(() => {
+		return selected.subscribe((newValue) => {
+			// Ignore the empty value melt can emit before a selection exists, otherwise
+			// it would overwrite the persisted value with `undefined` on load.
+			if (!newValue) return;
+			value = newValue.value;
+			if (onchange) onchange(value);
+		});
 	});
 
 	open.subscribe((value) => {
