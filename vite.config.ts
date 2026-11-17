@@ -10,7 +10,7 @@ export default defineConfig({
 		tailwindcss(),
 		sveltekit({
 			adapter: adapter(),
-			preprocess: sequence([vitePreprocess(), preprocessMeltUI()])
+			preprocess: sequence([vitePreprocess(), preprocessMeltUI({ svelteConfigPath: false })])
 		})
 	],
 	build: {
