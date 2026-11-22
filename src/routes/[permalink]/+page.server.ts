@@ -1,4 +1,4 @@
-import DatabaseHelper from '#lib/helpers/database.js';
+import { getSong } from '#lib/helpers/content.server.js';
 import { formatDate } from '#lib/helpers/date.js';
 import { improveSoundcloudArtwork } from '#lib/helpers/misc.js';
 import type { Song } from '#lib/types/song.js';
@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ params: { permalink } }) => {
 		return redirect(303, '/');
 	}
 
-	const song = await DatabaseHelper.getSong(permalink);
+	const song = getSong(permalink);
 
 	if (!song) {
 		return redirect(303, '/');

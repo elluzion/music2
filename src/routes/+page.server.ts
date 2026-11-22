@@ -1,18 +1,10 @@
-import DatabaseHelper from '#lib/helpers/database.js';
-import { improveSoundcloudArtwork } from '#lib/helpers/misc.js';
+import { getAllSongs, siteContent } from '#lib/helpers/content.server.js';
 import type { PageServerLoad } from './$types';
 
 export const load = (async () => {
-	const { data } = await DatabaseHelper.getAllSongs();
-
-	const songs = data?.map((song) => {
-		return {
-			...song,
-			art_url: improveSoundcloudArtwork(song.art_url, 't200x200')
-		};
-	});
-
 	return {
-		songs
+		songs: getAllSongs('t200x200'),
+		playlistUrl: siteContent.playlistUrl,
+		socials: siteContent.socials
 	};
 }) satisfies PageServerLoad;

@@ -14,16 +14,11 @@ bun run dev --host
 bun run dev --open
 ```
 
-## Environment
+## Content
 
-Create a `.env` file with the Supabase credentials:
-
-```bash
-PUBLIC_SUPABASE_URL=
-PUBLIC_SUPABASE_ANON_KEY=
-```
-
-Both are required for the build to succeed.
+All releases, streaming/download links and social profiles live in
+[`src/lib/data/content.yaml`](src/lib/data/content.yaml). Edit that file to
+update the site; no database or environment variables are required.
 
 ## Building
 

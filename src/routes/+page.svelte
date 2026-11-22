@@ -3,55 +3,76 @@
 	import Badge from '#components/ui/badge.svelte';
 	import { joinList } from '#helpers/text.js';
 	import { storedState } from '#lib/helpers/localstore.svelte.js';
-	import { faApple, faSoundcloud, faSpotify, faYoutube, type IconDefinition } from '@fortawesome/free-brands-svg-icons';
+	import type { SocialPlatform } from '#lib/types/content.js';
+	import {
+		faApple,
+		faInstagram,
+		faSoundcloud,
+		faSpotify,
+		faYoutube,
+		type IconDefinition
+	} from '@fortawesome/free-brands-svg-icons';
+	import { faMusic } from '@fortawesome/free-solid-svg-icons';
 	import { Grid, List, ListPlus } from '@lucide/svelte';
 	import Fa from 'svelte-fa';
 	import { blur } from 'svelte/transition';
 
 	let { data } = $props();
 
-	const spotifyPlaylist = 'https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66';
-	const socialPlatforms: {
-		id: string;
+	type SocialStyle = {
 		name: string;
-		link: string;
 		color: string;
 		icon: IconDefinition;
 		invertIcon: boolean;
-	}[] = [
-		{
-			id: 'spotify',
+	};
+
+	const socialStyles: Record<SocialPlatform, SocialStyle> = {
+		spotify: {
 			name: 'Spotify',
-			link: 'https://open.spotify.com/artist/4OgioomMSaD1ier3lIfgzr',
 			color: '#1DB954',
 			icon: faSpotify,
 			invertIcon: false
 		},
-		{
-			id: 'apple',
+		apple: {
 			name: 'Apple Music',
-			link: 'https://music.apple.com/us/artist/elluzion/563294588',
 			color: '#FFFFFF',
 			icon: faApple,
 			invertIcon: false
 		},
-		{
-			id: 'soundcloud',
+		soundcloud: {
 			name: 'Soundcloud',
-			link: 'https://soundcloud.com/elluzionmusic',
 			color: '#FF5500',
 			icon: faSoundcloud,
 			invertIcon: true
 		},
-		{
-			id: 'youtube',
+		youtube: {
 			name: 'Youtube',
-			link: 'https://youtube.com/@elluzion.',
 			color: '#FF0000',
 			icon: faYoutube,
 			invertIcon: true
+		},
+		instagram: {
+			name: 'Instagram',
+			color: '#E1306C',
+			icon: faInstagram,
+			invertIcon: true
 		}
-	];
+	};
+
+	const fallbackSocial: SocialStyle = {
+		name: 'Link',
+		color: '#888888',
+		icon: faMusic,
+		invertIcon: true
+	};
+
+	let socials = $derived(
+		data.socials.map((social) => ({
+			id: social.platform,
+			link: social.href,
+			...(socialStyles[social.platform] ?? fallbackSocial)
+		}))
+	);
 
 	const trackListTypes: { label: string; value: string; icon: any }[] = [
 		{
@@ -84,13 +105,13 @@
 		<p>✨ 1 mil + streams</p>
 	</div>
 	<div class="socials-list">
-		{#each socialPlatforms as platform (platform.id)}
+		{#each socials as platform (platform.id)}
 			<a href={platform.link} target="_blank" style="background-color: {platform.color};">
 				<Fa icon={platform.icon} size="1.2x" color={platform.invertIcon ? '#FFFFFF' : '#000000'} />
 			</a>
 		{/each}
 	</div>
-	<a class="playlist-banner" href={spotifyPlaylist} target="_blank">
+	<a class="playlist-banner" href={data.playlistUrl} target="_blank">
 		<ListPlus color="#1DB954" />
 		<p>
 			subscribe to my
@@ -107,7 +128,7 @@
 		<div class="song-item-list" in:blur={inOptions} out:blur={outOptions}>
 			{#each songs() as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
-					<img src={song.art_url} alt={song.title} />
+					<img src={song.artUrl} alt={song.title} />
 					<div class="song-item-text">
 						<h5>{song.title}</h5>
 						<p>
@@ -122,7 +143,7 @@
 		<div class="song-item-grid" in:blur={inOptions} out:blur={outOptions}>
 			{#each songs() as song (song.id)}
 				<a class="song-item" href="/{song.permalink}">
-					<img src={song.art_url} alt={song.title} />
+					<img src={song.artUrl} alt={song.title} />
 					<div class="song-item-text">
 						<h5>{song.title}</h5>
 						<p>
@@ -159,7 +180,7 @@
 	}
 
 	.socials-list {
-		@apply grid grid-cols-4 gap-3;
+		@apply grid grid-cols-5 gap-3;
 	}
 
 	.socials-list a {
