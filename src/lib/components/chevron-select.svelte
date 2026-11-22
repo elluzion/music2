@@ -11,14 +11,17 @@
 
 	let { items, value = $bindable(), onchange }: Props = $props();
 
-	let menuContainer = $state<HTMLUListElement>();
-
 	const getSelectedItem = () => items.find((item) => item.value === value) ?? items[0];
 
 	const {
 		elements: { trigger, menu, label, option },
 		states: { open, selected, selectedLabel }
-	} = createSelect({ defaultSelected: getSelectedItem() });
+	} = createSelect({
+		defaultSelected: getSelectedItem(),
+		preventScroll: false,
+		forceVisible: true,
+		portal: null
+	});
 
 	$effect(() => {
 		const match = getSelectedItem();
@@ -36,16 +39,6 @@
 			if (onchange) onchange(value);
 		});
 	});
-
-	open.subscribe((value) => {
-		if (value && menuContainer) {
-			setTimeout(() => {
-				if (!menuContainer) return;
-				menuContainer.style.opacity = '100%';
-				menuContainer.style.transform = 'translateY(0px)';
-			});
-		}
-	});
 </script>
 
 <div use:melt={$trigger} class="flex cursor-pointer items-center gap-4 py-2 text-secondary">
@@ -56,23 +49,24 @@
 </div>
 
 <ul
-	bind:this={menuContainer}
 	use:melt={$menu}
-	class="flex -translate-y-4 flex-col gap-1 rounded-2xl bg-surface p-2 opacity-0 shadow-xl shadow-secondary/15 transition-all ease-out"
+	aria-hidden={!$open}
+	class="absolute flex flex-col gap-1 rounded-2xl bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-150 ease-out"
+	class:pointer-events-none={!$open}
+	class:opacity-0={!$open}
+	class:-translate-y-2={!$open}
 >
-	{#if $open}
-		{#each items as item (item.value)}
-			<li
-				class="flex items-center gap-4 rounded-md px-4 py-2 transition-colors duration-200 hover:cursor-pointer hover:bg-secondary/10"
-				use:melt={$option(item)}
-			>
-				{#if item.icon}
-					<item.icon />
-				{/if}
-				<span class="font-medium">{item.label}</span>
-			</li>
-		{/each}
-	{/if}
+	{#each items as item (item.value)}
+		<li
+			class="flex items-center gap-4 rounded-md px-4 py-2 transition-colors duration-200 hover:cursor-pointer hover:bg-secondary/10"
+			use:melt={$option(item)}
+		>
+			{#if item.icon}
+				<item.icon />
+			{/if}
+			<span class="font-medium">{item.label}</span>
+		</li>
+	{/each}
 </ul>
 
 <style lang="postcss">
