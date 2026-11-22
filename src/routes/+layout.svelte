@@ -2,6 +2,7 @@
 	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import BackButton from '#components/back-button.svelte';
+	import ThemeToggle from '#components/theme-toggle.svelte';
 	import Lenis from 'lenis';
 	import { onMount } from 'svelte';
 	import '../app.css';
@@ -45,13 +46,34 @@
 {/if}
 <div id="pageWrapper">
 	<slot></slot>
+	<footer id="siteFooter">
+		<p class="footer-text">
+			<span>© {new Date().getFullYear()} &lt;elluzion/&gt;;</span>
+			<ThemeToggle />
+			{#if page.url.pathname !== '/tools'}
+				<a class="underline-offset-2 hover:underline" href="/tools">tools &gt;&gt;</a>
+			{/if}
+		</p>
+	</footer>
 </div>
 
 <style lang="postcss">
 	@reference '../app.css';
 
 	#pageWrapper {
-		@apply min-h-dvh w-full px-4;
+		@apply flex min-h-dvh w-full flex-col px-4;
+	}
+
+	#siteFooter {
+		@apply mt-auto flex w-full items-center justify-center py-5;
+	}
+
+	:global(body.has-info-sheet) #siteFooter {
+		@apply mb-[88px];
+	}
+
+	.footer-text {
+		@apply flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-xs font-bold text-secondary;
 	}
 
 	@media (min-width: 600px) {

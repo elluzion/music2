@@ -51,7 +51,7 @@
 <ul
 	use:melt={$menu}
 	aria-hidden={!$open}
-	class="absolute flex flex-col gap-1 rounded-2xl bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-150 ease-out"
+	class="absolute flex flex-col gap-1 rounded-2xl bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-150 ease-out dark:shadow-black/50"
 	class:pointer-events-none={!$open}
 	class:opacity-0={!$open}
 	class:-translate-y-2={!$open}

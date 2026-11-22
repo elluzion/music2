@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '#components/ui/button.svelte';
 	import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import Overlay from './overlay.svelte';
 	interface Props {
@@ -53,6 +53,8 @@
 
 	//#region Hook
 	onMount(() => {
+		// Reserve space below the footer so the floating sheet never covers it.
+		document.body.classList.add('has-info-sheet');
 		updatePreviewWidth();
 
 		// Update content height on resize
@@ -60,6 +62,11 @@
 
 		// If component has been mounted, fade the container in
 		isMounted = true;
+	});
+
+	onDestroy(() => {
+		if (typeof document === 'undefined') return;
+		document.body.classList.remove('has-info-sheet');
 	});
 	//#endregion
 </script>
@@ -117,7 +124,7 @@
 		@apply pointer-events-none fixed inset-0 z-40 flex h-dvh w-full items-end justify-center overflow-hidden p-4 transition-opacity delay-200 xs:p-6;
 	}
 	#infoSheet {
-		@apply pointer-events-auto flex h-14 items-end overflow-hidden rounded-[28px] bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-300;
+		@apply pointer-events-auto flex h-14 items-end overflow-hidden rounded-[28px] bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-300 dark:shadow-black/50;
 
 		&.expanded {
 			@apply w-full md:w-[500px];

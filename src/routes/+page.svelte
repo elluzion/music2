@@ -98,7 +98,7 @@
 <div class="page-wrapper">
 	<!-- Header -->
 	<div class="flex flex-col justify-end">
-		<img src="/elluzion-textlogo.svg" class="mb-2" alt="elluzion logo" width="130" />
+		<span class="logo mb-2" role="img" aria-label="elluzion logo"></span>
 	</div>
 	<div class="about-card">
 		<p>🎹 producer/beatmaker</p>
@@ -154,14 +154,6 @@
 			{/each}
 		</div>
 	{/if}
-
-	<!-- Footer -->
-	<div class="flex w-full items-center justify-center py-2">
-		<p class="font-mono font-bold">
-			© {new Date().getFullYear()} &lt;elluzion/&gt;;
-			<a class="underline-offset-2 hover:underline" href="/tools">tools &gt;&gt;</a>
-		</p>
-	</div>
 </div>
 
 <style lang="postcss">
@@ -176,7 +168,13 @@
 	}
 
 	.about-card p {
-		@apply text-sm font-semibold text-onBackground;
+		@apply text-sm font-semibold text-[#2e2e33];
+	}
+
+	.logo {
+		@apply block h-[30px] w-[127px] bg-onBackground;
+		-webkit-mask: url('/elluzion-textlogo.svg') center / contain no-repeat;
+		mask: url('/elluzion-textlogo.svg') center / contain no-repeat;
 	}
 
 	.socials-list {
@@ -194,7 +192,7 @@
 	}
 
 	.playlist-banner p {
-		@apply text-sm font-semibold text-background ease-out;
+		@apply text-sm font-semibold text-[#f6f4f3] ease-out;
 	}
 
 	.song-item-list {
