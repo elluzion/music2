@@ -13,6 +13,50 @@ socials:
   - platform: instagram
     href: https://instagram.com/elluzion.music
 releases:
+  - id: 65
+    title: Training Season (Elluzion Remix)
+    permalink: training-season-remix
+    description: null
+    genre: Trap
+    releaseDate: 2026-10-16
+    label: null
+    tempo: null
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-W2XCDlCccelqFzLc-thyZPg-large.jpg
+    type: Remix
+    artists:
+      - Dua Lipa
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/training-season-remix
+      - https://youtu.be/ZK5b3dguyvg
+    downloads: []
+  - id: 64
+    title: Live It Up
+    permalink: live-it-up
+    description: null
+    genre: Future Bounce
+    releaseDate: 2026-05-22
+    label: The Cave
+    tempo: null
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-2SUWMfypnnmJExBn-QtU5Rw-large.png
+    type: Original
+    artists:
+      - 3noxh
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/3noxh/live-it-up
+      - https://www.deezer.com/album/993434241
+      - https://open.spotify.com/album/7lIrSElaCaoKFFy68Re4VF
+      - https://youtu.be/iSrQKt0rlrY
+      - https://music.apple.com/de/album/live-it-up-single/6774446785
+      - https://music.amazon.com/albums/B0H37XQQXS?trackAsin=B0H37T7LDX
+      - https://listen.tidal.com/track/528794174
+    downloads: []
   - id: 62
     title: TELL ME HOW YOU FEEL
     permalink: tell-me-how-you-feel
