@@ -21,7 +21,7 @@ releases:
     releaseDate: 2026-10-16
     label: null
     tempo: null
-    key: null
+    key: E♭ minor
     artUrl: https://i1.sndcdn.com/artworks-W2XCDlCccelqFzLc-thyZPg-large.jpg
     type: Remix
     artists:
@@ -39,7 +39,7 @@ releases:
     genre: Future Bounce
     releaseDate: 2026-05-22
     label: The Cave
-    tempo: null
+    tempo: 128
     key: null
     artUrl: https://i1.sndcdn.com/artworks-2SUWMfypnnmJExBn-QtU5Rw-large.png
     type: Original
@@ -83,7 +83,7 @@ releases:
     title: I NEED U
     permalink: i-need-u
     description: null
-    genre: INVOID
+    genre: Trap
     releaseDate: 2026-01-09
     label: invoid
     tempo: 150
