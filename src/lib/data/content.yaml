@@ -1,0 +1,616 @@
+# Site content. This file is the single source of truth for releases,
+# streaming/download links and social profiles.
+playlistUrl: https://open.spotify.com/playlist/4TTTfqmLosnucIxEsN8hMY?si=f4cac862e9724a66
+socials:
+  - platform: spotify
+    href: https://open.spotify.com/artist/4OgioomMSaD1ier3lIfgzr
+  - platform: apple
+    href: https://music.apple.com/us/artist/elluzion/563294588
+  - platform: soundcloud
+    href: https://soundcloud.com/elluzionmusic
+  - platform: youtube
+    href: https://youtube.com/@elluzion.
+  - platform: instagram
+    href: https://instagram.com/elluzion.music
+releases:
+  - id: 65
+    title: Training Season (Elluzion Remix)
+    permalink: training-season-remix
+    description: null
+    genre: Trap
+    releaseDate: 2026-10-16
+    label: null
+    tempo: null
+    key: E♭ minor
+    artUrl: https://i1.sndcdn.com/artworks-W2XCDlCccelqFzLc-thyZPg-large.jpg
+    type: Remix
+    artists:
+      - Dua Lipa
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/training-season-remix
+      - https://youtu.be/ZK5b3dguyvg
+    downloads: []
+  - id: 64
+    title: Live It Up
+    permalink: live-it-up
+    description: null
+    genre: Future Bounce
+    releaseDate: 2026-05-22
+    label: The Cave
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-2SUWMfypnnmJExBn-QtU5Rw-large.png
+    type: Original
+    artists:
+      - 3noxh
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/3noxh/live-it-up
+      - https://www.deezer.com/album/993434241
+      - https://open.spotify.com/album/7lIrSElaCaoKFFy68Re4VF
+      - https://youtu.be/iSrQKt0rlrY
+      - https://music.apple.com/de/album/live-it-up-single/6774446785
+      - https://music.amazon.com/albums/B0H37XQQXS?trackAsin=B0H37T7LDX
+      - https://listen.tidal.com/track/528794174
+    downloads: []
+  - id: 62
+    title: TELL ME HOW YOU FEEL
+    permalink: tell-me-how-you-feel
+    description: null
+    genre: Future Bounce
+    releaseDate: 2026-02-06
+    label: null
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-j89jyUzKAVqw4Npp-doFauQ-t1080x1080.png
+    type: null
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/tell-me-how-you-feel
+      - https://youtu.be/0hvHgFZRf38?si=KVTXW6nwxCvu16BM
+      - https://open.spotify.com/album/2YGx13SrIpR6DrhhJ8YLix?si=CWEJBmjYTxyUl_REnoqt0w
+      - https://music.apple.com/de/album/tell-me-how-you-feel-single/1868546507
+      - https://music.amazon.de/albums/B0GGGKJW4L?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_rUolKFhsQZ1tL5WT4bXz3vx26
+    downloads: []
+  - id: 60
+    title: I NEED U
+    permalink: i-need-u
+    description: null
+    genre: Trap
+    releaseDate: 2026-01-09
+    label: invoid
+    tempo: 150
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-EoIJrF936UpnmjZ5-n2W3QQ-t500x500.png
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: false
+    streamLinks:
+      - https://on.soundcloud.com/oKE94JFWphg43Rp1C4
+      - https://youtu.be/Z0Eu8BEevNk?si=Cvn8IZTKX3zTQyU6
+      - https://music.apple.com/de/album/1866386630?app=music&at=1l3vpUI&ct=LFV_cf3806f5901dd5989bb1c8c67d4680e8&itscg=30440&itsct=catchall_p1&lId=214984038&cId=none&sr=1&src=Linkfire&ls=1
+      - https://open.spotify.com/album/00JekPp1QLVwRRpI2okoXw?go=1
+    downloads: []
+  - id: 58
+    title: U DON'T WANT ME
+    permalink: u-dont-want-me
+    description: null
+    genre: Dance & EDM
+    releaseDate: 2025-05-09
+    label: MNTN Records
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-6fn9MRPp7pZiceJS-gfLHbg-large.jpg
+    type: null
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/mntnrecords/elluzion-u-dont-want-me
+      - https://www.deezer.com/track/3324369471
+      - https://open.spotify.com/track/16fGjH8BYVzvY5ZTr8tM3o
+      - https://youtube.com/watch?v=awxLgbgu-YM
+      - https://music.apple.com/de/album/u-dont-want-me/1808702082?i=1808702084
+      - https://tidal.com/album/430066517/track/430066519
+      - https://music.amazon.com/albums/B0F4RQMDCC?trackAsin=B0F4RTK48M&do=play&ref=dm_ff_amazonmusic.3p&tag=featurefm-20
+    downloads: []
+  - id: 57
+    title: STRONGER
+    permalink: stronger
+    description: null
+    genre: Bass House
+    releaseDate: 2025-02-28
+    label: null
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-wGDyGraK7y2IiudH-gbEBhg-large.png
+    type: Original
+    artists:
+      - elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/stronger
+      - https://www.deezer.com/track/3209145431
+      - https://open.spotify.com/track/6zWXEKL9Mg9gT3CWzBlbjm
+      - https://youtube.com/watch?v=eFG1RucZsuc
+    downloads: []
+  - id: 56
+    title: SHADOW
+    permalink: shadow
+    description: null
+    genre: Dance & EDM
+    releaseDate: 2025-02-14
+    label: null
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-yYqwjCvknD3Lgc58-2z78Vg-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/shadow
+      - https://www.deezer.com/track/3181452261
+      - https://open.spotify.com/track/6mrQVPQohYLKD9J4MaZfFl
+      - https://youtube.com/watch?v=wzklJLkSmwc
+      - https://music.apple.com/us/album/shadow-single/1790426464
+    downloads: []
+  - id: 55
+    title: Count The Stars
+    permalink: count-the-stars
+    description: null
+    genre: Future Bounce
+    releaseDate: 2025-01-31
+    label: null
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-XYTUm8zZ3SL86AZe-kkQTpQ-large.png
+    type: Original
+    artists:
+      - PierZ
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://on.soundcloud.com/MGuq1H5JsMsk7J3CA
+      - https://www.deezer.com/track/3169968981
+      - https://open.spotify.com/track/003JAp4ChEGFmL0mYyzsbL
+      - https://youtube.com/watch?v=FL5Yu3v99Mg
+      - https://music.apple.com/gh/album/count-the-stars-single/1788853733
+    downloads: []
+  - id: 54
+    title: stayinit (elluzion remix)
+    permalink: stayinit-remix
+    description: null
+    genre: Trap
+    releaseDate: 2024-12-14
+    label: null
+    tempo: 142
+    key: E minor
+    artUrl: https://i1.sndcdn.com/artworks-5oV6XKuEWyWoT2qT-1UIUGg-large.jpg
+    type: Remix
+    artists:
+      - fred again..
+      - Lil Yachty
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/stayinit-remix?si=264ff0e747024074a1c492d7dff8f463&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+    downloads: []
+  - id: 53
+    title: Wilderness
+    permalink: wilderness
+    description: null
+    genre: Trap
+    releaseDate: 2024-08-02
+    label: null
+    tempo: 172
+    key: C minor
+    artUrl: https://i1.sndcdn.com/artworks-6XPm38vfiiZoLbKd-M5yw1w-t500x500.jpg
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: /tracks/wilderness.mp3
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/wilderness
+      - https://youtu.be/T3Rb6et_kzY
+      - https://www.deezer.com/en/album/614998842
+      - https://music.apple.com/us/album/wilderness-single/1757099259
+      - https://open.spotify.com/track/2CmlYNzoXIRi2tgygTvrIY
+    downloads: []
+  - id: 51
+    title: I Still Love You
+    permalink: i-still-love-you
+    description: null
+    genre: Future Bounce
+    releaseDate: 2024-07-19
+    label: null
+    tempo: 126
+    key: F minor
+    artUrl: https://i1.sndcdn.com/artworks-rT4Y8cGIQwXDlJZL-iDQA9g-t500x500.jpg
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: /tracks/i-still-love-you.mp3
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://youtu.be/M33o7BJLr1s
+      - https://soundcloud.com/elluzionmusic/i-still-love-you
+      - https://open.spotify.com/intl-de/track/1Ku79lA5wWUWQZkJ0hOGiO?si=ad61f5fe14d34247
+      - https://www.deezer.com/de/album/615175262
+      - https://music.apple.com/us/album/i-still-love-you-single/1757255545
+    downloads:
+      - url: https://drive.google.com/file/d/11lQe_tbpGWj9Nan_j5id7pm6-vZyd--j/view?usp=drivesdk
+        edit: Regular
+        format: wav
+      - url: https://drive.google.com/file/d/11nfYFGvUOk9sMghc-668Crm8jES_fic3/view?usp=drivesdk
+        edit: Extended
+        format: wav
+      - url: https://drive.google.com/file/d/1bsKiVQ7dK9yR8_M7b3hz-nFGF8GNVV9e/view?usp=sharing
+        edit: Instrumental - Extended
+        format: wav
+  - id: 47
+    title: Sing For You (Elluzion Flip)
+    permalink: sing-for-you-flip
+    description: null
+    genre: Future Bounce
+    releaseDate: 2024-06-08
+    label: null
+    tempo: 128
+    key: null
+    artUrl: https://i1.sndcdn.com/artworks-fk9M9ir5iyy4X9v8-EtRHPw-large.jpg
+    type: Remix
+    artists:
+      - Dirty Palm
+    audioUrl: /tracks/sing-for-you-flip.mp3
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionlite/sing-for-you-edit
+    downloads: []
+  - id: 21
+    title: Hands On You (Elluzion Remix)
+    permalink: hands-on-you-remix
+    description: this track really got me when i first heard it! tons of instant inspiration lead me to making this one, and i am pretty happy with the result!
+    genre: Future Bass
+    releaseDate: 2024-06-07
+    label: null
+    tempo: 145
+    key: C# Minor
+    artUrl: https://i1.sndcdn.com/artworks-CurIgfeJ19K2AF9m-9CbvWw-large.jpg
+    type: Remix
+    artists:
+      - Adi
+    audioUrl: /tracks/hands-on-you-remix.mp3
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/hands-on-you-remix
+      - https://www.youtube.com/watch?v=067FX9D0fd8
+    downloads: []
+  - id: 16
+    title: 2GETHER (VIP)
+    permalink: 2gether-vip
+    description: This is one of the earlier, scrapped versions I made for this track, but i still want to share it with y'all.
+    genre: Melodic Riddim
+    releaseDate: 2024-04-01
+    label: null
+    tempo: 155
+    key: Microtonal
+    artUrl: https://i1.sndcdn.com/artworks-wyzoZ8zOWqBBRnmm-Gzdahg-large.jpg
+    type: VIP
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/2gether-vip
+    downloads:
+      - url: https://drive.google.com/file/d/1eGouL910rGBWD9PwhZI1SP3zT3lTXUaW/view?usp=drive_link
+        edit: VIP
+        format: wav
+  - id: 7
+    title: 2GETHER
+    permalink: 2gether
+    description: Here is my (winning) entry for the cymatics contest.
+    genre: Drum & Bass
+    releaseDate: 2024-02-24
+    label: null
+    tempo: 158
+    key: B♭ minor
+    artUrl: https://i1.sndcdn.com/artworks-VFYfBJJj35Rp3ALK-eobM0g-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://youtube.com/watch?v=TH1UnNf09CU
+      - https://soundcloud.com/elluzionmusic/2gether
+      - https://open.spotify.com/track/6NqVcoknl5BPPo2jdXWiPe
+      - https://music.apple.com/de/album/2gether-single/1741028650
+      - https://tidal.com/browse/track/356935937
+      - https://music.amazon.de/albums/B0D1KP21CD
+      - https://www.deezer.com/track/2748462291
+    downloads:
+      - url: https://drive.google.com/file/d/1Nn7hRiKWpXrBrI4PoP8OfHKSQTQx8T4e/view?usp=drive_link
+        edit: Regular
+        format: mp3
+      - url: https://drive.google.com/file/d/1pWblCK1Od4xIDkP6cLgpisax9nInj_fk/view?usp=drive_link
+        edit: Regular
+        format: wav
+  - id: 8
+    title: Dreaming (Where You've Gone)
+    permalink: dreaming
+    description: '"Where You''ve Gone" is a Future Bounce gem that blends dreamy synths with melancholic vocals. The lyrics paint a picture of lost love, questioning fate and yearning for reconnection.'
+    genre: Future Bounce
+    releaseDate: 2024-02-23
+    label: MNTN Records
+    tempo: 128
+    key: A♭ Minor
+    artUrl: https://i1.sndcdn.com/artworks-1k8FNbttmYBV5zNp-vC8vWQ-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+      - Alvin Mo
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/mntnrecords/elluzion-alvin-mo-dreaming-where-youve-gone
+      - https://open.spotify.com/intl-de/track/632LIlIJglMpBaQ0MfgsSS
+      - https://music.apple.com/de/album/dreaming-where-youve-gone/1729701988?i=1729702045
+      - https://tidal.com/browse/track/344057715
+      - https://www.youtube.com/watch?v=uloSRj1GXww
+      - https://music.amazon.com/albums/B0CV4D5GHG?trackAsin=B0CV4DXXQQ&do=play&ref=dm_ff_featurefm&tag=featurefm-20
+      - https://www.pandora.com/artist/elluzion-and-alvin-mo/dreaming-where-youve-gone/dreaming-where-youve-gone/TRgqptwbmhZdnk4
+      - https://www.deezer.com/en/album/544568172
+    downloads: []
+  - id: 14
+    title: Enemy (Elluzion Remix)
+    permalink: enemy-remix
+    description: I would call this my greedy remix v2, as I made this track after the first one repeatedly got removed from SoundCloud.
+    genre: Future Bass
+    releaseDate: 2024-02-08
+    label: null
+    tempo: 150
+    key: E minor
+    artUrl: https://i1.sndcdn.com/artworks-QEiwgUrki5pzUugu-EA8asA-large.jpg
+    type: Remix
+    artists:
+      - Bishu
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/enemy-remix
+      - https://www.youtube.com/watch?v=PESkgBszVZk
+    downloads:
+      - url: https://drive.google.com/file/d/1lsINetS4Mu2LFbJwQdwmNCA5wH_pyUa-/view?usp=drive_link
+        edit: Regular
+        format: wav
+  - id: 19
+    title: greedy (Elluzion Remix)
+    permalink: greedy-remix
+    description: Reupload of my remix of greedy!
+    genre: Future Bass
+    releaseDate: 2024-01-28
+    label: null
+    tempo: 146
+    key: F# minor
+    artUrl: https://i1.sndcdn.com/artworks-NLzrOjIrtZGhnXn7-57iVPg-large.jpg
+    type: Remix
+    artists:
+      - Tate McRae
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/greedy-remix-2?si=42e5155d53604a90bef4bfcb4ade03d7&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+      - https://www.youtube.com/watch?v=ujrkmxxeADw
+    downloads:
+      - url: https://drive.google.com/file/d/1iTa7qwzNta_ZvmhDPc1TOmqlvCXuzKzk/view?usp=sharing
+        edit: Remix
+        format: wav
+      - url: https://drive.google.com/file/d/13_c6EvGgZS0731NVJQxFSwsPUuy1oy-_/view?usp=drive_link
+        edit: Without Vocals
+        format: wav
+  - id: 10
+    title: WHERE2GO (Elluzion Flip)
+    permalink: where2go-flip
+    description: quick n dirty flip of WINK's absolute banger song
+    genre: Bass House
+    releaseDate: 2023-11-19
+    label: null
+    tempo: 131.75
+    key: C Minor
+    artUrl: https://i1.sndcdn.com/artworks-DJaDXPR1JLL1yoaU-lRBqyg-large.jpg
+    type: Remix
+    artists:
+      - WINK
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionlite/wink-where2go-elluzion-flip
+      - https://youtube.com/watch?v=j59765NsO2g
+    downloads:
+      - url: https://drive.google.com/file/d/1D4I3flZLwN8x6XBJ588T5bNRoo-9wesf/view?usp=sharing
+        edit: 128 BPM
+        format: wav
+      - url: https://drive.google.com/file/d/1hMCOhU3sSftK5GJZS61ixR6O8z0oEGUm/view?usp=drivesdk
+        edit: 131.75 BPM
+        format: wav
+  - id: 9
+    title: My Eyes
+    permalink: my-eyes
+    description: me and bayze are very proud to finally release the reworked version of an old ID of ours. hope you enjoy!
+    genre: Future Bounce
+    releaseDate: 2023-10-08
+    label: null
+    tempo: 128
+    key: G minor
+    artUrl: https://i1.sndcdn.com/artworks-a3szdTPwKFPpKBx5-3zfIYQ-large.jpg
+    type: Original
+    artists:
+      - Bayze
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://open.spotify.com/track/0Or9LWfhdOEikn3EYjCvmf
+      - https://youtube.com/watch?v=XKNYuhGjTbw
+      - https://soundcloud.com/elluzionmusic/bayze-elluzion-my-eyes
+    downloads: []
+  - id: 12
+    title: You Wanna Be
+    permalink: you-wanna-be
+    description: My long-anticipated Bass House collab with Uverlaw!
+    genre: Bass House
+    releaseDate: 2023-05-12
+    label: Red Ocean Records
+    tempo: 128
+    key: D major
+    artUrl: https://i1.sndcdn.com/artworks-EL0dP4FPPEyhB1vL-ulUKUQ-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+      - Uverlaw
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://open.spotify.com/track/4MxWVbs3e7pRZL4wcyNsSt
+      - https://soundcloud.com/redoceanmusic/elluzion-uverlaw-you-wanna-be
+      - https://music.amazon.com/albums/B0C284BZW1
+      - https://www.deezer.com/track/2235496907
+      - https://music.apple.com/us/album/you-wanna-be-single/1684650929
+      - https://youtube.com/watch?v=1bkfZuP8wd8&si=tX7vSMaDJchQxacr
+    downloads: []
+  - id: 13
+    title: Ghost Town
+    permalink: ghost-town
+    description: '"Ghost Town" is the highly anticipated collab between Elluzion and LeVant, creating an emotional future bounce anthem with a powerful bassline and memorable melody.'
+    genre: Future Bounce
+    releaseDate: 2023-05-05
+    label: Futurized
+    tempo: 128
+    key: B minor
+    artUrl: https://i1.sndcdn.com/artworks-RDQRNkXzm9rV9gZE-W4mCfw-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+      - LeVant
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://open.spotify.com/track/4JFnBZcrFSRPe6CweqKceU
+      - https://soundcloud.com/futurizedrecords/fut061
+      - https://music.apple.com/us/album/ghost-town-single/1685243909
+      - https://music.youtube.com/watch?v=wcLpvC_bvUk
+      - https://www.amazon.de/music/player/albums/B0C3WHGWJS
+      - https://www.deezer.com/track/2259237677
+      - https://tidal.com/browse/album/292606740
+    downloads: []
+  - id: 15
+    title: Bring Me Down
+    permalink: bring-me-down
+    description: Elluzion & Ezsto are bringing a long awaited massive future bounce banger with an insane melody 🔥🙏
+    genre: Future Bounce
+    releaseDate: 2023-04-07
+    label: MNTN Records
+    tempo: 128
+    key: F# major
+    artUrl: https://i1.sndcdn.com/artworks-yLm4CzJPBfH893OO-h2CyLQ-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+      - Ezsto
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/mntnrecords/elluzion-ezsto-bring-me-down
+      - https://open.spotify.com/track/5Zn20UBl4GVQKVr0tNzuZX
+      - https://music.apple.com/us/album/bring-me-down-single/1680492007
+      - https://music.amazon.de/albums/B0C1CBWDPS
+      - https://www.deezer.com/track/2220679227
+      - https://listen.tidal.com/album/286961119/
+      - https://youtube.com/watch?v=omXRWY5_yoc
+    downloads: []
+  - id: 17
+    title: Words (Elluzion Remix)
+    permalink: words-remix
+    description: tried to imagine what this track sounded like if brooks made it
+    genre: Future Bounce
+    releaseDate: 2023-03-26
+    label: null
+    tempo: 128
+    key: B♭ minor
+    artUrl: https://i1.sndcdn.com/artworks-UvzDGmsZpZ2LjtlU-85S1aw-large.jpg
+    type: Remix
+    artists:
+      - Alesso
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/elluzionmusic/words-remix
+      - https://youtube.com/watch?v=pCzeJoRR6jA
+    downloads:
+      - url: https://drive.google.com/file/d/1NJ_Y11kcxYx982MNVVM3lOWK37jMlwUV/view?usp=drive_link
+        edit: Extended Mix
+        format: wav
+  - id: 18
+    title: Into The Unknown
+    permalink: into-the-unknown
+    description: My track on the Futurized x MNTN ADE 2022 sampler!
+    genre: Future Room
+    releaseDate: 2022-10-24
+    label: Futurized Records
+    tempo: 128
+    key: A♭ Major
+    artUrl: https://i1.sndcdn.com/artworks-D6w8vLyz7zgWvCQk-DZRjEQ-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://soundcloud.com/futurizedrecords/intotheunknown
+      - https://open.spotify.com/track/0SVetYKCwW1o96dSZePaBy
+      - https://music.apple.com/us/album/into-the-unknown-single/1651429579
+      - https://www.deezer.com/track/1971359957
+      - https://listen.tidal.com/album/333639220/track/333639222
+      - https://www.amazon.de/music/player/albums/B0CPQ8BBZR
+      - https://youtube.com/watch?v=Pis5vboCOLk
+    downloads: []
+  - id: 11
+    title: High
+    permalink: high
+    description: '"High" is finally OUT NOW on every platform via MNTN Records!'
+    genre: Future Bounce
+    releaseDate: 2022-07-01
+    label: MNTN Records
+    tempo: 128
+    key: A minor
+    artUrl: https://i1.sndcdn.com/artworks-ZK9hgBjXpBLA2C17-TvNBNA-large.jpg
+    type: Original
+    artists:
+      - Elluzion
+    audioUrl: null
+    hiddenBeforeRelease: true
+    streamLinks:
+      - https://youtube.com/watch?v=q-I_txPe7ss
+      - https://open.spotify.com/track/34akWRhbtG4YzZSd6InwkN
+      - https://soundcloud.com/mntnrecords/elluzion-high
+      - https://music.apple.com/en/song/high-extended-mix/1630460436
+      - https://music.amazon.de/albums/B0B4G28W2Q
+      - https://tidal.com/browse/track/234211434
+    downloads: []
