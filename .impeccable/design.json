@@ -1,0 +1,568 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-11-24T00:00:00.000Z",
+	"title": "Design System: Elluzion",
+	"extensions": {
+		"colorMeta": {
+			"primary": {
+				"role": "primary",
+				"displayName": "Dusty Rose Label",
+				"canonical": "#976567",
+				"tonalRamp": [
+					"oklch(22% 0.032 17)",
+					"oklch(32% 0.044 17)",
+					"oklch(42% 0.055 17)",
+					"oklch(52% 0.063 17)",
+					"oklch(58% 0.065 17)",
+					"oklch(70% 0.054 17)",
+					"oklch(82% 0.036 17)",
+					"oklch(94% 0.016 17)"
+				]
+			},
+			"primary-dark": {
+				"role": "primary",
+				"displayName": "Rose Quartz",
+				"canonical": "#c19396",
+				"tonalRamp": [
+					"oklch(18% 0.028 15)",
+					"oklch(30% 0.04 15)",
+					"oklch(44% 0.052 15)",
+					"oklch(58% 0.06 15)",
+					"oklch(70% 0.058 15)",
+					"oklch(76% 0.05 15)",
+					"oklch(86% 0.034 15)",
+					"oklch(95% 0.014 15)"
+				]
+			},
+			"secondary": {
+				"role": "secondary",
+				"displayName": "Warm Ash",
+				"canonical": "#907c7c",
+				"tonalRamp": [
+					"oklch(22% 0.008 10)",
+					"oklch(32% 0.012 10)",
+					"oklch(42% 0.015 10)",
+					"oklch(52% 0.018 10)",
+					"oklch(58% 0.02 10)",
+					"oklch(70% 0.016 10)",
+					"oklch(82% 0.011 10)",
+					"oklch(94% 0.006 10)"
+				]
+			},
+			"background": {
+				"role": "neutral",
+				"displayName": "Paper",
+				"canonical": "#f6f4f3",
+				"tonalRamp": [
+					"oklch(20% 0.004 60)",
+					"oklch(32% 0.005 60)",
+					"oklch(46% 0.006 60)",
+					"oklch(60% 0.006 60)",
+					"oklch(72% 0.006 60)",
+					"oklch(84% 0.005 60)",
+					"oklch(91% 0.004 60)",
+					"oklch(96.5% 0.003 60)"
+				]
+			},
+			"surface": {
+				"role": "neutral",
+				"displayName": "White Surface",
+				"canonical": "#ffffff",
+				"tonalRamp": [
+					"oklch(18% 0.002 280)",
+					"oklch(30% 0.002 280)",
+					"oklch(44% 0.002 280)",
+					"oklch(58% 0.002 280)",
+					"oklch(72% 0.001 280)",
+					"oklch(84% 0.001 280)",
+					"oklch(92% 0.001 280)",
+					"oklch(100% 0 0)"
+				]
+			},
+			"surface-variant": {
+				"role": "neutral",
+				"displayName": "Pale Stone",
+				"canonical": "#ede7e4",
+				"tonalRamp": [
+					"oklch(20% 0.005 40)",
+					"oklch(32% 0.007 40)",
+					"oklch(46% 0.009 40)",
+					"oklch(60% 0.01 40)",
+					"oklch(72% 0.011 40)",
+					"oklch(83% 0.012 40)",
+					"oklch(90% 0.011 40)",
+					"oklch(95% 0.009 40)"
+				]
+			},
+			"on-background": {
+				"role": "neutral",
+				"displayName": "Smoked Charcoal",
+				"canonical": "#2e2e33",
+				"tonalRamp": [
+					"oklch(15% 0.008 280)",
+					"oklch(22% 0.01 280)",
+					"oklch(32% 0.011 280)",
+					"oklch(44% 0.01 280)",
+					"oklch(58% 0.008 280)",
+					"oklch(72% 0.006 280)",
+					"oklch(84% 0.004 280)",
+					"oklch(94% 0.002 280)"
+				]
+			},
+			"background-dark": {
+				"role": "neutral",
+				"displayName": "Ink Black",
+				"canonical": "#0d0d0f",
+				"tonalRamp": [
+					"oklch(6% 0.002 280)",
+					"oklch(10% 0.003 280)",
+					"oklch(16% 0.004 280)",
+					"oklch(24% 0.005 280)",
+					"oklch(38% 0.006 280)",
+					"oklch(55% 0.006 280)",
+					"oklch(72% 0.004 280)",
+					"oklch(90% 0.002 280)"
+				]
+			},
+			"surface-dark": {
+				"role": "neutral",
+				"displayName": "Carbon",
+				"canonical": "#17171a",
+				"tonalRamp": [
+					"oklch(8% 0.003 280)",
+					"oklch(12% 0.004 280)",
+					"oklch(18% 0.005 280)",
+					"oklch(25% 0.006 280)",
+					"oklch(38% 0.007 280)",
+					"oklch(54% 0.006 280)",
+					"oklch(72% 0.004 280)",
+					"oklch(90% 0.002 280)"
+				]
+			},
+			"surface-variant-dark": {
+				"role": "neutral",
+				"displayName": "Graphite",
+				"canonical": "#212125",
+				"tonalRamp": [
+					"oklch(10% 0.004 280)",
+					"oklch(15% 0.005 280)",
+					"oklch(21% 0.006 280)",
+					"oklch(28% 0.007 280)",
+					"oklch(40% 0.007 280)",
+					"oklch(56% 0.006 280)",
+					"oklch(73% 0.004 280)",
+					"oklch(90% 0.002 280)"
+				]
+			},
+			"on-primary": {
+				"role": "primary",
+				"displayName": "Warm Off-White",
+				"canonical": "#f6f3f3",
+				"tonalRamp": [
+					"oklch(18.0% 0.0037 17.2)",
+					"oklch(30.0% 0.0035 17.2)",
+					"oklch(42.0% 0.0032 17.2)",
+					"oklch(54.0% 0.0030 17.2)",
+					"oklch(66.0% 0.0026 17.2)",
+					"oklch(78.0% 0.0019 17.2)",
+					"oklch(88.0% 0.0013 17.2)",
+					"oklch(95.5% 0.0006 17.2)"
+				]
+			},
+			"on-secondary": {
+				"role": "secondary",
+				"displayName": "Warm Off-White",
+				"canonical": "#f6f4f3",
+				"tonalRamp": [
+					"oklch(18.0% 0.0029 48.7)",
+					"oklch(30.0% 0.0027 48.7)",
+					"oklch(42.0% 0.0025 48.7)",
+					"oklch(54.0% 0.0024 48.7)",
+					"oklch(66.0% 0.0020 48.7)",
+					"oklch(78.0% 0.0015 48.7)",
+					"oklch(88.0% 0.0010 48.7)",
+					"oklch(95.5% 0.0005 48.7)"
+				]
+			},
+			"on-surface": {
+				"role": "neutral",
+				"displayName": "Smoked Charcoal",
+				"canonical": "#2e2e33",
+				"tonalRamp": [
+					"oklch(18.0% 0.0103 285.9)",
+					"oklch(30.0% 0.0096 285.9)",
+					"oklch(42.0% 0.0089 285.9)",
+					"oklch(54.0% 0.0084 285.9)",
+					"oklch(66.0% 0.0071 285.9)",
+					"oklch(78.0% 0.0054 285.9)",
+					"oklch(88.0% 0.0036 285.9)",
+					"oklch(95.5% 0.0018 285.9)"
+				]
+			},
+			"on-primary-dark": {
+				"role": "primary",
+				"displayName": "Deep Plum Ink",
+				"canonical": "#1c1215",
+				"tonalRamp": [
+					"oklch(18.0% 0.0201 359.1)",
+					"oklch(30.0% 0.0189 359.1)",
+					"oklch(42.0% 0.0175 359.1)",
+					"oklch(54.0% 0.0164 359.1)",
+					"oklch(66.0% 0.0140 359.1)",
+					"oklch(78.0% 0.0105 359.1)",
+					"oklch(88.0% 0.0070 359.1)",
+					"oklch(95.5% 0.0035 359.1)"
+				]
+			},
+			"on-secondary-dark": {
+				"role": "secondary",
+				"displayName": "Ink Black Label",
+				"canonical": "#131316",
+				"tonalRamp": [
+					"oklch(18.0% 0.0069 285.8)",
+					"oklch(30.0% 0.0065 285.8)",
+					"oklch(42.0% 0.0060 285.8)",
+					"oklch(54.0% 0.0057 285.8)",
+					"oklch(66.0% 0.0048 285.8)",
+					"oklch(78.0% 0.0036 285.8)",
+					"oklch(88.0% 0.0024 285.8)",
+					"oklch(95.5% 0.0012 285.8)"
+				]
+			},
+			"on-background-dark": {
+				"role": "neutral",
+				"displayName": "Soft Off-White",
+				"canonical": "#ededee",
+				"tonalRamp": [
+					"oklch(18.0% 0.0015 286.4)",
+					"oklch(30.0% 0.0014 286.4)",
+					"oklch(42.0% 0.0013 286.4)",
+					"oklch(54.0% 0.0013 286.4)",
+					"oklch(66.0% 0.0011 286.4)",
+					"oklch(78.0% 0.0008 286.4)",
+					"oklch(88.0% 0.0005 286.4)",
+					"oklch(95.5% 0.0003 286.4)"
+				]
+			},
+			"on-surface-dark": {
+				"role": "neutral",
+				"displayName": "Soft Off-White",
+				"canonical": "#ededee",
+				"tonalRamp": [
+					"oklch(18.0% 0.0015 286.4)",
+					"oklch(30.0% 0.0014 286.4)",
+					"oklch(42.0% 0.0013 286.4)",
+					"oklch(54.0% 0.0013 286.4)",
+					"oklch(66.0% 0.0011 286.4)",
+					"oklch(78.0% 0.0008 286.4)",
+					"oklch(88.0% 0.0005 286.4)",
+					"oklch(95.5% 0.0003 286.4)"
+				]
+			},
+			"secondary-dark": {
+				"role": "secondary",
+				"displayName": "Cool Ash",
+				"canonical": "#a3a1a4",
+				"tonalRamp": [
+					"oklch(18.0% 0.0056 314.8)",
+					"oklch(30.0% 0.0052 314.8)",
+					"oklch(42.0% 0.0048 314.8)",
+					"oklch(54.0% 0.0046 314.8)",
+					"oklch(66.0% 0.0039 314.8)",
+					"oklch(78.0% 0.0029 314.8)",
+					"oklch(88.0% 0.0019 314.8)",
+					"oklch(95.5% 0.0010 314.8)"
+				]
+			},
+			"spotify-green": {
+				"role": "tertiary",
+				"displayName": "Spotify Green",
+				"canonical": "#1db954",
+				"tonalRamp": [
+					"oklch(18.0% 0.2150 148.9)",
+					"oklch(30.0% 0.2019 148.9)",
+					"oklch(42.0% 0.1870 148.9)",
+					"oklch(54.0% 0.1757 148.9)",
+					"oklch(66.0% 0.1496 148.9)",
+					"oklch(78.0% 0.1122 148.9)",
+					"oklch(88.0% 0.0748 148.9)",
+					"oklch(95.5% 0.0374 148.9)"
+				]
+			},
+			"playlist-ink": {
+				"role": "tertiary",
+				"displayName": "Playlist Ink",
+				"canonical": "#03150a",
+				"tonalRamp": [
+					"oklch(18.0% 0.0400 156.3)",
+					"oklch(30.0% 0.0376 156.3)",
+					"oklch(42.0% 0.0348 156.3)",
+					"oklch(54.0% 0.0327 156.3)",
+					"oklch(66.0% 0.0279 156.3)",
+					"oklch(78.0% 0.0209 156.3)",
+					"oklch(88.0% 0.0139 156.3)",
+					"oklch(95.5% 0.0070 156.3)"
+				]
+			},
+			"playlist-ink-dark": {
+				"role": "tertiary",
+				"displayName": "Playlist Ink, Dark",
+				"canonical": "#10281a",
+				"tonalRamp": [
+					"oklch(18.0% 0.0466 156.3)",
+					"oklch(30.0% 0.0437 156.3)",
+					"oklch(42.0% 0.0405 156.3)",
+					"oklch(54.0% 0.0381 156.3)",
+					"oklch(66.0% 0.0324 156.3)",
+					"oklch(78.0% 0.0243 156.3)",
+					"oklch(88.0% 0.0162 156.3)",
+					"oklch(95.5% 0.0081 156.3)"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Page titles only (h1), 48px Rubik bold."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Release titles on permalink pages (h2), centered."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Section titles (h3); rare."
+			},
+			"subtitle": {
+				"displayName": "Subtitle",
+				"purpose": "Card headings and song titles (h4 / h5)."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Interface copy and button labels; 16px Space Grotesk."
+			},
+			"body-small": {
+				"displayName": "Body Small",
+				"purpose": "Descriptions and artist lines; 14px at 500 in Warm Ash."
+			},
+			"label": {
+				"displayName": "Label / Mono",
+				"purpose": "Credits, durations, BPM, key, formats, bitrate, confidence."
+			}
+		},
+		"shadows": [
+			{
+				"name": "floating-light",
+				"value": "0 20px 25px -5px rgb(144 124 124 / 0.15), 0 8px 10px -6px rgb(144 124 124 / 0.15)",
+				"purpose": "Light-mode dropdown menus and the floating info sheet. Tinted with Warm Ash, never black."
+			},
+			{
+				"name": "floating-dark",
+				"value": "0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5)",
+				"purpose": "The same elements in the dark theme, where a tint would disappear."
+			},
+			{
+				"name": "focus-ring",
+				"value": "0 0 0 2px color-mix(in srgb, var(--color-primary) 60%, transparent)",
+				"purpose": "Keyboard focus on the theme toggle and icon controls; sliders scale the thumb instead."
+			}
+		],
+		"motion": [
+			{
+				"name": "settle",
+				"value": "cubic-bezier(0, 0, 0.2, 1)",
+				"purpose": "Default ease-out for hover, color and transform transitions at 200–300ms."
+			},
+			{
+				"name": "page-shift",
+				"value": "cubic-bezier(0.4, 0, 0.2, 1)",
+				"purpose": "View-transition slide between routes: 300ms, with a 90ms fade-out on the outgoing page."
+			},
+			{
+				"name": "hover-scale",
+				"value": "300ms cubic-bezier(0, 0, 0.2, 1)",
+				"purpose": "Linked cards, song rows and social tiles settle to 98% (socials 95%)."
+			},
+			{
+				"name": "sheet-reveal",
+				"value": "300ms cubic-bezier(0, 0, 0.2, 1)",
+				"purpose": "The info sheet grows from pill to card; content cross-fades with a 150ms delay."
+			},
+			{
+				"name": "scroll",
+				"value": "0.6s quintic ease-out",
+				"purpose": "Lenis smooth scrolling with a 1 - (1 - t)^5 curve."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "xs",
+				"value": "400px"
+			},
+			{
+				"name": "shell",
+				"value": "600px"
+			},
+			{
+				"name": "md",
+				"value": "768px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "The single main action: playback, analysis, confirmation. Rose fill, 8px corners, a quiet brighten on hover.",
+			"html": "<button class='ds-btn'>Analyze file</button>",
+			"css": ".ds-btn {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tjustify-content: center;\n\tgap: 8px;\n\theight: 48px;\n\tpadding: 8px 16px;\n\tborder: 0;\n\tborder-radius: 8px;\n\tbackground: var(--color-primary);\n\tcolor: var(--color-onPrimary);\n\tfont-family: var(--font-sans);\n\tfont-size: 16px;\n\tfont-weight: 500;\n\tline-height: 1.25;\n\tcursor: pointer;\n\ttransition: filter 200ms cubic-bezier(0, 0, 0.2, 1), transform 200ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-btn:hover { filter: brightness(1.1); }\n.ds-btn:active { transform: scale(0.97); }\n.ds-btn:focus-visible {\n\toutline: 2px solid color-mix(in srgb, var(--color-primary) 60%, transparent);\n\toutline-offset: 2px;\n}"
+		},
+		{
+			"name": "Icon Button",
+			"kind": "button",
+			"refersTo": "button-primary-icon",
+			"description": "A 40px rose circle for playback and the info-sheet chevron; the most confident shape in the system.",
+			"html": "<button class='ds-icon-btn' aria-label='Play'>\n\t<svg width='14' height='16' viewBox='0 0 14 16' fill='currentColor' aria-hidden='true'><path d='M0 1.2 13 8 0 14.8z'/></svg>\n</button>",
+			"css": ".ds-icon-btn {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tjustify-content: center;\n\twidth: 40px;\n\theight: 40px;\n\tpadding: 0;\n\tborder: 0;\n\tborder-radius: 9999px;\n\tbackground: var(--color-primary);\n\tcolor: var(--color-onPrimary);\n\tcursor: pointer;\n\ttransition: filter 200ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-icon-btn:hover { filter: brightness(1.1); }\n.ds-icon-btn:focus-visible {\n\toutline: 2px solid color-mix(in srgb, var(--color-primary) 60%, transparent);\n\toutline-offset: 2px;\n}"
+		},
+		{
+			"name": "Stream Link Button",
+			"kind": "button",
+			"refersTo": "stream-link",
+			"description": "Full-width white row on the release page; only the platform name and glyph carry brand color. Presses to 97%.",
+			"html": "<button class='ds-stream'>\n\t<span class='ds-stream-glyph' style='background: #ff5500'></span>\n\t<span class='ds-stream-label' style='color: #ff5500'>SoundCloud</span>\n</button>",
+			"css": ".ds-stream {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tgap: 8px;\n\twidth: 100%;\n\theight: 56px;\n\tpadding: 8px 16px;\n\tborder: 0;\n\tborder-radius: 8px;\n\tbackground: var(--color-surface);\n\tcolor: var(--color-onSurface);\n\tfont-family: var(--font-sans);\n\tfont-size: 16px;\n\tfont-weight: 500;\n\tcursor: pointer;\n\ttransition: transform 300ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-stream:hover { transform: scale(0.97); }\n.ds-stream:focus-visible {\n\toutline: 2px solid color-mix(in srgb, var(--color-primary) 60%, transparent);\n\toutline-offset: 2px;\n}\n.ds-stream-glyph { width: 16px; height: 16px; border-radius: 4px; }\n.ds-stream-label { letter-spacing: 0.01em; }"
+		},
+		{
+			"name": "Genre Badge",
+			"kind": "chip",
+			"refersTo": "badge-surface-variant",
+			"description": "A pale-stone pill with mono type; genre, format and status labels. It sits inline on the artist line.",
+			"html": "<span class='ds-badge'>Future Bounce</span>",
+			"css": ".ds-badge {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tjustify-content: center;\n\twidth: max-content;\n\tpadding: 4px 10px;\n\tborder-radius: 9999px;\n\tbackground: var(--color-surfaceVariant);\n\tcolor: var(--color-secondary);\n\tfont-family: var(--font-mono);\n\tfont-size: 12px;\n\tfont-weight: 700;\n\tline-height: 1;\n\twhite-space: nowrap;\n}"
+		},
+		{
+			"name": "Song Row",
+			"kind": "custom",
+			"description": "The signature list unit: 80px art, Rubik title, ash artist line with an inline genre pill. Shrinks to 98% on hover.",
+			"html": "<a class='ds-row' href='#'>\n\t<span class='ds-row-art'></span>\n\t<span class='ds-row-text'>\n\t\t<span class='ds-row-title'>Wilderness</span>\n\t\t<span class='ds-row-sub'>Elluzion <span class='ds-row-badge'>Trap</span></span>\n\t</span>\n</a>",
+			"css": ".ds-row {\n\tdisplay: flex;\n\talign-items: stretch;\n\tgap: 16px;\n\theight: 80px;\n\tcolor: var(--color-onBackground);\n\ttext-decoration: none;\n\ttransition: transform 300ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-row:hover { transform: scale(0.98); }\n.ds-row-art {\n\tflex: none;\n\twidth: 80px;\n\theight: 80px;\n\tborder-radius: 8px;\n\tbackground: linear-gradient(135deg, #3b4150 0%, #8d7c74 55%, #d9c6b6 100%);\n}\n.ds-row-text {\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\tgap: 2px;\n\tmin-width: 0;\n}\n.ds-row-title {\n\tfont-family: var(--font-sans2);\n\tfont-size: 18px;\n\tfont-weight: 500;\n\tline-height: 1.55;\n\tcolor: var(--color-onBackground);\n}\n.ds-row-sub {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 8px;\n\tfont-family: var(--font-sans);\n\tfont-size: 14px;\n\tfont-weight: 500;\n\tline-height: 1.43;\n\tcolor: var(--color-secondary);\n}\n.ds-row-badge {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tpadding: 4px 10px;\n\tborder-radius: 9999px;\n\tbackground: var(--color-surfaceVariant);\n\tcolor: var(--color-secondary);\n\tfont-family: var(--font-mono);\n\tfont-size: 12px;\n\tfont-weight: 700;\n\tline-height: 1;\n\twhite-space: nowrap;\n}"
+		},
+		{
+			"name": "Content Card",
+			"kind": "card",
+			"refersTo": "card",
+			"description": "A flat white 16px panel on paper; no border, no shadow. Linked cards settle to 98% on hover.",
+			"html": "<a class='ds-card' href='#'>\n\t<span class='ds-card-title'>Audio analyzer</span>\n\t<span class='ds-card-text'>Get key, tempo and loudness from an audio file</span>\n</a>",
+			"css": ".ds-card {\n\tdisplay: flex;\n\tflex-direction: column;\n\tgap: 2px;\n\tmax-width: 320px;\n\tpadding: 16px;\n\tborder-radius: 16px;\n\tbackground: var(--color-surface);\n\tcolor: var(--color-onSurface);\n\ttext-decoration: none;\n\ttransition: transform 300ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-card:hover { transform: scale(0.98); }\n.ds-card:focus-visible {\n\toutline: 2px solid color-mix(in srgb, var(--color-primary) 60%, transparent);\n\toutline-offset: 2px;\n}\n.ds-card-title {\n\tfont-family: var(--font-sans2);\n\tfont-size: 16px;\n\tfont-weight: 600;\n\tline-height: 1.5;\n}\n.ds-card-text {\n\tfont-family: var(--font-sans);\n\tfont-size: 14px;\n\tfont-weight: 500;\n\tline-height: 1.43;\n\tcolor: var(--color-secondary);\n}"
+		},
+		{
+			"name": "Theme Toggle",
+			"kind": "input",
+			"description": "A two-option pill switch in mono type. The ash thumb slides 40px; the active word turns paper-colored.",
+			"html": "<button class='ds-toggle' aria-label='Toggle dark mode'>\n\t<span class='ds-toggle-thumb'></span>\n\t<span class='ds-toggle-opt ds-toggle-on'>light</span>\n\t<span class='ds-toggle-opt'>dark</span>\n</button>",
+			"css": ".ds-toggle {\n\tposition: relative;\n\tdisplay: inline-flex;\n\talign-items: center;\n\tpadding: 2px;\n\tborder: 1px solid color-mix(in srgb, var(--color-secondary) 25%, transparent);\n\tborder-radius: 9999px;\n\tbackground: transparent;\n\tcursor: pointer;\n\tfont-family: var(--font-mono);\n\tfont-size: 10px;\n\tfont-weight: 700;\n\tline-height: 1;\n\ttransition: border-color 300ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-toggle:hover { border-color: color-mix(in srgb, var(--color-secondary) 60%, transparent); }\n.ds-toggle:focus-visible {\n\toutline: 2px solid color-mix(in srgb, var(--color-primary) 60%, transparent);\n\toutline-offset: 2px;\n}\n.ds-toggle-opt {\n\tposition: relative;\n\tz-index: 1;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\twidth: 40px;\n\theight: 14px;\n\tcolor: var(--color-secondary);\n}\n.ds-toggle-on { color: var(--color-background); }\n.ds-toggle-thumb {\n\tposition: absolute;\n\ttop: 2px;\n\tleft: 2px;\n\twidth: 40px;\n\theight: 14px;\n\tborder-radius: 9999px;\n\tbackground: var(--color-secondary);\n\ttransition: transform 300ms cubic-bezier(0, 0, 0.2, 1);\n}"
+		},
+		{
+			"name": "Player Bar",
+			"kind": "custom",
+			"refersTo": "player-bar",
+			"description": "A white pill with a rose play circle, mono times and a rose track. The site's most literal record-on-a-platter moment.",
+			"html": "<div class='ds-player'>\n\t<button class='ds-player-btn' aria-label='Play'>\n\t\t<svg width='12' height='14' viewBox='0 0 14 16' fill='currentColor' aria-hidden='true'><path d='M0 1.2 13 8 0 14.8z'/></svg>\n\t</button>\n\t<span class='ds-player-time'>0:00</span>\n\t<span class='ds-player-track'>\n\t\t<span class='ds-player-fill' style='width: 38%'></span>\n\t\t<span class='ds-player-thumb' style='left: 38%'></span>\n\t</span>\n\t<span class='ds-player-time'>3:46</span>\n</div>",
+			"css": ".ds-player {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 16px;\n\twidth: 100%;\n\theight: 56px;\n\tpadding: 8px 24px 8px 8px;\n\tborder-radius: 9999px;\n\tbackground: var(--color-surface);\n}\n.ds-player-btn {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\twidth: 40px;\n\theight: 40px;\n\tflex: none;\n\tborder: 0;\n\tborder-radius: 9999px;\n\tbackground: var(--color-primary);\n\tcolor: var(--color-onPrimary);\n\tcursor: pointer;\n\ttransition: filter 200ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-player-btn:hover { filter: brightness(1.1); }\n.ds-player-time {\n\twidth: 32px;\n\ttext-align: center;\n\tfont-family: var(--font-mono);\n\tfont-size: 14px;\n\tfont-weight: 700;\n\tcolor: var(--color-secondary);\n\tfont-variant-numeric: tabular-nums;\n}\n.ds-player-track {\n\tposition: relative;\n\tflex: 1;\n\theight: 4px;\n\tborder-radius: 9999px;\n\tbackground: color-mix(in srgb, var(--color-secondary) 25%, transparent);\n}\n.ds-player-fill {\n\tposition: absolute;\n\ttop: 0;\n\tbottom: 0;\n\tleft: 0;\n\tborder-radius: 9999px;\n\tbackground: var(--color-primary);\n}\n.ds-player-thumb {\n\tposition: absolute;\n\ttop: 50%;\n\twidth: 16px;\n\theight: 16px;\n\tmargin-left: -8px;\n\ttransform: translateY(-50%);\n\tborder-radius: 9999px;\n\tbackground: var(--color-primary);\n}"
+		},
+		{
+			"name": "Floating Info Sheet",
+			"kind": "custom",
+			"description": "The signature floating pill: emoji metadata preview, rose chevron, and the system's only light-mode shadow. Expands into a 28px card.",
+			"html": "<div class='ds-sheet'>\n\t<span class='ds-sheet-preview'>📅 &nbsp;🐢&nbsp; 🎹 &nbsp;✨</span>\n\t<button class='ds-sheet-toggle' aria-label='Expand release details'>\n\t\t<svg width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='m1 6.5 5-5 5 5'/></svg>\n\t</button>\n</div>",
+			"css": ".ds-sheet {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tgap: 16px;\n\tpadding: 8px 8px 8px 16px;\n\tborder-radius: 9999px;\n\tbackground: var(--color-surface);\n\tbox-shadow: 0 20px 25px -5px rgb(144 124 124 / 0.15), 0 8px 10px -6px rgb(144 124 124 / 0.15);\n}\n.ds-sheet-preview {\n\tfont-size: 15px;\n\tletter-spacing: 2px;\n\tline-height: 1;\n}\n.ds-sheet-toggle {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\twidth: 40px;\n\theight: 40px;\n\tpadding: 0;\n\tborder: 0;\n\tborder-radius: 9999px;\n\tbackground: var(--color-primary);\n\tcolor: var(--color-onPrimary);\n\tcursor: pointer;\n\ttransition: filter 200ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-sheet-toggle:hover { filter: brightness(1.1); }\n.ds-sheet-toggle:focus-visible {\n\toutline: 2px solid color-mix(in srgb, var(--color-primary) 60%, transparent);\n\toutline-offset: 2px;\n}\n@media (prefers-color-scheme: dark) {\n\t.ds-sheet {\n\t\tbox-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);\n\t}\n}"
+		},
+		{
+			"name": "View Switcher Menu",
+			"kind": "nav",
+			"description": "A text trigger with a rotating chevron and a floating white menu. Selected options sit on ash at 10%.",
+			"html": "<div class='ds-select'>\n\t<span class='ds-select-trigger'>\n\t\t<svg width='10' height='7' viewBox='0 0 10 7' fill='none' stroke='currentColor' stroke-width='1.6' aria-hidden='true'><path d='m1 1 4 4 4-4'/></svg>\n\t\tList\n\t</span>\n\t<div class='ds-select-menu'>\n\t\t<span class='ds-select-opt ds-selected'>List</span>\n\t\t<span class='ds-select-opt'>Grid</span>\n\t</div>\n</div>",
+			"css": ".ds-select {\n\tposition: relative;\n\tdisplay: inline-flex;\n\tflex-direction: column;\n\talign-items: flex-start;\n\tgap: 8px;\n}\n.ds-select-trigger {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 16px;\n\tpadding: 8px 0;\n\tfont-family: var(--font-sans);\n\tfont-size: 16px;\n\tfont-weight: 500;\n\tcolor: var(--color-secondary);\n\tcursor: pointer;\n}\n.ds-select-menu {\n\tdisplay: flex;\n\tflex-direction: column;\n\tgap: 4px;\n\tpadding: 8px;\n\tborder-radius: 16px;\n\tbackground: var(--color-surface);\n\tbox-shadow: 0 20px 25px -5px rgb(144 124 124 / 0.15), 0 8px 10px -6px rgb(144 124 124 / 0.15);\n}\n.ds-select-opt {\n\tpadding: 8px 16px;\n\tborder-radius: 6px;\n\tfont-family: var(--font-sans);\n\tfont-size: 16px;\n\tfont-weight: 500;\n\tcolor: var(--color-onSurface);\n\twhite-space: nowrap;\n\ttransition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-select-opt:hover { background: color-mix(in srgb, var(--color-secondary) 10%, transparent); }\n.ds-selected { background: color-mix(in srgb, var(--color-secondary) 10%, transparent); }\n@media (prefers-color-scheme: dark) {\n\t.ds-select-menu {\n\t\tbox-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);\n\t}\n}"
+		}
+	],
+	"narrative": {
+		"northStar": "The Liner Note",
+		"overview": "Elluzion's site is a producer's release archive laid out like the back of a record sleeve. A warm paper ground replaces the usual white page, a single dusty-rose label color stands in for the pressing plant's stamp, and every factual detail — durations, BPM, key, file formats, the year in the footer — is set in mono like sleeve credits. The artist wordmark is the one flourish: an expressive serif mark that anchors the top of the shelf and keeps the otherwise plainspoken system from reading as a generic app.\n\nThe personality is quiet, tactile and a little analog. Surfaces are flat and tone-separated rather than outlined; floating elements are full pills that hover above the paper like a record lifted off a platter. Saturated color is rationed: the pastel about-card and the platform-colored social tiles are fixed brand artifacts, and the rose accent marks only the action that matters in a given view. Nothing shouts; the work is meant to feel like a shelf you can browse with one thumb.\n\nThe layout is deliberately single-column at every size. On wide screens the same mobile shelf is centered at a fixed 600px rather than expanding into a dashboard, preserving the intimacy of the phone composition. Motion is restrained: a 300ms settle on hover, a 30px horizontal slide between pages, and a sheet that grows from a pill into a card.",
+		"keyCharacteristics": [
+			"Warm paper ground (#f6f4f3) and smoked charcoal type (#2e2e33); pure white is reserved for raised surfaces.",
+			"One chromatic accent — a muted rose label color — for action and playback, not large fields.",
+			"Four voices: a serif wordmark asset, Rubik for headings, Space Grotesk for body and interface, JetBrains Mono for credits and measurements.",
+			"Rounded content containers (16–28px) and fully pill-shaped floating chrome.",
+			"Flat-by-default depth: a single tinted shadow exists only for elements detached from the page.",
+			"Fixed brand patches — the iridescent about-card and platform-colored tiles — that stay the same in light and dark."
+		],
+		"rules": [
+			{
+				"name": "The One Label Rule",
+				"body": "The rose primary appears on at most one or two controls per screen — the primary action and playback. It is a stamp on the sleeve, not a background wash.",
+				"section": "colors"
+			},
+			{
+				"name": "The Paper Ground Rule",
+				"body": "Page fields are warm neutrals (#f6f4f3 or #0d0d0f). Pure white and pure black are surface and text extremes only; they never become the page.",
+				"section": "colors"
+			},
+			{
+				"name": "The Brand Quarantine Rule",
+				"body": "Platform colors stay inside their own tiles and stream labels. Never recolor a platform mark or the playlist banner into the rose palette, and never use a platform color as general UI chrome.",
+				"section": "colors"
+			},
+			{
+				"name": "The Fixed Patch Rule",
+				"body": "The iridescent about-card and the platform-colored social row are fixed brand artifacts: they keep their own colors in both themes instead of re-mapping with the palette.",
+				"section": "colors"
+			},
+			{
+				"name": "The Three-Voice Rule",
+				"body": "Rubik never sets body copy; Space Grotesk never sets a page title; JetBrains Mono never sets a sentence. Mono is for credits, measurements, formats and micro-labels.",
+				"section": "typography"
+			},
+			{
+				"name": "The Flat Weight Rule",
+				"body": "Hierarchy comes from size and family, not from a widening weight range. Headings are 700 at most; interface copy sits at 400–500; mono labels are 700 because they are small.",
+				"section": "typography"
+			},
+			{
+				"name": "The Float Only Rule",
+				"body": "A shadow means the element is detached from the page. Inline cards, list rows and controls never carry one; if it sits in the flow, it is flat.",
+				"section": "elevation"
+			},
+			{
+				"name": "The Warm Shadow Rule",
+				"body": "In light mode the shadow is tinted from Warm Ash. Gray or black shadows are reserved for the dark theme, where no tint survives.",
+				"section": "elevation"
+			},
+			{
+				"name": "The Pill-Or-Panel Rule",
+				"body": "If it floats above the page, it is a pill. If it holds content in the flow, it is a rounded panel. Do not give a floating control a rectangle, and do not turn a content card into a pill.",
+				"section": "shapes"
+			}
+		],
+		"dos": [
+			"Do keep the page on Paper (#f6f4f3) or Ink Black (#0d0d0f) and reserve pure white for surfaces.",
+			"Do let Dusty Rose mark only the primary action and playback; keep it under roughly a tenth of the screen.",
+			"Do keep the 600px single column on desktop instead of expanding into columns.",
+			"Do use 16px corners for content panels, 8px for buttons and thumbnails, and full pills for floating chrome.",
+			"Do set page titles in Rubik, body and interface in Space Grotesk, and credits/measurements in JetBrains Mono.",
+			"Do preserve platform brand colors on social tiles and stream-label text.",
+			"Do use the single Warm Ash-tinted shadow only for the info sheet and menus."
+		],
+		"donts": [
+			"Don't introduce a second accent hue for UI chrome; saturated color belongs to the fixed brand patches.",
+			"Don't use pure black or pure white as a page background.",
+			"Don't add borders or shadows to inline cards, list rows or data cards.",
+			"Don't set paragraphs in Rubik or page titles in Space Grotesk.",
+			"Don't use mono for prose, only for credits, numbers, formats and micro-labels.",
+			"Don't recolor a platform mark or the playlist banner into the rose palette.",
+			"Don't add a top navigation bar; the back link and footer are the navigation.",
+			"Don't expand the desktop layout beyond the 600px shelf."
+		]
+	}
+}

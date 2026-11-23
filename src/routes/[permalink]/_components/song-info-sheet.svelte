@@ -41,7 +41,7 @@
 			{#if downloadCount > 0}
 				<Badge variant="secondary" class="pointer-events-none flex gap-2 truncate">
 					<span>📂</span>
-					<span class="text-muted-text text-sm">
+					<span class="text-onSecondary/80 text-sm">
 						{downloadFormats().join('/')}
 					</span>
 				</Badge>
