@@ -4,8 +4,8 @@
 	const tools: { title: string; description: string; href: string }[] = [
 		{
 			title: 'Audio analyzer',
-			description: 'Receive musical information to an audio file',
-			href: 'https://tools.elluzion.space/analyzer'
+			description: 'Get key, tempo and loudness from an audio file',
+			href: '/tools/analyzer'
 		},
 		{
 			title: 'SoundCloud downloader',
