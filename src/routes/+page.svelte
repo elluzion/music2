@@ -13,7 +13,7 @@
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faMusic } from '@fortawesome/free-solid-svg-icons';
-	import { Grid, List, ListPlus } from '@lucide/svelte';
+	import { IconLayoutGrid, IconList, IconPlaylistAdd } from '@tabler/icons-svelte';
 	import Fa from 'svelte-fa';
 	import { blur } from 'svelte/transition';
 
@@ -78,12 +78,12 @@
 		{
 			label: 'List',
 			value: 'list',
-			icon: List
+			icon: IconList
 		},
 		{
 			label: 'Grid',
 			value: 'grid',
-			icon: Grid
+			icon: IconLayoutGrid
 		}
 	];
 
@@ -112,7 +112,7 @@
 		{/each}
 	</div>
 	<a class="playlist-banner" href={data.playlistUrl} target="_blank">
-		<ListPlus color="#1DB954" />
+		<IconPlaylistAdd color="#1DB954" />
 		<p>
 			subscribe to my
 			<span class="text-[#1DB954] underline underline-offset-4">spotify playlist</span>

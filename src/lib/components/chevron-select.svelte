@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChevronDown } from '@lucide/svelte';
+	import { IconChevronDown } from '@tabler/icons-svelte';
 	import { createSelect, melt } from '@melt-ui/svelte';
 	import { type Component } from 'svelte';
 
@@ -42,7 +42,7 @@
 </script>
 
 <div use:melt={$trigger} class="flex cursor-pointer items-center gap-4 py-2 text-secondary">
-	<ChevronDown class={$open ? 'rotate-180 transition-transform' : 'transition-transform'} />
+	<IconChevronDown class={$open ? 'rotate-180 transition-transform' : 'transition-transform'} />
 	<span use:melt={$label} class="user-select-none font-medium">
 		{$selectedLabel || 'Nothing selected'}
 	</span>
