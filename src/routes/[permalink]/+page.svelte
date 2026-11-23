@@ -17,6 +17,15 @@
 	let metadata = $derived(data.metadata!);
 	let streamLinks = $derived(song.streamLinks.map((x) => resolvePlatform(x)));
 
+	// Brand colors that are (near) black would vanish on the dark surface.
+	function isInverting(color: string) {
+		return color.toLowerCase() === '#000000' || color.toLowerCase() === '#000';
+	}
+
+	function textColor(color: string) {
+		return isInverting(color) ? 'var(--color-onBackground)' : color;
+	}
+
 	onMount(() => {
 		if (!data.song) {
 			return (window.location.href = '/');
@@ -50,7 +59,7 @@
 
 {#if song}
 	<!-- Head -->
-	<div class="flex flex-col items-center gap-4 py-4 pb-[104px]">
+	<div class="flex flex-col items-center gap-4 py-4 pb-4">
 		<div class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8">
 			<img src={song.artUrl} alt={song.title} class="w-1/2 rounded-3xl" />
 			<div class="flex flex-col items-center gap-1 *:text-center">
@@ -67,12 +76,16 @@
 			{#each streamLinks as link, i (link.id)}
 				<Button
 					variant="surface"
-					style="color: {link.color}"
+					style="color: {textColor(link.color)}"
 					class="flex !h-14 w-full items-center justify-center gap-2 font-medium"
 					hoverAnim
 					onclick={() => window.open(song.streamLinks[i], '_blank')}
 				>
-					<Fa icon={link.icon} size="1.2x" color={link.color} />
+					<Fa
+						icon={link.icon}
+						size="1.2x"
+						color={isInverting(link.color) ? 'currentColor' : link.color}
+					/>
 					{link.name}
 				</Button>
 			{/each}

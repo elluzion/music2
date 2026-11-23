@@ -3,6 +3,8 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--color-primary: #976567;
 	--color-onPrimary: #f6f3f3;
@@ -23,6 +25,26 @@
 	--breakpoint-xs: 400px;
 }
 
+:root {
+	color-scheme: light;
+}
+
+html.dark {
+	color-scheme: dark;
+
+	--color-primary: #c19396;
+	--color-onPrimary: #1c1215;
+	--color-secondary: #a3a1a4;
+	--color-onSecondary: #131316;
+	--color-background: #0d0d0f;
+	--color-onBackground: #ededee;
+	--color-onBackgroundVariant: #85858b;
+	--color-surface: #17171a;
+	--color-onSurface: #ededee;
+	--color-surfaceVariant: #212125;
+	--color-onSurfaceVariant: #ededee;
+}
+
 body {
 	@apply bg-background text-onBackground;
 }
@@ -36,7 +58,7 @@ body {
 }
 
 *::selection {
-	@apply bg-black/10;
+	@apply bg-black/10 dark:bg-white/20;
 }
 
 html.lenis,
