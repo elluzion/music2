@@ -323,7 +323,7 @@
 		"typographyMeta": {
 			"display": {
 				"displayName": "Display",
-				"purpose": "Page titles only (h1), 48px Inter bold."
+				"purpose": "Page titles only (h1), 48px Rubik bold."
 			},
 			"headline": {
 				"displayName": "Headline",
@@ -445,7 +445,7 @@
 		{
 			"name": "Song Row",
 			"kind": "custom",
-			"description": "The signature list unit: 80px art, Inter title, ash artist line with an inline genre pill. Shrinks to 98% on hover.",
+			"description": "The signature list unit: 80px art, Rubik title, ash artist line with an inline genre pill. Shrinks to 98% on hover.",
 			"html": "<a class='ds-row' href='#'>\n\t<span class='ds-row-art'></span>\n\t<span class='ds-row-text'>\n\t\t<span class='ds-row-title'>Wilderness</span>\n\t\t<span class='ds-row-sub'>Elluzion <span class='ds-row-badge'>Trap</span></span>\n\t</span>\n</a>",
 			"css": ".ds-row {\n\tdisplay: flex;\n\talign-items: stretch;\n\tgap: 16px;\n\theight: 80px;\n\tcolor: var(--color-onBackground);\n\ttext-decoration: none;\n\ttransition: transform 300ms cubic-bezier(0, 0, 0.2, 1);\n}\n.ds-row:hover { transform: scale(0.98); }\n.ds-row-art {\n\tflex: none;\n\twidth: 80px;\n\theight: 80px;\n\tborder-radius: 8px;\n\tbackground: linear-gradient(135deg, #3b4150 0%, #8d7c74 55%, #d9c6b6 100%);\n}\n.ds-row-text {\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\tgap: 2px;\n\tmin-width: 0;\n}\n.ds-row-title {\n\tfont-family: var(--font-sans2);\n\tfont-size: 18px;\n\tfont-weight: 500;\n\tline-height: 1.55;\n\tcolor: var(--color-onBackground);\n}\n.ds-row-sub {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 8px;\n\tfont-family: var(--font-sans);\n\tfont-size: 14px;\n\tfont-weight: 500;\n\tline-height: 1.43;\n\tcolor: var(--color-secondary);\n}\n.ds-row-badge {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tpadding: 4px 10px;\n\tborder-radius: 9999px;\n\tbackground: var(--color-surfaceVariant);\n\tcolor: var(--color-secondary);\n\tfont-family: var(--font-mono);\n\tfont-size: 12px;\n\tfont-weight: 700;\n\tline-height: 1;\n\twhite-space: nowrap;\n}"
 		},
@@ -493,7 +493,7 @@
 		"keyCharacteristics": [
 			"Warm paper ground (#f6f4f3) and smoked charcoal type (#2e2e33); pure white is reserved for raised surfaces.",
 			"One chromatic accent — a muted rose label color — for action and playback, not large fields.",
-			"Four voices: a serif wordmark asset, Inter for headings, Space Grotesk for body and interface, JetBrains Mono for credits and measurements.",
+			"Four voices: a serif wordmark asset, Rubik for headings, Space Grotesk for body and interface, JetBrains Mono for credits and measurements.",
 			"Rounded content containers (16–28px) and fully pill-shaped floating chrome.",
 			"Flat-by-default depth: a single tinted shadow exists only for elements detached from the page.",
 			"Fixed brand patches — the iridescent about-card and platform-colored tiles — that stay the same in light and dark."
@@ -521,7 +521,7 @@
 			},
 			{
 				"name": "The Three-Voice Rule",
-				"body": "Inter never sets body copy; Space Grotesk never sets a page title; JetBrains Mono never sets a sentence. Mono is for credits, measurements, formats and micro-labels.",
+				"body": "Rubik never sets body copy; Space Grotesk never sets a page title; JetBrains Mono never sets a sentence. Mono is for credits, measurements, formats and micro-labels.",
 				"section": "typography"
 			},
 			{
@@ -550,7 +550,7 @@
 			"Do let Dusty Rose mark only the primary action and playback; keep it under roughly a tenth of the screen.",
 			"Do keep the 600px single column on desktop instead of expanding into columns.",
 			"Do use 16px corners for content panels, 8px for buttons and thumbnails, and full pills for floating chrome.",
-			"Do set page titles in Inter, body and interface in Space Grotesk, and credits/measurements in JetBrains Mono.",
+			"Do set page titles in Rubik, body and interface in Space Grotesk, and credits/measurements in JetBrains Mono.",
 			"Do preserve platform brand colors on social tiles and stream-label text.",
 			"Do use the single Warm Ash-tinted shadow only for the info sheet and menus."
 		],
@@ -558,7 +558,7 @@
 			"Don't introduce a second accent hue for UI chrome; saturated color belongs to the fixed brand patches.",
 			"Don't use pure black or pure white as a page background.",
 			"Don't add borders or shadows to inline cards, list rows or data cards.",
-			"Don't set paragraphs in Inter or page titles in Space Grotesk.",
+			"Don't set paragraphs in Rubik or page titles in Space Grotesk.",
 			"Don't use mono for prose, only for credits, numbers, formats and micro-labels.",
 			"Don't recolor a platform mark or the playlist banner into the rose palette.",
 			"Don't add a top navigation bar; the back link and footer are the navigation.",

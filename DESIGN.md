@@ -25,25 +25,25 @@ colors:
   playlist-ink-dark: "#10281a"
 typography:
   display:
-    fontFamily: "Inter, sans-serif"
+    fontFamily: "Rubik, sans-serif"
     fontSize: "3rem"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "normal"
   headline:
-    fontFamily: "Inter, sans-serif"
+    fontFamily: "Rubik, sans-serif"
     fontSize: "1.875rem"
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: "normal"
   title:
-    fontFamily: "Inter, sans-serif"
+    fontFamily: "Rubik, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 700
     lineHeight: 1.33
     letterSpacing: "normal"
   subtitle:
-    fontFamily: "Inter, sans-serif"
+    fontFamily: "Rubik, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 500
     lineHeight: 1.55
@@ -152,7 +152,7 @@ The layout is deliberately single-column at every size. On wide screens the same
 **Key Characteristics:**
 - Warm paper ground (`#f6f4f3`) and smoked charcoal type (`#2e2e33`); pure white is reserved for raised surfaces.
 - One chromatic accent — a muted rose label color — for action and playback, not large fields.
-- Four voices: a serif wordmark asset, Inter for headings, Space Grotesk for body and interface, JetBrains Mono for credits and measurements.
+- Four voices: a serif wordmark asset, Rubik for headings, Space Grotesk for body and interface, JetBrains Mono for credits and measurements.
 - Rounded content containers (16–28px) and fully pill-shaped floating chrome.
 - Flat-by-default depth: a single tinted shadow exists only for elements detached from the page.
 - Fixed brand patches — the iridescent about-card and platform-colored tiles — that stay the same in light and dark.
@@ -194,12 +194,12 @@ A warm, low-chroma palette built from paper, ash and a single dusty-rose accent,
 
 ## Typography
 
-**Display Font:** Inter (with `sans-serif` fallback)
+**Display Font:** Rubik (with `sans-serif` fallback)
 **Body Font:** Space Grotesk (with `sans-serif` fallback)
 **Label/Mono Font:** JetBrains Mono (with `monospace` fallback)
 **Wordmark:** `elluzion-textlogo.svg`, an expressive serif mark used as a mask filled with the current text color.
 
-**Character:** A plainspoken editorial pairing with a producer's toolkit underneath. Inter sets titles with clean, confident weight; Space Grotesk gives interface copy a slightly mechanical, music-software character; JetBrains Mono turns facts into liner notes. The serif wordmark supplies the only calligraphic moment.
+**Character:** A geometric display voice with a producer's toolkit underneath. Rubik sets titles with softly rounded geometry and confident weight; Space Grotesk gives interface copy a slightly mechanical, music-software character; JetBrains Mono turns facts into liner notes. The serif wordmark supplies the only calligraphic moment.
 
 ### Hierarchy
 - **Display** (700, 3rem/48px, line-height 1): Page titles only (`h1`), with 16px of vertical padding.
@@ -210,7 +210,7 @@ A warm, low-chroma palette built from paper, ash and a single dusty-rose accent,
 - **Label / Mono** (700, 0.75rem/12px, line-height 1): Footer credits, durations, BPM, key, file formats, bitrate, confidence values and the theme toggle. Uppercase is not used.
 
 ### Named Rules
-**The Three-Voice Rule.** Inter never sets body copy; Space Grotesk never sets a page title; JetBrains Mono never sets a sentence. Mono is for credits, measurements, formats and micro-labels.
+**The Three-Voice Rule.** Rubik never sets body copy; Space Grotesk never sets a page title; JetBrains Mono never sets a sentence. Mono is for credits, measurements, formats and micro-labels.
 
 **The Flat Weight Rule.** Hierarchy comes from size and family, not from a widening weight range. Headings are 700 at most; interface copy sits at 400–500; mono labels are 700 because they are small.
 
@@ -289,7 +289,7 @@ Borders are rare and always hairline: a 1px Warm Ash border on the theme toggle 
 A full-width white pill, 56px tall, with 8px padding and 24px right padding. The circular rose play/pause button anchors the left; current and total time are 14px mono bold in Warm Ash; the slider fills the middle. The bar only appears once metadata loads, fading in over 50ms.
 
 ### Song Row
-The signature list unit: 80px tall, 16px gap, 80px square cover at 8px radius. The title is 18px Inter at 500; beneath it, the artist line is 14px Space Grotesk at 500 in Warm Ash with an inline genre badge. The grid variant centers the same content under a 16px-radius square and drops the badge. Rows scale to 98% on hover.
+The signature list unit: 80px tall, 16px gap, 80px square cover at 8px radius. The title is 18px Rubik at 500; beneath it, the artist line is 14px Space Grotesk at 500 in Warm Ash with an inline genre badge. The grid variant centers the same content under a 16px-radius square and drops the badge. Rows scale to 98% on hover.
 
 ### Floating Info Sheet
 A bottom-centered pill that expands into a 28px-radius card. The collapsed state shows an emoji preview row (calendar, tempo, key, genre, label, download formats) beside a rose chevron circle; the expanded state reveals the same facts as labeled rows, a zigzag divider, and a wrap of download badges. Width and height animate over 300ms with a 150ms content cross-fade; the chevron rotates 180°. Along with the select menu, it is one of only two elements that may cast a shadow.
@@ -307,7 +307,7 @@ A white 16px-radius card with 16px padding, holding a Material Symbol, a 14px ti
 - **Do** let Dusty Rose mark only the primary action and playback; keep it under roughly a tenth of the screen.
 - **Do** keep the 600px single column on desktop instead of expanding into columns.
 - **Do** use 16px corners for content panels, 8px for buttons and thumbnails, and full pills for floating chrome.
-- **Do** set page titles in Inter, body and interface in Space Grotesk, and credits/measurements in JetBrains Mono.
+- **Do** set page titles in Rubik, body and interface in Space Grotesk, and credits/measurements in JetBrains Mono.
 - **Do** preserve platform brand colors on social tiles and stream-label text.
 - **Do** use the single Warm Ash-tinted shadow only for the info sheet and menus.
 
@@ -315,7 +315,7 @@ A white 16px-radius card with 16px padding, holding a Material Symbol, a 14px ti
 - **Don't** introduce a second accent hue for UI chrome; saturated color belongs to the fixed brand patches.
 - **Don't** use pure black or pure white as a page background.
 - **Don't** add borders or shadows to inline cards, list rows or data cards.
-- **Don't** set paragraphs in Inter or page titles in Space Grotesk.
+- **Don't** set paragraphs in Rubik or page titles in Space Grotesk.
 - **Don't** use mono for prose, only for credits, numbers, formats and micro-labels.
 - **Don't** recolor a platform mark or the playlist banner into the rose palette.
 - **Don't** add a top navigation bar; the back link and footer are the navigation.
