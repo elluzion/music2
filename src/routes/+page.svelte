@@ -187,7 +187,7 @@
 	}
 
 	.playlist-banner {
-		@apply flex items-center gap-5 rounded-2xl bg-[#03150A];
+		@apply flex items-center gap-5 rounded-2xl bg-[#03150A] dark:bg-[#10281a];
 		@apply hover-scale px-6 py-4;
 	}
 
