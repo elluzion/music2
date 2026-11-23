@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MaterialSymbol from '#components/material-symbol.svelte';
+	import { IconCheck, IconCopy, type Icon } from '@tabler/icons-svelte';
 	import { onMount } from 'svelte';
 
 	interface Props {
@@ -7,13 +7,13 @@
 		value: string;
 		/** Optional secondary line with extra context. */
 		hint?: string;
-		/** Material Symbols icon name. */
-		symbol: string;
+		/** Tabler icon shown next to the title. */
+		icon: Icon;
 		/** Text written to the clipboard; defaults to the displayed value. */
 		copyValue?: string;
 	}
 
-	let { title, value, hint, symbol, copyValue = value }: Props = $props();
+	let { title, value, hint, icon: IconComponent, copyValue = value }: Props = $props();
 
 	let isShowing = $state(false);
 	let hasCopied = $state(false);
@@ -43,7 +43,7 @@
 		: 'translate-y-2 opacity-0'}"
 >
 	<div class="flex items-center gap-2 font-medium">
-		<MaterialSymbol class="text-secondary">{symbol}</MaterialSymbol>
+		<IconComponent size={20} class="text-secondary" />
 		<span class="grow text-sm">{title}</span>
 		<button
 			type="button"
@@ -53,7 +53,11 @@
 			aria-label="Copy {title}"
 			onclick={copy}
 		>
-			<MaterialSymbol class="text-[18px]">{hasCopied ? 'check' : 'content_copy'}</MaterialSymbol>
+			{#if hasCopied}
+				<IconCheck size={18} />
+			{:else}
+				<IconCopy size={18} />
+			{/if}
 		</button>
 	</div>
 	<span class="font-mono text-xl font-semibold">{value}</span>

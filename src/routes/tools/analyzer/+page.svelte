@@ -1,5 +1,14 @@
 <script lang="ts">
-	import MaterialSymbol from '#components/material-symbol.svelte';
+	import {
+		IconAlertCircle,
+		IconArrowsUpDown,
+		IconChartBar,
+		IconCheck,
+		IconCopy,
+		IconMetronome,
+		IconMusic,
+		IconVolume
+	} from '@tabler/icons-svelte';
 	import Button from '#components/ui/button.svelte';
 	import { onDestroy } from 'svelte';
 	import DataCard from './_components/data-card.svelte';
@@ -184,7 +193,7 @@
 
 	{#if errorMessage}
 		<div class="flex items-start gap-3 rounded-2xl bg-surface p-4 ring-1 ring-primary/30">
-			<MaterialSymbol class="text-primary">error</MaterialSymbol>
+			<IconAlertCircle size={20} class="text-primary" />
 			<p class="text-sm">{errorMessage}</p>
 		</div>
 	{/if}
@@ -214,7 +223,7 @@
 						title="Key"
 						value={formatKey(result.keyData.key, result.keyData.scale)}
 						hint="{Math.round(result.keyData.strength * 100)}% confidence"
-						symbol="piano"
+						icon={IconMusic}
 						copyValue={formatKey(result.keyData.key, result.keyData.scale)}
 					/>
 				{/if}
@@ -225,7 +234,7 @@
 						hint={result.tempoRaw && result.tempoRaw !== result.tempo
 							? `detected ${result.tempoRaw} BPM, octave-corrected`
 							: undefined}
-						symbol="speed"
+						icon={IconMetronome}
 						copyValue="{result.tempo} BPM"
 					/>
 				{/if}
@@ -234,20 +243,20 @@
 						title="Loudness"
 						value="{result.loudness.overall.toFixed(1)} LUFS"
 						hint="Integrated (EBU R128)"
-						symbol="volume_up"
+						icon={IconVolume}
 						copyValue="{result.loudness.overall.toFixed(1)} LUFS"
 					/>
 					<DataCard
 						title="Loudness range"
 						value="{result.loudness.range.toFixed(1)} LU"
-						symbol="vertical_align_center"
+						icon={IconArrowsUpDown}
 						copyValue="{result.loudness.range.toFixed(1)} LU"
 					/>
 					<DataCard
 						title="Peak"
 						value={formatPeak(result.loudness.peak)}
 						hint="Sample peak"
-						symbol="equalizer"
+						icon={IconChartBar}
 						copyValue={formatPeak(result.loudness.peak)}
 					/>
 				{/if}
@@ -255,7 +264,11 @@
 
 			{#if summary}
 				<Button variant="surface" class="flex w-full items-center justify-center gap-2" onclick={copySummary}>
-					<MaterialSymbol class="text-[18px]">{hasCopied ? 'check' : 'content_copy'}</MaterialSymbol>
+					{#if hasCopied}
+						<IconCheck size={18} />
+					{:else}
+						<IconCopy size={18} />
+					{/if}
 					{hasCopied ? 'Copied results' : 'Copy results'}
 				</Button>
 			{/if}

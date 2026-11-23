@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MaterialSymbol from '#components/material-symbol.svelte';
+	import { IconFileUpload, IconUpload, IconWaveSine } from '@tabler/icons-svelte';
 	import { ALLOWED_EXTENSIONS, MAX_FILE_SIZE, formatFileSize, isSupportedAudioFile } from '../_lib/utils.js';
 
 	interface Props {
@@ -78,9 +78,13 @@
 		onclick={() => input?.click()}
 	>
 		<span class="flex items-center gap-2 font-medium">
-			<MaterialSymbol class={isLoading ? 'animate-pulse' : ''}>
-				{isLoading ? 'graphic_eq' : isDragging ? 'file_upload' : 'upload'}
-			</MaterialSymbol>
+			{#if isLoading}
+				<IconWaveSine size={24} class="animate-pulse" />
+			{:else if isDragging}
+				<IconFileUpload size={24} />
+			{:else}
+				<IconUpload size={24} />
+			{/if}
 			<span>
 				{isLoading ? statusMessage || 'Analyzing' : 'Drop an audio file or click to browse'}
 			</span>
