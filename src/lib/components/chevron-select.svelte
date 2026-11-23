@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { IconChevronDown } from '@tabler/icons-svelte';
+	import { IconChevronDown, type Icon } from '@tabler/icons-svelte';
 	import { createSelect, melt } from '@melt-ui/svelte';
-	import { type Component } from 'svelte';
 
 	interface Props {
-		items: { label: string; value: any; icon?: Component }[];
+		items: { label: string; value: any; icon?: Icon }[];
 		value: any;
 		onchange?: (value: any) => void;
 	}

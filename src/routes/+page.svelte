@@ -13,7 +13,7 @@
 		type IconDefinition
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faMusic } from '@fortawesome/free-solid-svg-icons';
-	import { IconLayoutGrid, IconList, IconPlaylistAdd } from '@tabler/icons-svelte';
+	import { IconLayoutGrid, IconList, IconPlaylistAdd, type Icon } from '@tabler/icons-svelte';
 	import Fa from 'svelte-fa';
 	import { blur } from 'svelte/transition';
 
@@ -74,7 +74,7 @@
 		}))
 	);
 
-	const trackListTypes: { label: string; value: string; icon: any }[] = [
+	const trackListTypes: { label: string; value: string; icon: Icon }[] = [
 		{
 			label: 'List',
 			value: 'list',
