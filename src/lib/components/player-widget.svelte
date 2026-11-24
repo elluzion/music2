@@ -3,21 +3,28 @@
 	import Slider from '#components/ui/slider.svelte';
 	import { secondsToString } from '#lib/helpers/misc.js';
 	import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import { fade } from 'svelte/transition';
 
 	interface Props {
-		fileUrl: string;
+		fileUrl?: string;
+		file?: File;
 	}
 
-	let { fileUrl }: Props = $props();
+	let { fileUrl, file }: Props = $props();
 
 	let audioItem = $state<HTMLAudioElement>();
 
 	let isPlaying = $state(false);
 	let currentTime = $state(0);
 	let duration = $state(0);
+
+	$effect(() => {
+		if (!fileUrl && file) {
+			fileUrl = URL.createObjectURL(file);
+		}
+	});
 
 	function togglePlay() {
 		if (audioItem) {
@@ -55,6 +62,12 @@
 			});
 
 			updateTimings();
+		}
+	});
+
+	onDestroy(() => {
+		if (fileUrl && file) {
+			URL.revokeObjectURL(fileUrl);
 		}
 	});
 </script>

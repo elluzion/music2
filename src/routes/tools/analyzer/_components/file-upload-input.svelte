@@ -52,7 +52,7 @@
 </script>
 
 <div
-	class="relative flex h-32 w-full items-center justify-center overflow-hidden rounded-2xl bg-surfaceVariant/40 ring-1 ring-surfaceVariant transition-[background-color,box-shadow] duration-200 ring-inset {isDragging
+	class="relative flex h-26 w-full items-center justify-center overflow-hidden rounded-2xl bg-surfaceVariant/40 ring-1 ring-surfaceVariant transition-[background-color,box-shadow] duration-200 ring-inset {isDragging
 		? 'bg-surfaceVariant/80 ring-2 ring-primary'
 		: ''}"
 	role="group"

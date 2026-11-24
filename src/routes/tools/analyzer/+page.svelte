@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from '#components/ui/button.svelte';
+	import PlayerWidget from '#lib/components/player-widget.svelte';
 	import {
 		IconAlertCircle,
 		IconArrowsUpDown,
@@ -9,7 +11,6 @@
 		IconMusic,
 		IconVolume
 	} from '@tabler/icons-svelte';
-	import Button from '#components/ui/button.svelte';
 	import { onDestroy } from 'svelte';
 	import DataCard from './_components/data-card.svelte';
 	import FileUploadInput from './_components/file-upload-input.svelte';
@@ -177,10 +178,6 @@
 <div class="page-wrapper">
 	<div class="flex flex-col gap-1">
 		<h1>Audio analyzer</h1>
-		<p>
-			Extract key, tempo and EBU R128 loudness from an audio file. Everything is processed locally in your browser —
-			nothing gets uploaded.
-		</p>
 	</div>
 
 	<FileUploadInput
@@ -213,6 +210,9 @@
 				{/if}
 			</div>
 		</div>
+	{/if}
+	{#if file}
+		<PlayerWidget {file} />
 	{/if}
 
 	{#if result.keyData || result.tempo || result.loudness}
