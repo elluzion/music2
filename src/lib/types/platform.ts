@@ -1,9 +1,9 @@
-import type { IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import type { Icon } from '@tabler/icons-svelte';
 
 export type Platform = {
 	id: string;
 	name: string;
 	color: string;
-	icon: IconDefinition;
+	icon: Icon;
 	linkIncludes: string;
 };

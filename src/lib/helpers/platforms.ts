@@ -1,15 +1,16 @@
 import type { Platform } from '#types/platform.js';
 import {
-	faAmazon,
-	faApple,
-	faDeezer,
-	faDiscord,
-	faInstagram,
-	faSoundcloud,
-	faSpotify,
-	faYoutube
-} from '@fortawesome/free-brands-svg-icons';
-import { faMusic } from '@fortawesome/free-solid-svg-icons';
+	IconBrandAmazon,
+	IconBrandApple,
+	IconBrandDeezer,
+	IconBrandDiscord,
+	IconBrandInstagram,
+	IconBrandSoundcloud,
+	IconBrandSpotify,
+	IconBrandTidal,
+	IconBrandYoutube,
+	IconMusic
+} from '@tabler/icons-svelte';
 import { extractDomain } from './text';
 
 export const MusicPlatforms: Platform[] = [
@@ -17,56 +18,56 @@ export const MusicPlatforms: Platform[] = [
 		id: 'amazon-music',
 		name: 'Amazon Music',
 		color: '#FF9900',
-		icon: faAmazon,
+		icon: IconBrandAmazon,
 		linkIncludes: 'amazon'
 	},
 	{
 		id: 'apple-music',
 		name: 'Apple Music',
 		color: '#000000',
-		icon: faApple,
+		icon: IconBrandApple,
 		linkIncludes: 'apple'
 	},
 	{
 		id: 'deezer',
 		name: 'Deezer',
 		color: '#A238FF',
-		icon: faDeezer,
+		icon: IconBrandDeezer,
 		linkIncludes: 'deezer'
 	},
 	{
 		id: 'pandora',
 		name: 'Pandora',
 		color: '#fb4dc1',
-		icon: faMusic,
+		icon: IconMusic,
 		linkIncludes: 'pandora'
 	},
 	{
 		id: 'soundcloud',
 		name: 'SoundCloud',
 		color: '#ff5500',
-		icon: faSoundcloud,
+		icon: IconBrandSoundcloud,
 		linkIncludes: 'soundcloud'
 	},
 	{
 		id: 'spotify',
 		name: 'Spotify',
 		color: '#1DB954',
-		icon: faSpotify,
+		icon: IconBrandSpotify,
 		linkIncludes: 'spotify'
 	},
 	{
 		id: 'tidal',
 		name: 'Tidal',
 		color: '#000000',
-		icon: faMusic,
+		icon: IconBrandTidal,
 		linkIncludes: 'tidal'
 	},
 	{
 		id: 'youtube',
 		name: 'YouTube',
 		color: '#FF0000',
-		icon: faYoutube,
+		icon: IconBrandYoutube,
 		linkIncludes: 'youtu'
 	}
 ] as const;
@@ -76,14 +77,14 @@ export const Platforms: Platform[] = [
 		id: 'discord',
 		name: 'Discord',
 		color: '#5865F2',
-		icon: faDiscord,
+		icon: IconBrandDiscord,
 		linkIncludes: 'discord'
 	},
 	{
 		id: 'instagram',
 		name: 'Instagram',
 		color: '#E1306C',
-		icon: faInstagram,
+		icon: IconBrandInstagram,
 		linkIncludes: 'instagram'
 	},
 	...MusicPlatforms
@@ -101,7 +102,7 @@ export function resolvePlatform(query: string): Platform {
 		id: 'default',
 		name: 'Default',
 		color: '#ffffff',
-		icon: faMusic,
+		icon: IconMusic,
 		linkIncludes: ''
 	};
 

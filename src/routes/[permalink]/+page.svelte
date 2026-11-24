@@ -5,13 +5,9 @@
 	import { resolvePlatform } from '#lib/helpers/platforms.js';
 	import { joinList } from '#lib/helpers/text.js';
 	import { onMount } from 'svelte';
-	import Fa from 'svelte-fa';
 	import SongInfoSheet from './_components/song-info-sheet.svelte';
 
 	let { data } = $props();
-
-	let mediaMetadata: MediaMetadata | undefined = undefined;
-	let player: PlayerWidget | undefined = $state(undefined);
 
 	let song = $derived(data.song!);
 	let metadata = $derived(data.metadata!);
@@ -28,23 +24,26 @@
 
 	onMount(() => {
 		if (!data.song) {
-			return (window.location.href = '/');
+			window.location.href = '/';
 		}
+	});
 
-		if ('mediaSession' in navigator && player) {
-			mediaMetadata = new MediaMetadata({
-				title: song.title,
-				artist: joinList(song.artists),
-				artwork: [
-					{
-						src: song.artUrl,
-						type: 'image/png'
-					}
-				]
-			});
+	// Keep the OS media controls in sync when navigating between releases,
+	// where the page component is reused instead of remounted.
+	$effect(() => {
+		if (!song) return;
+		if (!('mediaSession' in navigator) || !navigator.mediaSession) return;
 
-			player.setMetadata(mediaMetadata);
-		}
+		navigator.mediaSession.metadata = new MediaMetadata({
+			title: song.title,
+			artist: joinList(song.artists),
+			artwork: [
+				{
+					src: song.artUrl,
+					type: 'image/png'
+				}
+			]
+		});
 	});
 </script>
 
@@ -69,7 +68,7 @@
 		</div>
 		<!-- Player -->
 		{#if song.fileUrl}
-			<PlayerWidget bind:this={player} fileUrl={song.fileUrl} />
+			<PlayerWidget fileUrl={song.fileUrl} />
 		{/if}
 		<!-- Links -->
 		<div class="flex w-full flex-col gap-2">
@@ -81,11 +80,7 @@
 					hoverAnim
 					onclick={() => window.open(song.streamLinks[i], '_blank')}
 				>
-					<Fa
-						icon={link.icon}
-						size="1.2x"
-						color={isInverting(link.color) ? 'currentColor' : link.color}
-					/>
+					<link.icon size={20} color={isInverting(link.color) ? 'currentColor' : link.color} />
 					{link.name}
 				</Button>
 			{/each}

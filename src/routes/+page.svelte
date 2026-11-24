@@ -5,16 +5,17 @@
 	import { storedState } from '#lib/helpers/localstore.svelte.js';
 	import type { SocialPlatform } from '#lib/types/content.js';
 	import {
-		faApple,
-		faInstagram,
-		faSoundcloud,
-		faSpotify,
-		faYoutube,
-		type IconDefinition
-	} from '@fortawesome/free-brands-svg-icons';
-	import { faMusic } from '@fortawesome/free-solid-svg-icons';
-	import { IconLayoutGrid, IconList, IconPlaylistAdd, type Icon } from '@tabler/icons-svelte';
-	import Fa from 'svelte-fa';
+		IconBrandApple,
+		IconBrandInstagram,
+		IconBrandSoundcloud,
+		IconBrandSpotify,
+		IconBrandYoutube,
+		IconLayoutGrid,
+		IconList,
+		IconMusic,
+		IconPlaylistAdd,
+		type Icon
+	} from '@tabler/icons-svelte';
 	import { blur } from 'svelte/transition';
 
 	let { data } = $props();
@@ -22,7 +23,7 @@
 	type SocialStyle = {
 		name: string;
 		color: string;
-		icon: IconDefinition;
+		icon: Icon;
 		invertIcon: boolean;
 	};
 
@@ -30,31 +31,31 @@
 		spotify: {
 			name: 'Spotify',
 			color: '#1DB954',
-			icon: faSpotify,
+			icon: IconBrandSpotify,
 			invertIcon: false
 		},
 		apple: {
 			name: 'Apple Music',
 			color: '#FFFFFF',
-			icon: faApple,
+			icon: IconBrandApple,
 			invertIcon: false
 		},
 		soundcloud: {
 			name: 'Soundcloud',
 			color: '#FF5500',
-			icon: faSoundcloud,
+			icon: IconBrandSoundcloud,
 			invertIcon: true
 		},
 		youtube: {
 			name: 'Youtube',
 			color: '#FF0000',
-			icon: faYoutube,
+			icon: IconBrandYoutube,
 			invertIcon: true
 		},
 		instagram: {
 			name: 'Instagram',
 			color: '#E1306C',
-			icon: faInstagram,
+			icon: IconBrandInstagram,
 			invertIcon: true
 		}
 	};
@@ -62,7 +63,7 @@
 	const fallbackSocial: SocialStyle = {
 		name: 'Link',
 		color: '#888888',
-		icon: faMusic,
+		icon: IconMusic,
 		invertIcon: true
 	};
 
@@ -107,7 +108,7 @@
 	<div class="socials-list">
 		{#each socials as platform (platform.id)}
 			<a href={platform.link} target="_blank" style="background-color: {platform.color};">
-				<Fa icon={platform.icon} size="1.2x" color={platform.invertIcon ? '#FFFFFF' : '#000000'} />
+				<platform.icon size={20} color={platform.invertIcon ? '#FFFFFF' : '#000000'} />
 			</a>
 		{/each}
 	</div>

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Button from '#components/ui/button.svelte';
-	import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+	import { IconChevronUp } from '@tabler/icons-svelte';
 	import { onDestroy, onMount } from 'svelte';
-	import Fa from 'svelte-fa';
 	import Overlay from './overlay.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -108,7 +107,7 @@
 					{@render preview?.()}
 				</div>
 				<Button size="icon" class="z-10 flex items-center justify-center" onclick={toggleShow}>
-					<Fa icon={faChevronUp} class="transition-transform {isExpanded && 'rotate-180'} duration-300" />
+					<IconChevronUp class="transition-transform {isExpanded && 'rotate-180'} duration-300" />
 				</Button>
 			</div>
 		</div>
