@@ -54,7 +54,7 @@
 <div
 	class="relative flex h-26 w-full items-center justify-center overflow-hidden rounded-2xl bg-surfaceVariant/40 ring-1 ring-surfaceVariant transition-[background-color,box-shadow] duration-200 ring-inset {isDragging
 		? 'bg-surfaceVariant/80 ring-2 ring-primary'
-		: ''}"
+		: 'hover:bg-surfaceVariant/60'}"
 	role="group"
 	aria-label="Audio file upload"
 	ondragover={(event) => {
@@ -73,11 +73,11 @@
 
 	<button
 		type="button"
-		class="relative flex h-full w-full cursor-pointer flex-col items-center justify-center gap-3 border-0 bg-transparent px-6 text-center disabled:cursor-progress"
+		class="relative flex h-full w-full cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-0 bg-transparent px-6 text-center focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none focus-visible:ring-inset disabled:cursor-progress"
 		disabled={isLoading}
 		onclick={() => input?.click()}
 	>
-		<span class="flex items-center gap-2 font-medium">
+		<span class="flex items-center gap-2 font-medium" aria-live="polite">
 			{#if isLoading}
 				<IconWaveSine size={24} class="animate-pulse" />
 			{:else if isDragging}

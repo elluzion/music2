@@ -1,32 +1,18 @@
 <script lang="ts">
 	import Button from '#components/ui/button.svelte';
 	import PlayerWidget from '#lib/components/player-widget.svelte';
-	import {
-		IconAlertCircle,
-		IconArrowsUpDown,
-		IconChartBar,
-		IconCheck,
-		IconCopy,
-		IconMetronome,
-		IconMusic,
-		IconVolume
-	} from '@tabler/icons-svelte';
+	import { IconAlertCircle, IconCheck, IconCopy } from '@tabler/icons-svelte';
 	import { onDestroy } from 'svelte';
-	import DataCard from './_components/data-card.svelte';
 	import FileUploadInput from './_components/file-upload-input.svelte';
+	import ResultReport from './_components/result-report.svelte';
+	import TrackSleeve from './_components/track-sleeve.svelte';
 	import type { WorkerData } from './_lib/types.js';
-	import {
-		fileTypeLabel,
-		formatChannels,
-		formatDuration,
-		formatFileSize,
-		formatKey,
-		getProcessedAudio
-	} from './_lib/utils.js';
+	import { buildWaveform, fileTypeLabel, formatKey, getProcessedAudio, type WaveformPeaks } from './_lib/utils.js';
 	import AnalysisWorkerAdapter from './_lib/worker-adapter.js';
 
 	let file = $state<File>();
 	let info = $state<{ duration: number; channels: number }>();
+	let peaks = $state<WaveformPeaks>();
 	let result = $state<WorkerData>({});
 	let isLoading = $state(false);
 	let progress = $state(0);
@@ -77,6 +63,7 @@
 
 		file = submittedFile;
 		info = undefined;
+		peaks = undefined;
 		result = {};
 		errorMessage = '';
 		hasCopied = false;
@@ -91,6 +78,7 @@
 			if (currentRun !== runId) return;
 
 			info = { duration: processed.duration, channels: processed.channels };
+			peaks = buildWaveform(processed.left);
 			progress = 0.05;
 			statusMessage = 'Starting analysis';
 
@@ -196,71 +184,15 @@
 	{/if}
 
 	{#if file}
-		<div class="flex flex-col gap-1.5">
-			<span class="truncate font-mono text-sm font-semibold">{file.name}</span>
-			<div class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-secondary">
-				{#if info}
-					<span>{formatDuration(info.duration)}</span>
-					<span>{formatChannels(info.channels)}</span>
-				{/if}
-				<span>{fileTypeLabel(file)}</span>
-				<span>{formatFileSize(file.size)}</span>
-				{#if bitrate}
-					<span>~{bitrate} kbps</span>
-				{/if}
-			</div>
-		</div>
-	{/if}
-	{#if file}
+		{#key file}
+			<TrackSleeve {file} {info} {bitrate} {peaks} />
+		{/key}
 		<PlayerWidget {file} />
 	{/if}
 
 	{#if result.keyData || result.tempo || result.loudness}
 		<div class="flex flex-col gap-3">
-			<div class="grid grid-cols-2 gap-2">
-				{#if result.keyData}
-					<DataCard
-						title="Key"
-						value={formatKey(result.keyData.key, result.keyData.scale)}
-						hint="{Math.round(result.keyData.strength * 100)}% confidence"
-						icon={IconMusic}
-						copyValue={formatKey(result.keyData.key, result.keyData.scale)}
-					/>
-				{/if}
-				{#if result.tempo}
-					<DataCard
-						title="Tempo"
-						value="{result.tempo} BPM"
-						hint={result.tempoRaw && result.tempoRaw !== result.tempo
-							? `detected ${result.tempoRaw} BPM, octave-corrected`
-							: undefined}
-						icon={IconMetronome}
-						copyValue="{result.tempo} BPM"
-					/>
-				{/if}
-				{#if result.loudness}
-					<DataCard
-						title="Loudness"
-						value="{result.loudness.overall.toFixed(1)} LUFS"
-						hint="Integrated (EBU R128)"
-						icon={IconVolume}
-						copyValue="{result.loudness.overall.toFixed(1)} LUFS"
-					/>
-					<DataCard
-						title="Loudness range"
-						value="{result.loudness.range.toFixed(1)} LU"
-						icon={IconArrowsUpDown}
-						copyValue="{result.loudness.range.toFixed(1)} LU"
-					/>
-					<DataCard
-						title="Peak"
-						value={formatPeak(result.loudness.peak)}
-						hint="Sample peak"
-						icon={IconChartBar}
-						copyValue={formatPeak(result.loudness.peak)}
-					/>
-				{/if}
-			</div>
+			<ResultReport {result} />
 
 			{#if summary}
 				<Button variant="surface" class="flex w-full items-center justify-center gap-2" onclick={copySummary}>

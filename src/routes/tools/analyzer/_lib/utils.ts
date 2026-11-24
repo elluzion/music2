@@ -47,6 +47,46 @@ function copyChannel(channel: Float32Array) {
 	return new Float32Array(channel);
 }
 
+export type WaveformPeaks = {
+	/** Peak magnitudes above the centre line, 0 to 1. */
+	upper: number[];
+	/** Peak magnitudes below the centre line, 0 to 1. */
+	lower: number[];
+};
+
+/**
+ * Reduces the decoded signal to one min/max pair per column so the page can
+ * draw the track's actual shape. Peaks are normalised against the loudest
+ * sample in the file.
+ */
+export function buildWaveform(samples: Float32Array, bins = 96): WaveformPeaks {
+	const upper = new Array<number>(bins).fill(0);
+	const lower = new Array<number>(bins).fill(0);
+	const binSize = samples.length / bins;
+	let peak = 0;
+
+	for (let bin = 0; bin < bins; bin++) {
+		const start = Math.floor(bin * binSize);
+		const end = Math.min(samples.length, Math.floor((bin + 1) * binSize));
+		// A cap on samples per bin keeps very long files cheap to scan.
+		const stride = Math.max(1, Math.floor((end - start) / 256));
+
+		for (let i = start; i < end; i += stride) {
+			const value = samples[i];
+			if (value > upper[bin]) upper[bin] = value;
+			if (value < -lower[bin]) lower[bin] = -value;
+		}
+
+		peak = Math.max(peak, upper[bin], lower[bin]);
+	}
+
+	if (peak <= 0) return { upper, lower };
+
+	// A mild power curve keeps quiet passages visible without inventing peaks.
+	const amplify = (value: number) => Math.pow(value / peak, 0.8);
+	return { upper: upper.map(amplify), lower: lower.map(amplify) };
+}
+
 export function getFileExtension(fileName: string) {
 	return fileName.split('.').pop()?.toLowerCase() ?? '';
 }

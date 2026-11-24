@@ -2,10 +2,8 @@
 	import Button from '#components/ui/button.svelte';
 	import Slider from '#components/ui/slider.svelte';
 	import { secondsToString } from '#lib/helpers/misc.js';
-	import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
-	import { onDestroy, onMount } from 'svelte';
-	import Fa from 'svelte-fa';
-	import { fade } from 'svelte/transition';
+	import { IconPlayerPause, IconPlayerPlay } from '@tabler/icons-svelte';
+	import { fade, scale } from 'svelte/transition';
 
 	interface Props {
 		fileUrl?: string;
@@ -20,78 +18,123 @@
 	let currentTime = $state(0);
 	let duration = $state(0);
 
+	/** Object URL for an uploaded file, revoked when the file changes. */
+	let objectUrl = $state<string>();
+
+	let source = $derived(file ? objectUrl : fileUrl);
+
+	// `timeupdate` fires about four times a second, so follow the playhead on
+	// every animation frame while playing.
 	$effect(() => {
-		if (!fileUrl && file) {
-			fileUrl = URL.createObjectURL(file);
+		if (!isPlaying) return;
+
+		let frame = 0;
+		const tick = () => {
+			currentTime = audioItem?.currentTime ?? 0;
+			frame = requestAnimationFrame(tick);
+		};
+
+		frame = requestAnimationFrame(tick);
+		return () => cancelAnimationFrame(frame);
+	});
+
+	$effect(() => {
+		if (!file) {
+			objectUrl = undefined;
+			return;
+		}
+
+		const url = URL.createObjectURL(file);
+		objectUrl = url;
+
+		return () => URL.revokeObjectURL(url);
+	});
+
+	// Whenever the track changes, load the new source and reset the transport so
+	// the duration, the slider range and the play state never leak from the
+	// previous song.
+	$effect(() => {
+		void source;
+
+		currentTime = 0;
+		duration = 0;
+		isPlaying = false;
+
+		if (audioItem) {
+			audioItem.load();
 		}
 	});
 
 	function togglePlay() {
-		if (audioItem) {
-			if (audioItem.paused) {
-				audioItem.play();
-			} else {
-				audioItem.pause();
-			}
+		if (!audioItem) return;
+
+		if (audioItem.paused) {
+			audioItem.play();
+		} else {
+			audioItem.pause();
 		}
 	}
 
 	function updateTimings() {
-		if (audioItem) {
-			currentTime = Math.round(audioItem.currentTime);
-			duration = Math.round(audioItem.duration);
-		}
+		if (!audioItem) return;
+
+		currentTime = audioItem.currentTime;
+		duration = Number.isFinite(audioItem.duration) ? audioItem.duration : 0;
 	}
 
-	export function setMetadata(metadata: MediaMetadata) {
-		if (metadata && 'mediaSession' in navigator && navigator.mediaSession) {
-			navigator.mediaSession.metadata = metadata;
-		}
+	function handleEnded() {
+		isPlaying = false;
+		currentTime = 0;
 	}
-
-	onMount(() => {
-		if (audioItem) {
-			audioItem.addEventListener('timeupdate', updateTimings);
-			audioItem.addEventListener('loadedmetadata', updateTimings);
-			audioItem.addEventListener('play', () => (isPlaying = true));
-			audioItem.addEventListener('pause', () => (isPlaying = false));
-			audioItem.addEventListener('ended', () => {
-				if (!isPlaying) return;
-				isPlaying = false;
-				currentTime = 0;
-			});
-
-			updateTimings();
-		}
-	});
-
-	onDestroy(() => {
-		if (fileUrl && file) {
-			URL.revokeObjectURL(fileUrl);
-		}
-	});
 </script>
 
 <div class="flex h-14 w-full items-center rounded-full bg-surface p-2 pr-6">
 	{#if duration > 0}
 		<div in:fade={{ duration: 50 }} class="flex h-14 w-full items-center gap-6">
 			<Button variant="primary" size="icon" class="shrink-0" onclick={togglePlay}>
-				<Fa icon={isPlaying ? faPause : faPlay} />
+				<span class="grid place-items-center">
+					{#key isPlaying}
+						<span
+							class="col-start-1 row-start-1 flex"
+							in:scale={{ duration: 180, start: 0.4, opacity: 0 }}
+							out:fade={{ duration: 120 }}
+						>
+							{#if isPlaying}
+								<IconPlayerPause size={20} />
+							{:else}
+								<IconPlayerPlay size={20} />
+							{/if}
+						</span>
+					{/key}
+				</span>
 			</Button>
-			<span class="w-8 text-center text-sm font-bold text-secondary">
-				{secondsToString(currentTime)}
+			<span class="w-10 shrink-0 text-center font-mono text-sm font-bold text-secondary tabular-nums">
+				{secondsToString(Math.round(currentTime))}
 			</span>
 			<Slider
 				class="grow"
 				min={0}
 				max={duration}
-				step={1}
+				step={0.01}
 				defaultValue={[0]}
 				onchange={(e) => (audioItem!.currentTime = e)}
 				bind:value={currentTime}
 			/>
-			<span class="w-8 text-center text-sm font-bold text-secondary">{secondsToString(duration)}</span>
+			<span class="w-10 shrink-0 text-center font-mono text-sm font-bold text-secondary tabular-nums"
+				>{secondsToString(Math.round(duration))}</span
+			>
 		</div>
 	{/if}
 </div>
-<audio preload="metadata" class="hidden" bind:this={audioItem} src={fileUrl} controls></audio>
+<audio
+	preload="metadata"
+	class="hidden"
+	bind:this={audioItem}
+	src={source}
+	onloadedmetadata={updateTimings}
+	ontimeupdate={updateTimings}
+	onplay={() => (isPlaying = true)}
+	onpause={() => (isPlaying = false)}
+	onended={handleEnded}
+	controls
+></audio>
