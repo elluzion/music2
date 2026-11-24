@@ -142,9 +142,8 @@
 				<span class="ml-auto font-mono text-xs text-secondary tabular-nums">
 					{confidence}% confidence
 				</span>
-				{@render copyButton('key', keyName)}
 			</div>
-			<div class="mt-2.5 font-mono text-3xl leading-none font-bold">{keyName}</div>
+			<div class="mt-2.5 font-mono text-3xl leading-none font-bold">{keyName} {@render copyButton('key', keyName)}</div>
 			<div class="mt-4 flex gap-1.5" aria-hidden="true">
 				{#each segments as _, index}
 					<span

@@ -1,13 +1,12 @@
 <script lang="ts">
-	import Button from '#components/ui/button.svelte';
 	import PlayerWidget from '#lib/components/player-widget.svelte';
-	import { IconAlertCircle, IconCheck, IconCopy } from '@tabler/icons-svelte';
+	import { IconAlertCircle } from '@tabler/icons-svelte';
 	import { onDestroy } from 'svelte';
 	import FileUploadInput from './_components/file-upload-input.svelte';
 	import ResultReport from './_components/result-report.svelte';
 	import TrackSleeve from './_components/track-sleeve.svelte';
 	import type { WorkerData } from './_lib/types.js';
-	import { buildWaveform, fileTypeLabel, formatKey, getProcessedAudio, type WaveformPeaks } from './_lib/utils.js';
+	import { buildWaveform, fileTypeLabel, getProcessedAudio, type WaveformPeaks } from './_lib/utils.js';
 	import AnalysisWorkerAdapter from './_lib/worker-adapter.js';
 
 	let file = $state<File>();
@@ -18,7 +17,6 @@
 	let progress = $state(0);
 	let statusMessage = $state('');
 	let errorMessage = $state('');
-	let hasCopied = $state(false);
 
 	let adapter: AnalysisWorkerAdapter | undefined;
 	let runId = 0;
@@ -29,24 +27,6 @@
 		if (!file || !info || info.duration <= 0) return undefined;
 		if (fileTypeLabel(file) === 'WAV' || fileTypeLabel(file) === 'FLAC') return undefined;
 		return Math.round((file.size * 8) / info.duration / 1000);
-	});
-
-	let summary = $derived.by(() => {
-		const lines: string[] = [];
-
-		if (result.keyData) {
-			lines.push(
-				`Key: ${formatKey(result.keyData.key, result.keyData.scale)} (${Math.round(result.keyData.strength * 100)}% confidence)`
-			);
-		}
-		if (result.tempo) lines.push(`Tempo: ${result.tempo} BPM`);
-		if (result.loudness) {
-			lines.push(`Loudness: ${result.loudness.overall.toFixed(1)} LUFS`);
-			lines.push(`Loudness range: ${result.loudness.range.toFixed(1)} LU`);
-			lines.push(`Peak: ${formatPeak(result.loudness.peak)}`);
-		}
-
-		return lines.join('\n');
 	});
 
 	function clearTimer() {
@@ -66,7 +46,6 @@
 		peaks = undefined;
 		result = {};
 		errorMessage = '';
-		hasCopied = false;
 		isLoading = true;
 		progress = 0.02;
 		statusMessage = 'Decoding audio';
@@ -137,19 +116,6 @@
 		return `${peak.toFixed(1)} dBFS`;
 	}
 
-	async function copySummary() {
-		if (!summary) return;
-
-		try {
-			await navigator.clipboard.writeText(summary);
-			hasCopied = true;
-			clearTimeout(copyTimer);
-			copyTimer = setTimeout(() => (hasCopied = false), 2000);
-		} catch {
-			// Clipboard access can be blocked outside of a secure context.
-		}
-	}
-
 	onDestroy(() => {
 		runId++;
 		adapter?.kill();
@@ -193,17 +159,6 @@
 	{#if result.keyData || result.tempo || result.loudness}
 		<div class="flex flex-col gap-3">
 			<ResultReport {result} />
-
-			{#if summary}
-				<Button variant="surface" class="flex w-full items-center justify-center gap-2" onclick={copySummary}>
-					{#if hasCopied}
-						<IconCheck size={18} />
-					{:else}
-						<IconCopy size={18} />
-					{/if}
-					{hasCopied ? 'Copied results' : 'Copy results'}
-				</Button>
-			{/if}
 		</div>
 	{/if}
 </div>
