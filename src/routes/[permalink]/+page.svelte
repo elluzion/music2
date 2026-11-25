@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import PlayerWidget from '#components/player-widget.svelte';
 	import Button from '#components/ui/button.svelte';
-	import { resolvePlatform } from '#lib/helpers/platforms.js';
+	import { resolvePlatform } from '#lib/data/platforms.js';
 	import { joinList } from '#lib/helpers/text.js';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import SongInfoSheet from './_components/song-info-sheet.svelte';
 
@@ -12,15 +12,6 @@
 	let song = $derived(data.song!);
 	let metadata = $derived(data.metadata!);
 	let streamLinks = $derived(song.streamLinks.map((x) => resolvePlatform(x)));
-
-	// Brand colors that are (near) black would vanish on the dark surface.
-	function isInverting(color: string) {
-		return color.toLowerCase() === '#000000' || color.toLowerCase() === '#000';
-	}
-
-	function textColor(color: string) {
-		return isInverting(color) ? 'var(--color-onBackground)' : color;
-	}
 
 	onMount(() => {
 		if (!data.song) {
@@ -59,7 +50,7 @@
 {#if song}
 	<!-- Head -->
 	<div class="flex flex-col items-center gap-4 py-4 pb-4">
-		<div class="flex aspect-square max-h-[400px] w-full max-w-[400px] flex-col items-center justify-center gap-8">
+		<div class="flex aspect-square max-h-100 w-full max-w-100 flex-col items-center justify-center gap-8">
 			<img src={song.artUrl} alt={song.title} class="w-1/2 rounded-3xl" />
 			<div class="flex flex-col items-center gap-1 *:text-center">
 				<h2>{song.title}</h2>
@@ -75,12 +66,12 @@
 			{#each streamLinks as link, i (link.id)}
 				<Button
 					variant="surface"
-					style="color: {textColor(link.color)}"
-					class="flex !h-14 w-full items-center justify-center gap-2 font-medium"
+					style="color: {link.foregroundColor === 'light' ? 'var(--color-onBackground)' : link.color}"
+					class="flex h-14! w-full items-center justify-center gap-2 font-medium"
 					hoverAnim
 					onclick={() => window.open(song.streamLinks[i], '_blank')}
 				>
-					<link.icon size={20} color={isInverting(link.color) ? 'currentColor' : link.color} />
+					<link.icon size={20} color={link.foregroundColor === 'light' ? 'currentColor' : link.color} />
 					{link.name}
 				</Button>
 			{/each}

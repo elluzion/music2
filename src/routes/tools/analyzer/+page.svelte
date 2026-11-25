@@ -1,5 +1,4 @@
 <script lang="ts">
-	import PlayerWidget from '#lib/components/player-widget.svelte';
 	import { IconAlertCircle } from '@tabler/icons-svelte';
 	import { onDestroy } from 'svelte';
 	import FileUploadInput from './_components/file-upload-input.svelte';
@@ -131,7 +130,7 @@
 
 <div class="page-wrapper">
 	<div class="flex flex-col gap-1">
-		<h1>Audio analyzer</h1>
+		<h2>Audio analyzer</h2>
 	</div>
 
 	<FileUploadInput
@@ -153,7 +152,6 @@
 		{#key file}
 			<TrackSleeve {file} {info} {bitrate} {peaks} />
 		{/key}
-		<PlayerWidget {file} />
 	{/if}
 
 	{#if result.keyData || result.tempo || result.loudness}

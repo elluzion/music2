@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { IconChevronDown, type Icon } from '@tabler/icons-svelte';
 	import { createSelect, melt } from '@melt-ui/svelte';
+	import { IconChevronDown, type Icon } from '@tabler/icons-svelte';
 
 	interface Props {
 		items: { label: string; value: any; icon?: Icon }[];
@@ -50,7 +50,7 @@
 <ul
 	use:melt={$menu}
 	aria-hidden={!$open}
-	class="absolute flex flex-col gap-1 rounded-2xl bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-150 ease-out dark:shadow-black/50"
+	class="glass absolute z-50 flex flex-col gap-1 rounded-2xl border border-outline p-2 shadow-xl shadow-secondary/15 transition-all duration-150 ease-out dark:shadow-black/50"
 	class:pointer-events-none={!$open}
 	class:opacity-0={!$open}
 	class:-translate-y-2={!$open}

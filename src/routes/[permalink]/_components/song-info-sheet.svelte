@@ -11,7 +11,7 @@
 
 	let { song }: Props = $props();
 
-	let downloadCount = song.downloadLinks.length;
+	let downloadCount = $derived(song.downloadLinks.length);
 
 	let downloadFormats = $derived(() => {
 		const formats = song.downloadLinks.map((link) => link.format);
@@ -41,7 +41,7 @@
 			{#if downloadCount > 0}
 				<Badge variant="secondary" class="pointer-events-none flex gap-2 truncate">
 					<span>📂</span>
-					<span class="text-onSecondary/80 text-sm">
+					<span class="text-sm text-onSecondary/80">
 						{downloadFormats().join('/')}
 					</span>
 				</Badge>
@@ -65,7 +65,7 @@
 			<span>💿 {song.label}</span>
 		{/if}
 		{#if downloadCount > 0}
-			<span class="my-1 h-[8px] w-full bg-[url('/zigzag.svg')] bg-contain bg-repeat-x"></span>
+			<span class="my-1 h-2 w-full bg-[url('/zigzag.svg')] bg-contain bg-repeat-x"></span>
 			<div class="flex flex-wrap gap-1.5 pt-1 pr-6">
 				<span>📂 </span>
 				{#each song.downloadLinks as downloadLink (downloadLink.url)}

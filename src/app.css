@@ -6,14 +6,18 @@
 
 @theme {
 	--color-primary: #976567;
+	--color-primary-hover: #c19396;
 	--color-onPrimary: #f6f3f3;
 	--color-secondary: #907c7c;
+	--color-secondary-hover: #a3a1a4;
 	--color-onSecondary: #f6f4f3;
 	--color-background: #f6f4f3;
 	--color-onBackground: #2e2e33;
 	--color-surface: #ffffff;
+	--color-surface-hover: #f6f4f3;
 	--color-onSurface: #2e2e33;
 	--color-surfaceVariant: #ede7e4;
+	--color-outline: #eae4e2;
 
 	--font-sans: 'Space Grotesk', sans-serif;
 	--font-sans2: 'Rubik', sans-serif;
@@ -30,22 +34,30 @@ html.dark {
 	color-scheme: dark;
 
 	--color-primary: #c19396;
+	--color-primary-hover: #976567;
 	--color-onPrimary: #1c1215;
 	--color-secondary: #a3a1a4;
+	--color-secondary-hover: #907c7c;
 	--color-onSecondary: #131316;
 	--color-background: #0d0d0f;
 	--color-onBackground: #ededee;
 	--color-surface: #17171a;
+	--color-surface-hover: #212125;
 	--color-onSurface: #ededee;
 	--color-surfaceVariant: #212125;
+	--color-outline: #272731;
 }
 
 body {
 	@apply bg-background text-onBackground;
 }
 
-*::selection {
-	@apply bg-black/10 dark:bg-white/20;
+::selection {
+	background-color: --alpha(var(--color-onBackground) / 15%);
+}
+
+html.dark ::selection {
+	background-color: --alpha(var(--color-onBackground) / 25%);
 }
 
 html.lenis,
@@ -67,6 +79,10 @@ html.lenis body {
 
 .lenis.lenis-smooth iframe {
 	pointer-events: none;
+}
+
+@utility glass {
+	@apply bg-surface/50 backdrop-blur-xl;
 }
 
 h1 {

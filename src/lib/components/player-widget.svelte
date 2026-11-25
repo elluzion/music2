@@ -8,15 +8,24 @@
 	interface Props {
 		fileUrl?: string;
 		file?: File;
+		frame?: boolean;
+		/** Playback progress from 0 to 1, bound back to the parent. */
+		progress?: number;
 	}
 
-	let { fileUrl, file }: Props = $props();
+	let { fileUrl, file, frame = true, progress = $bindable(0) }: Props = $props();
 
 	let audioItem = $state<HTMLAudioElement>();
 
 	let isPlaying = $state(false);
 	let currentTime = $state(0);
 	let duration = $state(0);
+
+	// Report the playhead to the parent so siblings, such as a waveform, can
+	// follow along with the transport.
+	$effect(() => {
+		progress = duration > 0 ? Math.min(1, currentTime / duration) : 0;
+	});
 
 	/** Object URL for an uploaded file, revoked when the file changes. */
 	let objectUrl = $state<string>();
@@ -88,9 +97,15 @@
 	}
 </script>
 
-<div class="flex h-14 w-full items-center rounded-full bg-surface p-2 pr-6">
+<div
+	class="flex w-full items-center rounded-full"
+	class:h-14={frame}
+	class:bg-surface={frame}
+	class:p-2={frame}
+	class:pr-6={frame}
+>
 	{#if duration > 0}
-		<div in:fade={{ duration: 50 }} class="flex h-14 w-full items-center gap-6">
+		<div in:fade={{ duration: 50 }} class="flex w-full items-center gap-6">
 			<Button variant="primary" size="icon" class="shrink-0" onclick={togglePlay}>
 				<span class="grid place-items-center">
 					{#key isPlaying}

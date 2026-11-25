@@ -11,21 +11,23 @@ import {
 	IconBrandYoutube,
 	IconMusic
 } from '@tabler/icons-svelte';
-import { extractDomain } from './text';
+import { extractDomain } from '../helpers/text';
 
-export const MusicPlatforms: Platform[] = [
+export const PLATFORMS: Platform[] = [
 	{
 		id: 'amazon-music',
 		name: 'Amazon Music',
 		color: '#FF9900',
 		icon: IconBrandAmazon,
+		foregroundColor: 'dark',
 		linkIncludes: 'amazon'
 	},
 	{
 		id: 'apple-music',
 		name: 'Apple Music',
-		color: '#000000',
+		color: '#ffffff',
 		icon: IconBrandApple,
+		foregroundColor: 'dark',
 		linkIncludes: 'apple'
 	},
 	{
@@ -33,6 +35,7 @@ export const MusicPlatforms: Platform[] = [
 		name: 'Deezer',
 		color: '#A238FF',
 		icon: IconBrandDeezer,
+		foregroundColor: 'light',
 		linkIncludes: 'deezer'
 	},
 	{
@@ -40,6 +43,7 @@ export const MusicPlatforms: Platform[] = [
 		name: 'Pandora',
 		color: '#fb4dc1',
 		icon: IconMusic,
+		foregroundColor: 'dark',
 		linkIncludes: 'pandora'
 	},
 	{
@@ -47,6 +51,7 @@ export const MusicPlatforms: Platform[] = [
 		name: 'SoundCloud',
 		color: '#ff5500',
 		icon: IconBrandSoundcloud,
+		foregroundColor: 'dark',
 		linkIncludes: 'soundcloud'
 	},
 	{
@@ -54,6 +59,7 @@ export const MusicPlatforms: Platform[] = [
 		name: 'Spotify',
 		color: '#1DB954',
 		icon: IconBrandSpotify,
+		foregroundColor: 'dark',
 		linkIncludes: 'spotify'
 	},
 	{
@@ -61,6 +67,7 @@ export const MusicPlatforms: Platform[] = [
 		name: 'Tidal',
 		color: '#000000',
 		icon: IconBrandTidal,
+		foregroundColor: 'light',
 		linkIncludes: 'tidal'
 	},
 	{
@@ -68,16 +75,15 @@ export const MusicPlatforms: Platform[] = [
 		name: 'YouTube',
 		color: '#FF0000',
 		icon: IconBrandYoutube,
+		foregroundColor: 'light',
 		linkIncludes: 'youtu'
-	}
-] as const;
-
-export const Platforms: Platform[] = [
+	},
 	{
 		id: 'discord',
 		name: 'Discord',
 		color: '#5865F2',
 		icon: IconBrandDiscord,
+		foregroundColor: 'light',
 		linkIncludes: 'discord'
 	},
 	{
@@ -85,9 +91,9 @@ export const Platforms: Platform[] = [
 		name: 'Instagram',
 		color: '#E1306C',
 		icon: IconBrandInstagram,
+		foregroundColor: 'light',
 		linkIncludes: 'instagram'
-	},
-	...MusicPlatforms
+	}
 ] as const;
 
 /**
@@ -102,13 +108,14 @@ export function resolvePlatform(query: string): Platform {
 		id: 'default',
 		name: 'Default',
 		color: '#ffffff',
+		foregroundColor: 'dark',
 		icon: IconMusic,
 		linkIncludes: ''
 	};
 
 	if (query.startsWith('http://') || query.startsWith('https://')) {
 		// If the query is a URL, search for a platform that includes the URL in its linkIncludes property
-		const platform = Platforms.find((x) => query.includes(x.linkIncludes));
+		const platform = PLATFORMS.find((x) => query.includes(x.linkIncludes));
 
 		if (!platform) {
 			fallback.name = extractDomain(query) || fallback.name;
@@ -116,6 +123,6 @@ export function resolvePlatform(query: string): Platform {
 		}
 		return platform;
 	} else {
-		return Platforms.find((p) => p.id === query) || fallback;
+		return PLATFORMS.find((p) => p.id === query) || fallback;
 	}
 }

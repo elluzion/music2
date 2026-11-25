@@ -3,7 +3,7 @@ import type { DownloadLink } from './song.js';
 /**
  * A social platform that can be linked from the site header.
  */
-export type SocialPlatform = 'spotify' | 'apple' | 'soundcloud' | 'youtube' | 'instagram';
+export type SocialPlatform = 'spotify' | 'apple-music' | 'soundcloud' | 'youtube' | 'instagram';
 
 /**
  * A social profile entry from the site configuration.

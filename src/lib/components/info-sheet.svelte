@@ -106,7 +106,7 @@
 				>
 					{@render preview?.()}
 				</div>
-				<Button size="icon" class="z-10 flex items-center justify-center" onclick={toggleShow}>
+				<Button size="icon" class="z-10 flex cursor-pointer items-center justify-center" onclick={toggleShow}>
 					<IconChevronUp class="transition-transform {isExpanded && 'rotate-180'} duration-300" />
 				</Button>
 			</div>
@@ -123,10 +123,10 @@
 		@apply pointer-events-none fixed inset-0 z-40 flex h-dvh w-full items-end justify-center overflow-hidden p-4 transition-opacity delay-200 xs:p-6;
 	}
 	#infoSheet {
-		@apply pointer-events-auto flex h-14 items-end overflow-hidden rounded-[28px] bg-surface p-2 shadow-xl shadow-secondary/15 transition-all duration-300 dark:shadow-black/50;
+		@apply glass pointer-events-auto flex h-14 items-end overflow-hidden rounded-[28px] border border-outline p-2 shadow-xl shadow-secondary/15 transition-all duration-300 dark:shadow-black/50;
 
 		&.expanded {
-			@apply w-full md:w-[500px];
+			@apply w-full md:w-125;
 		}
 	}
 
@@ -148,7 +148,7 @@
 
 	#content {
 		@apply pointer-events-none absolute flex h-min flex-col gap-2 p-4 transition-opacity duration-300 select-none;
-		@apply w-[calc(100%-32px-16px)] xs:w-[calc(100%-48px-16px)] md:w-[calc(500px-16px)];
+		@apply w-[calc(100%-32px-16px)] xs:w-[calc(100%-48px-16px)] md:w-121;
 
 		&.expanded {
 			@apply pointer-events-auto select-auto;

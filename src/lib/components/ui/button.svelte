@@ -37,8 +37,7 @@
 	@reference '../../../app.css';
 
 	button {
-		@apply h-12 rounded-lg bg-primary px-4 py-2 text-onPrimary transition-transform ease-out;
-		transition-property: filter, transform;
+		@apply h-12 cursor-pointer rounded-lg bg-primary px-4 py-2 text-onPrimary transition-all ease-out;
 	}
 
 	button.size-icon {
@@ -50,7 +49,7 @@
 	}
 
 	button.hoverAnim {
-		@apply hover:scale-[97%];
+		@apply transition-all hover:scale-[97%];
 	}
 
 	button.secondary {

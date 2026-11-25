@@ -17,7 +17,7 @@
 
 <div class="page-wrapper">
 	<div class="flex flex-col gap-2">
-		<h1>Tools</h1>
+		<h2>Tools</h2>
 		{#each tools as tool (tool.href)}
 			<Card href={tool.href}>
 				<span class="pt-0 font-sans2 font-semibold">{tool.title}</span>
