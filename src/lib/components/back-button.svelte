@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Overlay from './overlay.svelte';
+	import Overlay from './ui/overlay.svelte';
 
 	let isScrolled = $state(false);
 

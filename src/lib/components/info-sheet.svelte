@@ -2,7 +2,7 @@
 	import Button from '#components/ui/button.svelte';
 	import { IconChevronUp } from '@tabler/icons-svelte';
 	import { onDestroy, onMount } from 'svelte';
-	import Overlay from './overlay.svelte';
+	import Overlay from './ui/overlay.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
 		preview?: import('svelte').Snippet;
