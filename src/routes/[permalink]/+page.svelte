@@ -50,8 +50,16 @@
 {#if song}
 	<!-- Head -->
 	<div class="flex flex-col items-center gap-4 py-4 pb-4">
-		<div class="flex aspect-square max-h-100 w-full max-w-100 flex-col items-center justify-center gap-8">
-			<img src={song.artUrl} alt={song.title} class="w-1/2 rounded-3xl" />
+		<div class="mb-8 flex aspect-square max-h-100 w-full max-w-100 flex-col items-center justify-center gap-8">
+			<div class="relative mt-16 w-1/2">
+				<!-- Ambient halo sampled from the artwork, painted behind it instead of taking up layout space. -->
+				<div
+					aria-hidden="true"
+					class="pointer-events-none absolute inset-[-35%] mask-[radial-gradient(closest-side,#000_35%,transparent)] bg-cover bg-center opacity-70 blur-3xl saturate-150"
+					style:background-image={`url("${song.artUrl}")`}
+				></div>
+				<img src={song.artUrl} alt={song.title} class="relative w-full rounded-3xl" />
+			</div>
 			<div class="flex flex-col items-center gap-1 *:text-center">
 				<h2>{song.title}</h2>
 				<p class="font-medium">{joinList(song.artists)}</p>
