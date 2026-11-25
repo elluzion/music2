@@ -18,9 +18,15 @@
 			onclick={() => history.back()}
 			class:bg-surface={isScrolled}
 			class:!px-3={isScrolled}
-			class="cursor-pointer rounded-full p-2 px-0 text-sm font-medium text-secondary underline-offset-2 transition-all duration-300 hover:underline"
+			class="back-button cursor-pointer rounded-full p-2 px-0 text-sm font-medium text-secondary underline-offset-2 transition-all duration-300 hover:underline"
 		>
 			&lt;&lt; go back
 		</a>
 	</div>
 </Overlay>
+
+<style>
+	.back-button {
+		view-transition-name: back-button;
+	}
+</style>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
-	import { page } from '$app/state';
 	import BackButton from '#components/back-button.svelte';
 	import ThemeToggle from '#components/theme-toggle.svelte';
+	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import Lenis from 'lenis';
 	import { onMount } from 'svelte';
 	import '../app.css';
@@ -143,5 +143,11 @@
 		animation:
 			210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
 			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
+	}
+
+	::view-transition-group(back-button),
+	::view-transition-old(back-button),
+	::view-transition-new(back-button) {
+		animation: none;
 	}
 </style>
